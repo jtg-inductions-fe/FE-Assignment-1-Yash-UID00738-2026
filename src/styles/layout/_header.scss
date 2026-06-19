@@ -1,1 +1,52 @@
-// todo - add header section styles
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: $base-font-size;
+
+    height: 12vh;
+}
+
+.header-nav-list {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+
+    a {
+        text-decoration: none;
+        color: $font-gray-color;
+    }
+    a:hover {
+        color: $font-black-color;
+    }
+}
+
+.header-ham-btn {
+    background-color: $primary-body-color;
+    border: none;
+}
+
+.header-ham-menu {
+    height: 100vh;
+    background-color: $primary-body-color;
+}
+
+@media (max-width: 767px) {
+    .header-nav,
+    .sign-btn-container {
+        display: none;
+    }
+    header {
+        flex-flow: row-reverse;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .header-nav {
+        display: none;
+    }
+}
+@media (min-width: 1025px) {
+    .header-ham-btn {
+        display: none;
+    }
+}
