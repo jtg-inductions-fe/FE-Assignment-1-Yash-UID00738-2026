@@ -1,1 +1,5 @@
-// todo - add script for index.html
+import headerInit from './header.js';
+
+document.addEventListener('DOMContentLoaded', function () {
+    headerInit();
+});
