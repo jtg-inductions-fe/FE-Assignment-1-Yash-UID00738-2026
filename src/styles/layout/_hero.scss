@@ -1,0 +1,34 @@
+.hero-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-section__images-container {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.first-images-container__first-image-container {
+    position: relative;
+}
+.first-images-container__share-image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.second-images-container__third-image-container {
+    position: relative;
+}
+.second-images-container__top-places-image {
+    position: absolute;
+    right: 0;
+    bottom: 10%;
+}
+.images-container__contacts-image {
+    position: absolute;
+    bottom: 0;
+    right: 15%;
+}
