@@ -7,12 +7,16 @@ header {
     height: 12vh;
 
     position: relative;
+    padding: 9rem 13rem;
+}
+.signUp-btn {
+    padding: 1.5rem 3rem;
 }
 
 .header-nav-list {
     display: flex;
     list-style: none;
-    gap: 3rem;
+    gap: 7rem;
 
     a {
         text-decoration: none;
@@ -26,6 +30,14 @@ header {
 .header-ham-btn {
     background-color: $primary-body-color;
     border: none;
+
+    width: 40px;
+    height: 40px;
+}
+.header-ham-icon {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .header-ham-menu {
@@ -70,7 +82,10 @@ header {
     opacity: 0.2;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 430px) {
+    header {
+        padding: 6rem 1.5rem;
+    }
     .header-nav,
     .sign-btn-container {
         display: none;
@@ -96,7 +111,10 @@ header {
         transform: rotate(180deg);
     }
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 431px) and (max-width: 1024px) {
+    header {
+        padding: 5rem 7rem;
+    }
     .header-nav {
         display: none;
     }
