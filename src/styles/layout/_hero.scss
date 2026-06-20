@@ -1,34 +1,112 @@
 .hero-section {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.bada_container {
+    background-image: url(../../../public/assets/images/layer.svg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+
+    padding: 5rem;
 }
 
 .hero-section__images-container {
-    margin: 0 auto;
     display: flex;
     align-items: center;
     position: relative;
+    gap: 2rem;
+}
+
+.hero-section__first-images-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    width: 50%;
+    height: 100%;
+}
+
+.hero-section__second-images-container {
+    height: 70%;
+    width: 50%;
 }
 
 .first-images-container__first-image-container {
     position: relative;
+    height: 50%;
+    width: 100%;
+    flex: 1;
 }
-.first-images-container__share-image {
+.first-images-container__second-image-container {
+    position: relative;
+    height: 50%;
+    flex: 1;
+    width: 100%;
+}
+.first-images-container__first-image,
+.first-images-container__second-image,
+.second-images-container__third-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.share-icon-container {
     position: absolute;
-    left: 0;
-    bottom: 0;
+    left: -10%;
+    bottom: -10%;
+    background-color: #f85e9f;
+    border-radius: 100%;
+
+    padding: 1rem;
+}
+.share-icon {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .second-images-container__third-image-container {
     position: relative;
 }
-.second-images-container__top-places-image {
+.top-places-icon-container {
     position: absolute;
-    right: 0;
+    right: -25%;
     bottom: 10%;
+    background-color: white;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    border-radius: 25px;
+
+    padding: 1rem 1rem;
 }
-.images-container__contacts-image {
+.contact-icon-container {
     position: absolute;
     bottom: 0;
     right: 15%;
+    border-radius: 100%;
+    background-color: #ff5722;
+    padding: 1rem;
+}
+
+@media (max-width: 430px) {
+    .hero-section {
+        padding: 6rem 1.5rem;
+    }
+}
+
+@media (min-width: 431px) and (max-width: 1024px) {
+    .hero-section {
+        padding: 5rem 7rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    .hero-section {
+        padding: 9rem 13rem;
+    }
 }
