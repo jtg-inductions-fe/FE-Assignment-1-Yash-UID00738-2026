@@ -35,7 +35,7 @@ header {
     position: fixed;
     top: 0;
     height: 100vh;
-    width: 300px;
+    width: 250px;
     z-index: 9;
 }
 
@@ -52,7 +52,7 @@ header {
     list-style: none;
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 250px;
     gap: 3rem;
     padding: 5rem 2rem;
     transform: translateX(-100%);
@@ -80,6 +80,9 @@ header {
     }
     .header-ham-menu {
         right: -100%;
+    }
+    .ham-menu-list {
+        transform: none;
     }
     .header-ham-menu.active {
         right: 0;
