@@ -1,11 +1,11 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: $base-font-size;
-
+    font-size: $medium-font-size;
     height: 12vh;
-
     position: relative;
     padding: 9rem 13rem;
 }
@@ -20,19 +20,20 @@ header {
 
     a {
         text-decoration: none;
-        color: $font-gray-color;
+        color: color('font-gray');
     }
     a:hover {
-        color: $font-black-color;
+        color: color('font-black');
     }
 }
 
 .header-ham-btn {
-    background-color: $primary-body-color;
+    background-color: color('primary-body');
     border: none;
 
     width: 40px;
     height: 40px;
+    cursor: pointer;
 }
 .header-ham-icon {
     width: 100%;
@@ -41,7 +42,7 @@ header {
 }
 
 .header-ham-menu {
-    background-color: $primary-body-color;
+    background-color: color('primary-body');
     transition: all 0.5s ease-in-out;
 
     position: fixed;
@@ -73,16 +74,16 @@ header {
     li {
         a {
             text-decoration: none;
-            color: $font-black-color;
+            color: color('font-black');
         }
     }
 }
 
 .header-ham-btn.active {
-    opacity: 0.2;
+    opacity: 0;
 }
 
-@media (max-width: 430px) {
+@media (max-width: #{$mobile-size}px) {
     header {
         padding: 6rem 1.5rem;
     }
@@ -111,11 +112,13 @@ header {
         transform: rotate(180deg);
     }
 }
-@media (min-width: 431px) and (max-width: 1024px) {
+@media (min-width: #{$mobile-size + 1}px) and (max-width: #{$tablet-size}px) {
     header {
         padding: 5rem 7rem;
     }
-    .header-nav {
+    .header-nav,
+    .ham-menu-login,
+    .ham-menu-signUp {
         display: none;
     }
     .header-ham-menu {
@@ -132,7 +135,7 @@ header {
         top: 1.5rem;
     }
 }
-@media (min-width: 1025px) {
+@media (min-width: #{$tablet-size + 1}px) {
     .header-ham-btn {
         display: none;
     }
