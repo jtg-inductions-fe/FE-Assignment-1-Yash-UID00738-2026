@@ -4,7 +4,7 @@
     align-items: center;
     width: 100%;
 }
-.bada_container {
+.hero-section-images__outer-container {
     background-image: url(../../../public/assets/images/layer.svg);
     background-repeat: no-repeat;
     background-position: top;
@@ -91,6 +91,46 @@
     border-radius: 100%;
     background-color: #ff5722;
     padding: 1rem;
+}
+
+.hero-section__travel-section-container,
+.travel-section__explore-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 3rem;
+}
+
+.explore-world-container {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    align-items: center;
+
+    gap: 1rem;
+
+    background-color: #ffffff;
+    color: $primary-font-color;
+    padding: 1.5rem 4rem;
+    border: 2px solid red;
+    border-radius: 30px;
+}
+
+.travel-section-heading1 {
+    line-height: 120%;
+    p {
+        display: inline;
+        color: $primary-font-color;
+    }
+}
+
+.travel-section-heading2 {
+    font-family: $secondary-font-style;
+    color: $font-gray-color;
+    font-weight: $base-font-weight;
+    font-size: $base-font-size;
 }
 
 @media (max-width: 430px) {
