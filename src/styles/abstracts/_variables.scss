@@ -16,12 +16,19 @@ $palette: (
     'white': #ffffff,
     'black': #000000,
     'gray': rgba(#191825, 0.5),
+    'pink': #f85e9f,
+    'light-gray': #bbbbbb,
+    'orange': #ff5722,
 );
 $theme: (
     'primary-purple': map-get($palette, 'purple'),
+    'primary-white': map-get($palette, 'white'),
     'primary-body': map-get($palette, 'white'),
+    'primary-orange': map-get($palette, 'orange'),
     'font-black': map-get($palette, 'black'),
     'font-gray': map-get($palette, 'gray'),
+    'shadow-gray': map-get($palette, 'light-gray'),
+    'font-pink': map-get($palette, 'pink'),
 );
 
 // Breakpoints variables

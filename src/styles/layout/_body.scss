@@ -1,4 +1,21 @@
+@use '../abstracts/functions' as *;
+@use '../abstracts/variables' as *;
+
 body {
     max-width: 100vw;
     min-height: 100vh;
+    background-color: color('primary-body');
+}
+
+.top-shadow {
+    background-color: color('primary-orange');
+    border-radius: 100%;
+    filter: blur(130px);
+    opacity: 50%;
+    height: 40rem;
+    width: 30rem;
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    z-index: -1;
 }
