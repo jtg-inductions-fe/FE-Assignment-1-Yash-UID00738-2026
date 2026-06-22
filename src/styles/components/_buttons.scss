@@ -1,8 +1,8 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/functions' as *;
 
-.secondary-btn,
-.primary-btn {
+.btn-secondary,
+.btn-primary {
     cursor: pointer;
     border: none;
     padding: 1.5rem 2.5rem;
@@ -15,18 +15,18 @@
         box-shadow 0.2s ease;
 }
 
-.secondary-btn:focus,
-.primary-btn:focus {
+.btn-secondary:focus,
+.btn-primary:focus {
     outline: none;
 }
 
-.secondary-btn:focus-visible,
-.primary-btn:focus-visible {
+.btn-secondary:focus-visible,
+.btn-primary:focus-visible {
     outline: 3px solid color('primary-purple');
     outline-offset: 4px;
 }
 
-.secondary-btn {
+.btn-secondary {
     background-color: color('primary-body');
     color: color('font-black');
     &:hover {
@@ -35,7 +35,7 @@
     }
 }
 
-.primary-btn {
+.btn-primary {
     background-color: color('primary-purple');
     color: color('primary-body');
     &:hover {
