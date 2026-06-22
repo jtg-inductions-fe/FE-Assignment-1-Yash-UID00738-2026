@@ -1,3 +1,6 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+
 .hero-section {
     display: flex;
     flex-direction: column;
@@ -80,7 +83,7 @@
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    border-radius: 25px;
+    border-radius: $medium-border-radius;
 
     padding: 1rem 1rem;
 }
@@ -111,41 +114,41 @@
 
     gap: 1rem;
 
-    background-color: #ffffff;
-    color: $primary-font-color;
+    background-color: color('primary-body');
+    color: color('font-black');
     padding: 1.5rem 4rem;
     border: 2px solid red;
-    border-radius: 30px;
+    border-radius: $large-border-radius;
 }
 
 .travel-section-heading1 {
     line-height: 120%;
     p {
         display: inline;
-        color: $primary-font-color;
+        color: color('font-black');
     }
 }
 
 .travel-section-heading2 {
     font-family: $secondary-font-style;
-    color: $font-gray-color;
-    font-weight: $base-font-weight;
-    font-size: $base-font-size;
+    color: color('font-gray');
+    font-weight: $medium-font-weight;
+    font-size: $medium-font-size;
 }
 
-@media (max-width: 430px) {
+@media (max-width: #{$mobile-size}px) {
     .hero-section {
         padding: 6rem 1.5rem;
     }
 }
 
-@media (min-width: 431px) and (max-width: 1024px) {
+@media (min-width: #{$mobile-size + 1}px) and (max-width: #{$tablet-size}px) {
     .hero-section {
         padding: 5rem 7rem;
     }
 }
 
-@media (min-width: 1025px) {
+@media (min-width: #{$tablet-size + 1}px) {
     .hero-section {
         padding: 9rem 13rem;
     }
