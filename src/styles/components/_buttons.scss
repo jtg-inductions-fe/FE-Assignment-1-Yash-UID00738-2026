@@ -1,19 +1,41 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
 .lighter-btn-class,
 .darken-btn-class {
     cursor: pointer;
-    outline: none;
     border: none;
     padding: 1.5rem 2.5rem;
-
-    border-radius: 25px;
-    font-weight: 700;
-    font-size: 1.4rem;
+    border-radius: $medium-border-radius;
+    font-weight: $large-font-weight;
+    font-size: $large-font-size;
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+.lighter-btn-class:focus,
+.darken-btn-class:focus {
+    outline: none;
+}
+.lighter-btn-class:focus-visible,
+.darken-btn-class:focus-visible {
+    outline: 3px solid color('primary-purple');
+    outline-offset: 4px;
 }
 .lighter-btn-class {
-    background-color: $primary-body-color;
+    background-color: color('primary-body');
+    color: color('font-black');
+    &:hover {
+        background-color: darken(color('primary-body'), 5%);
+        transform: translateY(-2px);
+    }
 }
-
 .darken-btn-class {
-    background-color: $primary-purple-color;
-    color: #eeeeee;
+    background-color: color('primary-purple');
+    color: color('primary-body');
+    &:hover {
+        background-color: lighten(color('primary-purple'), 8%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(color('primary-purple'), 0.25);
+    }
 }
