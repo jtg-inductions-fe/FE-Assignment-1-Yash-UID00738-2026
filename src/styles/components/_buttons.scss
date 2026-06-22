@@ -1,7 +1,8 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/functions' as *;
-.lighter-btn-class,
-.darken-btn-class {
+
+.secondary-btn,
+.primary-btn {
     cursor: pointer;
     border: none;
     padding: 1.5rem 2.5rem;
@@ -13,16 +14,19 @@
         background-color 0.2s ease,
         box-shadow 0.2s ease;
 }
-.lighter-btn-class:focus,
-.darken-btn-class:focus {
+
+.secondary-btn:focus,
+.primary-btn:focus {
     outline: none;
 }
-.lighter-btn-class:focus-visible,
-.darken-btn-class:focus-visible {
+
+.secondary-btn:focus-visible,
+.primary-btn:focus-visible {
     outline: 3px solid color('primary-purple');
     outline-offset: 4px;
 }
-.lighter-btn-class {
+
+.secondary-btn {
     background-color: color('primary-body');
     color: color('font-black');
     &:hover {
@@ -30,7 +34,8 @@
         transform: translateY(-2px);
     }
 }
-.darken-btn-class {
+
+.primary-btn {
     background-color: color('primary-purple');
     color: color('primary-body');
     &:hover {

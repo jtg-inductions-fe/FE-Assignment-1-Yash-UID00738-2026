@@ -2,10 +2,12 @@
 $small-font-size: 1.2rem;
 $medium-font-size: 1.6rem;
 $large-font-size: 1.8rem;
+
 // font weight - variables
 $small-font-weight: 200;
 $medium-font-weight: 400;
 $large-font-weight: 700;
+
 //colors variables
 $palette: (
     'purple': #5d50c6,
@@ -19,10 +21,12 @@ $theme: (
     'font-black': map-get($palette, 'black'),
     'font-gray': map-get($palette, 'gray'),
 );
+
 //breakpoints variables
 $desktop-size: 1440;
 $tablet-size: 1024;
 $mobile-size: 430;
+
 //border-radius variables
 $small-border-radius: 12px;
 $medium-border-radius: 25px;

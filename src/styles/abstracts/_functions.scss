@@ -1,4 +1,6 @@
 @use '../abstracts/variables' as *;
+
+// this function takes a color variable as an argument, then checks in theme-map,
 @function color($key) {
     @if map-has-key($theme, $key) {
         @return map-get($theme, $key);
