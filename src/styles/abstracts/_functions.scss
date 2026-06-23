@@ -1,6 +1,9 @@
 @use '../abstracts/variables' as *;
 
-// this function takes a color variable as an argument, then checks in theme-map,
+/// Fetches a specific color value from the global theme map.
+/// @param {Color} $key - The name of the color configuration key.
+/// @return {Color} The corresponding hex or rgba color value from theme map.
+
 @function color($key) {
     @if map-has-key($theme, $key) {
         @return map-get($theme, $key);
