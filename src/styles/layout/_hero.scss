@@ -12,7 +12,7 @@
     background-repeat: no-repeat;
     background-position: top;
     background-size: contain;
-
+    width: 100%;
     padding: 5rem;
 }
 
@@ -63,7 +63,7 @@
     bottom: -10%;
     background-color: color(font-pink);
     border-radius: 100%;
-
+    filter: drop-shadow(8px 12px 14px color('shadow-gray'));
     padding: 1rem;
 }
 .share-icon,
@@ -85,8 +85,8 @@
     gap: 0.5rem;
     align-items: center;
     border-radius: $medium-border-radius;
-
-    padding: 1rem 1rem;
+    filter: drop-shadow(8px 12px 14px color('shadow-gray'));
+    padding: 1rem 2rem;
 }
 .contact-icon-container {
     position: absolute;
@@ -95,6 +95,7 @@
     border-radius: 100%;
     background-color: #ff5722;
     padding: 1rem;
+    filter: drop-shadow(8px 12px 14px color('shadow-gray'));
 }
 
 .hero-section__travel-section-container,
@@ -112,9 +113,7 @@
     flex-direction: row;
     width: fit-content;
     align-items: center;
-
     gap: 1rem;
-
     background-color: color('primary-white');
     color: color('font-black');
     padding: 1.5rem 4rem;
@@ -124,7 +123,7 @@
 
 .travel-section-heading1 {
     line-height: 120%;
-    font-size: 40px;
+    font-size: 4rem;
     font-weight: $bold-font-weight;
     p {
         display: inline;
@@ -153,7 +152,6 @@
     justify-content: center;
     gap: 1.5rem;
     width: 100%;
-
     border: 1px solid lighten(color('font-gray'), 50%);
 }
 
@@ -179,10 +177,26 @@
     .hero-section {
         padding: 5rem 7rem;
     }
+    .travel-section__btn-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .travel-section__get-started-btn,
+    .travel-section__watch-demo-btn {
+        width: 35%;
+    }
+    .travel-section-heading1 {
+        font-size: 4.5rem;
+    }
 }
 
 @media (min-width: #{$tablet-size + 1}px) {
     .hero-section {
         padding: 9rem 13rem;
+        flex-direction: row-reverse;
+        gap: 5rem;
+    }
+    .travel-section-heading1 {
+        font-size: 5.5rem;
     }
 }
