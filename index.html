@@ -19,7 +19,13 @@
     </head>
     <body>
         <header>
-            <button type="button" class="header-ham-btn">
+            <button
+                type="button"
+                class="header-ham-btn"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu"
+            >
                 <img
                     src="./public/assets/header/ham-icon.svg"
                     class="header-ham-icon"
@@ -28,18 +34,32 @@
                     height="40px"
                 />
             </button>
-            <!-- todo - add href in nav section after finishing all sections -->
-            <nav class="header-ham-menu">
+            <div
+                class="header-ham-menu"
+                id="mobile-menu"
+                role="navigation"
+                aria-label="Mobile navigation"
+            >
                 <ul class="ham-menu-list">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Discover</a></li>
-                    <li><a href="#">Special Deals</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#" class="ham-menu-login">Log In</a></li>
-                    <li><a href="#" class="ham-menu-signUp">Sign Up</a></li>
+                    <li><a href="`#home`">Home</a></li>
+                    <li><a href="`#discover`">Discover</a></li>
+                    <li><a href="`#special-deals`">Special Deals</a></li>
+                    <li><a href="`#contact`">Contact</a></li>
+                    <li>
+                        <a href="`#login`" class="ham-menu-login">Log In</a>
+                    </li>
+                    <li>
+                        <a href="`#signup`" class="ham-menu-signUp">Sign Up</a>
+                    </li>
                 </ul>
-                <button type="button" class="ham-menu-close">&lt;</button>
-            </nav>
+                <button
+                    type="button"
+                    class="ham-menu-close"
+                    aria-label="Close navigation menu"
+                >
+                    &lt;
+                </button>
+            </div>
 
             <img
                 src="./public/assets/header/brand-logo.svg"
@@ -50,10 +70,10 @@
             />
             <nav class="header-nav">
                 <ul class="header-nav-list">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Discover</a></li>
-                    <li><a href="#">Special Deals</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="`#home`">Home</a></li>
+                    <li><a href="`#discover`">Discover</a></li>
+                    <li><a href="`#special-deals`">Special Deals</a></li>
+                    <li><a href="`#contact`">Contact</a></li>
                 </ul>
             </nav>
             <div class="sign-btn-container">
