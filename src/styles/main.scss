@@ -1,1 +1,18 @@
-// TODO: Add styles as per the requirement
+@use 'abstracts/functions' as *;
+@use 'abstracts/mixins' as *;
+@use 'abstracts/variables' as *;
+
+// --- 2. Base Styles ---
+@use 'base/animations';
+@use 'base/reset';
+@use 'base/typography';
+
+// --- 3. Components ---
+@use 'components/buttons';
+
+// --- 4. Layout ---
+@use 'layout/body';
+@use 'layout/header';
+
+// --- 5. Pages ---
+@use 'pages/index';

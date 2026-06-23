@@ -1,0 +1,46 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+
+.secondary-btn,
+.primary-btn {
+    cursor: pointer;
+    border: none;
+    padding: 1.5rem 2.5rem;
+    border-radius: $medium-border-radius;
+    font-weight: $large-font-weight;
+    font-size: $large-font-size;
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.secondary-btn:focus,
+.primary-btn:focus {
+    outline: none;
+}
+
+.secondary-btn:focus-visible,
+.primary-btn:focus-visible {
+    outline: 3px solid color('primary-purple');
+    outline-offset: 4px;
+}
+
+.secondary-btn {
+    background-color: color('primary-body');
+    color: color('font-black');
+    &:hover {
+        background-color: darken(color('primary-body'), 5%);
+        transform: translateY(-2px);
+    }
+}
+
+.primary-btn {
+    background-color: color('primary-purple');
+    color: color('primary-body');
+    &:hover {
+        background-color: lighten(color('primary-purple'), 8%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(color('primary-purple'), 0.25);
+    }
+}
