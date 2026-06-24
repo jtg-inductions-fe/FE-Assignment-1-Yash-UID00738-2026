@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
 }
+
 img,
 picture,
 video,
@@ -12,15 +13,19 @@ svg {
     max-width: 100%;
     display: block;
 }
+
 input,
 button,
 textarea,
 select {
     font: inherit;
 }
+
 a {
     text-decoration: none;
+    color: inherit;
 }
+
 ul,
 ol {
     list-style: none;

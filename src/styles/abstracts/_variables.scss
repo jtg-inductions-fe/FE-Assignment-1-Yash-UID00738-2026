@@ -23,11 +23,19 @@ $theme: (
 );
 
 //breakpoints variables
-$desktop-size: 1440;
-$tablet-size: 1024;
-$mobile-size: 430;
+$desktop-size: 1440px;
+$tablet-size: 1024px;
+$mobile-size: 430px;
 
 //border-radius variables
 $small-border-radius: 12px;
 $medium-border-radius: 25px;
 $large-border-radius: 30px;
+
+//font family names
+$primary-font-family: Circular Std;
+$secondary-font-family: Inter;
+
+//font family paths
+$font-base-path: '../../assets';
+$font-base-path: '../../assets';

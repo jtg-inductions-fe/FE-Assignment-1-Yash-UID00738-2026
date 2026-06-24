@@ -1,10 +1,54 @@
+@use '../abstracts/variables' as *;
+
+// ==========================================
+// PRIMARY FONT FAMILY
+// ==========================================
+
+// Regular Weight
 @font-face {
-    font-family: Circular Std;
-    src: url('../../assets/circular-std-medium-500.ttf') format('truetype');
+    font-family: $primary-font-family;
+    src: url('#{$font-base-path}/primary.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
     font-display: optional;
 }
+
+// Medium Weight
 @font-face {
-    font-family: Inter;
-    src: url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap')
-        format('truetype');
+    font-family: $primary-font-family;
+    src: url('#{$font-base-path}/primary.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: optional;
+}
+
+// Bold Weight
+@font-face {
+    font-family: $primary-font-family;
+    src: url('#{$font-base-path}/primary.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: optional;
+}
+
+// ==========================================
+// SECONDARY FONT FAMILY
+// ==========================================
+
+// Regular Weight
+@font-face {
+    font-family: $secondary-font-family;
+    src: url('#{$font-base-path}/secondary-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: optional;
+}
+
+// Bold Weight
+@font-face {
+    font-family: $secondary-font-family;
+    src: url('#{$font-base-path}/secondary-bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: optional;
 }

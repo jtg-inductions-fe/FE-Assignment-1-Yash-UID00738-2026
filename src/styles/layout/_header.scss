@@ -1,29 +1,53 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include flex-layout(space-between, center, row);
     font-size: $medium-font-size;
     height: 12vh;
     position: relative;
     padding: 9rem 13rem;
+
+    @include respond-to('mobile') {
+        padding: 6rem 1.5rem;
+        flex-flow: row-reverse;
+    }
+
+    @include respond-to('tablet') {
+        padding: 5rem 7rem;
+    }
 }
-.signUp-btn {
+
+.header-nav {
+    @include respond-to('mobile') {
+        display: none;
+    }
+    @include respond-to('tablet') {
+        display: none;
+    }
+}
+
+.sign-btn-container {
+    @include respond-to('mobile') {
+        display: none;
+    }
+}
+.sign-up-btn {
     padding: 1.5rem 3rem;
 }
 
 .header-nav-list {
-    display: flex;
+    @include flex-layout;
     list-style: none;
-    gap: 7rem;
+    gap: 6.8rem;
 
     a {
         text-decoration: none;
         color: color('font-gray');
-    }
-    a:hover {
-        color: color('font-black');
+        &:hover {
+            color: color('font-black');
+        }
     }
 }
 
@@ -33,7 +57,15 @@ header {
     width: 40px;
     height: 40px;
     cursor: pointer;
+
+    @include respond-to('desktop') {
+        display: none;
+    }
+    &.js-active {
+        opacity: 0;
+    }
 }
+
 .header-ham-icon {
     width: 100%;
     height: auto;
@@ -49,6 +81,22 @@ header {
     height: 100vh;
     width: 250px;
     z-index: 9;
+
+    @include respond-to('tablet') {
+        left: -100%;
+    }
+    @include respond-to('desktop') {
+        display: none;
+    }
+
+    &.js-active {
+        @include respond-to('mobile') {
+            right: 0;
+        }
+        @include respond-to('tablet') {
+            left: 0;
+        }
+    }
 }
 
 .ham-menu-close {
@@ -58,72 +106,33 @@ header {
     border: none;
     font-size: 2rem;
     top: 1.5rem;
-}
 
-.ham-menu-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    width: 250px;
-    gap: 3rem;
-    padding: 5rem 2rem;
-
-    li {
-        a {
-            text-decoration: none;
-            color: color('font-black');
-        }
-    }
-}
-
-.header-ham-btn.active {
-    opacity: 0;
-}
-
-@media (max-width: #{$mobile-size}px) {
-    header {
-        padding: 6rem 1.5rem;
-    }
-    .header-nav,
-    .sign-btn-container {
-        display: none;
-    }
-    header {
-        flex-flow: row-reverse;
-    }
-    .header-ham-menu.active {
-        right: 0;
-    }
-    .ham-menu-close {
+    @include respond-to('mobile') {
         transform: rotate(180deg);
         left: 1.5rem;
     }
-}
-@media (min-width: #{$mobile-size + 1}px) and (max-width: #{$tablet-size}px) {
-    header {
-        padding: 5rem 7rem;
-    }
-    .header-nav,
-    .ham-menu-login,
-    .ham-menu-signUp {
-        display: none;
-    }
-    .header-ham-menu {
-        left: -100%;
-    }
-    .header-ham-menu.active {
-        left: 0;
-    }
-    .ham-menu-close {
+    @include respond-to('tablet') {
         right: 1.5rem;
         top: 1.5rem;
     }
 }
-@media (min-width: #{$tablet-size + 1}px) {
-    .header-ham-btn {
-        display: none;
+
+.ham-menu-list {
+    @include flex-layout($direction: column);
+    list-style: none;
+    width: 250px;
+    gap: 3rem;
+    padding: 5rem 2rem;
+
+    li a {
+        text-decoration: none;
+        color: color('font-black');
     }
-    .header-ham-menu {
+}
+
+.ham-menu-login,
+.ham-menu-sign-up {
+    @include respond-to('tablet') {
         display: none;
     }
 }
