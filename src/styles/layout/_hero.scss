@@ -1,54 +1,76 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
 
 .hero-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex-layout(flex-start, center, column);
     width: 100%;
+
+    @include respond-to('mobile') {
+        padding: 3rem 1.5rem;
+    }
+    @include respond-to('tablet') {
+        padding: 6rem 14rem;
+    }
+    @include respond-to('desktop') {
+        padding: 2.5rem 13rem;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+    }
 }
+
 .hero-section-images__outer-container {
     background-image: url(../../../public/assets/images/layer.svg);
     background-repeat: no-repeat;
     background-position: top;
     background-size: contain;
     width: 100%;
-    padding: 5rem;
+    padding: 10rem;
+    padding-top: 7rem;
+
+    @include respond-to('tablet') {
+        padding: 10rem 11rem;
+    }
+    @include respond-to('mobile') {
+        padding: 3rem 5rem;
+    }
 }
 
 .hero-section__images-container {
-    display: flex;
-    align-items: center;
+    @include flex-layout(flex-start, center, row);
     position: relative;
     gap: 2rem;
+    @include respond-to('tablet') {
+        gap: 3rem;
+    }
 }
 
 .hero-section__first-images-container {
-    display: flex;
-    flex-direction: column;
+    @include flex-layout(flex-start, stretch, column);
     gap: 3rem;
-
     width: 50%;
     height: 100%;
+    @include respond-to('tablet') {
+        width: 47%;
+    }
 }
 
 .hero-section__second-images-container {
     height: 70%;
     width: 50%;
+    @include respond-to('tablet') {
+        width: 48%;
+    }
 }
 
-.first-images-container__first-image-container {
-    position: relative;
-    height: 50%;
-    width: 100%;
-    flex: 1;
-}
+.first-images-container__first-image-container,
 .first-images-container__second-image-container {
     position: relative;
     height: 50%;
     flex: 1;
     width: 100%;
 }
+
 .first-images-container__first-image,
 .first-images-container__second-image,
 .second-images-container__third-image {
@@ -61,11 +83,26 @@
     position: absolute;
     left: -10%;
     bottom: -10%;
-    background-color: color(font-pink);
+    background-color: color('font-pink');
     border-radius: 100%;
     filter: drop-shadow(8px 12px 14px color('shadow-gray'));
     padding: 1rem;
+
+    @include respond-to('mobile') {
+        width: 30px;
+        height: 30px;
+    }
+    @include respond-to('tablet') {
+        width: 55px;
+        height: 55px;
+        padding: 1.5rem;
+    }
+    @include respond-to('desktop') {
+        width: 60px;
+        height: 60px;
+    }
 }
+
 .share-icon,
 .contact-icon {
     width: 100%;
@@ -76,127 +113,194 @@
 .second-images-container__third-image-container {
     position: relative;
 }
+
 .top-places-icon-container {
     position: absolute;
     right: -25%;
     bottom: 10%;
-    background-color: white;
-    display: flex;
+    background-color: color('primary-white');
+    @include flex-layout(flex-start, center, row);
     gap: 0.5rem;
-    align-items: center;
     border-radius: $medium-border-radius;
     filter: drop-shadow(8px 12px 14px color('shadow-gray'));
     padding: 1rem 2rem;
+
+    @include respond-to('mobile') {
+        height: 30px;
+        padding: 0rem 0.5rem;
+    }
+    @include respond-to('desktop') {
+        padding: 2rem 4rem;
+    }
+    @include respond-to('tablet') {
+        padding: 1rem 4.5rem;
+    }
 }
+
+.top-places-icon {
+    @include respond-to('mobile') {
+        width: 15px;
+        height: 15px;
+    }
+}
+
 .contact-icon-container {
     position: absolute;
-    bottom: 0;
-    right: 15%;
+    bottom: -1%;
+    right: 22%;
     border-radius: 100%;
-    background-color: #ff5722;
+    background-color: color('primary-orange');
     padding: 1rem;
     filter: drop-shadow(8px 12px 14px color('shadow-gray'));
+
+    @include respond-to('mobile') {
+        width: 30px;
+        height: 30px;
+    }
+    @include respond-to('tablet') {
+        width: 55px;
+        height: 55px;
+        padding: 1.5rem;
+    }
+    @include respond-to('desktop') {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.hero-section__travel-section-container {
+    width: 60%;
+    gap: 7rem;
+
+    @include respond-to('tablet') {
+        width: 100%;
+        padding: 0rem 4rem;
+        gap: 5rem;
+    }
+    @include respond-to('mobile') {
+        width: 100%;
+        padding: 0;
+        gap: 5rem;
+    }
+}
+
+.travel-section__explore-container {
+    gap: 5rem;
+    @include respond-to('mobile') {
+        gap: 3rem;
+    }
 }
 
 .hero-section__travel-section-container,
 .travel-section__explore-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    @include flex-layout(center, center, column);
     text-align: center;
-    gap: 3rem;
+    @include respond-to('desktop') {
+        padding-top: 3rem;
+        text-align: start;
+        @include flex-layout(center, start, column);
+    }
 }
 
 .explore-world-container {
-    display: flex;
-    flex-direction: row;
+    @include flex-layout(flex-start, center, row);
     width: fit-content;
-    align-items: center;
     gap: 1rem;
     background-color: color('primary-white');
     color: color('font-black');
     padding: 1.5rem 4rem;
     border-radius: $large-border-radius;
     filter: drop-shadow(1px 1px 40px color('shadow-gray'));
+
+    @include respond-to('tablet') {
+        padding: 1.5rem 2rem;
+    }
+}
+
+.handbag-image {
+    width: 15px;
+    height: 15px;
 }
 
 .travel-section-heading1 {
-    line-height: 120%;
     font-size: 4rem;
     font-weight: $bold-font-weight;
+
     p {
         display: inline;
         color: color('font-pink');
     }
+
+    @include respond-to('tablet') {
+        font-size: 6.5rem;
+    }
+    @include respond-to('desktop') {
+        font-size: 7.5rem;
+    }
+    @include respond-to('mobile') {
+        padding-inline: 2rem;
+    }
 }
 
 .travel-section-heading2 {
-    font-family: $secondary-font-style;
+    font-family: $secondary-font-family;
     color: color('font-gray');
     font-weight: $normal-font-weight;
     font-size: $medium-font-size;
+
+    @include respond-to('tablet') {
+        font-size: 2rem;
+        padding: 0rem 13rem;
+    }
 }
+
 .travel-section__btn-container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    @include flex-layout(flex-start, stretch, column);
     gap: 3rem;
+
+    @include respond-to('tablet') {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 61%;
+        gap: 2rem;
+    }
+    @include respond-to('desktop') {
+        flex-direction: row;
+        justify-content: start;
+    }
+    @include respond-to('mobile') {
+        gap: 3rem;
+    }
 }
+
 .travel-section__get-started-btn {
     width: 100%;
+
+    @include respond-to('tablet') {
+        width: 35%;
+        padding: 1.5rem 0.5rem;
+    }
+    @include respond-to('desktop') {
+        width: 35%;
+    }
+    @include respond-to('mobile') {
+        padding-block: 2rem;
+    }
 }
+
 .travel-section__watch-demo-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-layout(center, center, row);
     gap: 1.5rem;
     width: 100%;
     border: 1px solid lighten(color('font-gray'), 50%);
-}
 
-@media (max-width: #{$mobile-size}px) {
-    .hero-section {
-        padding: 6rem 1.5rem;
+    @include respond-to('tablet') {
+        width: 40%;
     }
-    .share-icon-container,
-    .contact-icon-container {
-        width: 30px;
-        height: 30px;
-    }
-    .top-places-icon {
-        width: 15px;
-        height: 15px;
-    }
-    .top-places-icon-container {
-        height: 30px;
-    }
-}
-
-@media (min-width: #{$mobile-size + 1}px) and (max-width: #{$tablet-size}px) {
-    .hero-section {
-        padding: 5rem 7rem;
-    }
-    .travel-section__btn-container {
-        flex-direction: row;
-        justify-content: center;
-    }
-    .travel-section__get-started-btn,
-    .travel-section__watch-demo-btn {
-        width: 35%;
-    }
-    .travel-section-heading1 {
-        font-size: 4.5rem;
-    }
-}
-
-@media (min-width: #{$tablet-size + 1}px) {
-    .hero-section {
-        padding: 9rem 13rem;
-        flex-direction: row-reverse;
-        gap: 5rem;
-    }
-    .travel-section-heading1 {
-        font-size: 5.5rem;
+    @include respond-to('desktop') {
+        gap: 0.5rem;
+        width: 45%;
     }
 }

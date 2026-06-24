@@ -7,10 +7,9 @@
 // Regular Weight
 @font-face {
     font-family: $primary-font-family;
-    src: url('#{$font-base-path}/primary.ttf') format('truetype');
+    src: url('#{$font-base-path}/primary.ttf');
     font-weight: 400;
     font-style: normal;
-    font-display: optional;
 }
 
 // Medium Weight

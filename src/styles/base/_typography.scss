@@ -1,4 +1,11 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
 html {
     font-size: 62.5%;
-    font-family: 'Circular Std';
+    font-family: $primary-font-family;
+
+    @include respond-to('tablet') {
+        font-size: 56.25%;
+    }
 }
