@@ -196,7 +196,7 @@
     @include flex-layout(center, center, column);
     text-align: center;
     @include respond-to('desktop') {
-        padding-top: 3rem;
+        padding-top: 3.7rem;
         text-align: start;
         @include flex-layout(center, start, column);
     }
