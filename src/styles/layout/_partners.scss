@@ -1,0 +1,45 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.partners-section {
+    @include flex-layout(center, center, row);
+    width: 100%;
+    padding: 2.5rem 2rem;
+
+    @include respond-to('tablet') {
+        padding: 2.5rem 5rem;
+    }
+
+    @include respond-to('desktop') {
+        padding: 2.5rem 7rem;
+    }
+}
+
+.partners-section__logo-container {
+    @include flex-layout(center, center, row);
+    width: 100%;
+    column-gap: 2rem;
+    flex-wrap: wrap;
+
+    @include respond-to('tablet') {
+        width: 57%;
+        column-gap: 3rem;
+    }
+
+    @include respond-to('desktop') {
+        column-gap: 5rem;
+        width: 100%;
+    }
+}
+
+.partners-brand-logo {
+    width: 27%;
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    @include respond-to('desktop') {
+        width: 15%;
+    }
+}
