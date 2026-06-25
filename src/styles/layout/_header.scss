@@ -10,8 +10,6 @@
     font-size: $medium-font-size;
     height: 12vh;
     position: relative;
-
-    // Default Mobile Styles
     padding: 6rem 1.5rem;
     flex-flow: row-reverse;
 
@@ -22,16 +20,22 @@
 
     @include media-query('desktop') {
         padding: 9rem 13rem;
-        flex-flow: row;
+    }
+
+    &__brand-logo {
+        display: inline-block;
+        line-height: 0;
+    }
+
+    &__brand-logo-img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
     }
 
     &__btn-container {
         display: none;
-
         @include media-query('tablet') {
-            display: block;
-        }
-        @include media-query('desktop') {
             display: block;
         }
     }
@@ -50,7 +54,6 @@
         @include media-query('desktop') {
             display: none;
         }
-
         &.js-active {
             opacity: 0;
         }
@@ -81,7 +84,6 @@
 
         &.js-active {
             right: 0;
-
             @include media-query('tablet') {
                 left: 0;
             }
@@ -95,8 +97,6 @@
         border: none;
         font-size: 2rem;
         top: 1.5rem;
-
-        // Default Mobile Styles
         transform: rotate(180deg);
         left: 1.5rem;
 
@@ -110,23 +110,34 @@
 }
 
 /* ==========================================================================
-   NAVIGATION
+   NAVIGATION COMPONENT
    ========================================================================== */
 .nav-menu {
-    &__list {
-        list-style: none;
+    .nav-menu__list {
+        @include flex-layout($direction: column);
+        width: 250px;
+        gap: 3rem;
+        padding: 5rem 2rem;
     }
 
-    &__link {
+    .nav-menu__link {
         text-decoration: none;
+        color: get-color('font-black');
     }
 
-    &--header {
-        display: none;
+    &__item {
+        list-style: none;
 
-        @include media-query('tablet') {
-            display: none;
+        &--auth {
+            @include media-query('tablet') {
+                display: none;
+            }
         }
+    }
+
+    /* --- Desktop Layout Variant --- */
+    &--desktop {
+        display: none;
 
         @include media-query('desktop') {
             display: block;
@@ -135,6 +146,8 @@
         .nav-menu__list {
             @include flex-layout;
             gap: 6.8rem;
+            width: auto;
+            padding: 0;
         }
 
         .nav-menu__link {
@@ -144,24 +157,9 @@
                 color: get-color('font-black');
             }
         }
-    }
-
-    &--drawer {
-        .nav-menu__list {
-            @include flex-layout($direction: column);
-            width: 250px;
-            gap: 3rem;
-            padding: 5rem 2rem;
-        }
-
-        .nav-menu__link {
-            color: get-color('font-black');
-        }
 
         .nav-menu__item--auth {
-            @include media-query('tablet') {
-                display: none;
-            }
+            display: none;
         }
     }
 }

@@ -4,41 +4,54 @@
  * Handles opening, closing, keyboard accessibility (Escape key), and clicking outside
  * the menu to dismiss it.
  */
-
 export default function () {
-    // Select required DOM elements based on updated BEM classes
     const hamBtn = document.querySelector('.header__ham-btn');
     const closeBtn = document.querySelector('.header__drawer-close');
     const hamMenu = document.querySelector('.header__drawer');
+    const header = document.querySelector('.header');
+    const navMenu = document.querySelector('.nav-menu');
 
-    // Guard clause: Prevent script errors if the elements don't exist on the current page
-    if (!hamBtn || !closeBtn || !hamMenu) {
-        return;
-    }
+    if (!hamBtn || !closeBtn || !hamMenu || !header || !navMenu) return;
 
-    // Closes the hamburger menu by removing active utility classes.
-    const closeMenu = () => {
+    function closeMenu() {
         hamMenu.classList.remove('js-active');
         hamBtn.classList.remove('js-active');
-    };
+    }
 
-    // Open menu on hamburger button click
+    // Dynamic Teleportation logic based on viewport width
+    function handleNavigationResponsiveLayout() {
+        const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+
+        if (isDesktop) {
+            if (navMenu.parentNode !== header) {
+                header.insertBefore(
+                    navMenu,
+                    header.querySelector('.header__btn-container'),
+                );
+                navMenu.classList.add('nav-menu--desktop'); // Add desktop configuration
+                closeMenu();
+            }
+        } else {
+            if (navMenu.parentNode !== hamMenu) {
+                hamMenu.insertBefore(navMenu, closeBtn);
+                navMenu.classList.remove('nav-menu--desktop'); // Strip back to standard mobile view
+            }
+        }
+    }
+
+    // Event Listeners
     hamBtn.addEventListener('click', () => {
         hamMenu.classList.add('js-active');
         hamBtn.classList.add('js-active');
     });
 
-    // Close menu on close button click
     closeBtn.addEventListener('click', closeMenu);
 
-    // Accessibility: Close the menu when the 'Escape' key is pressed
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && hamMenu.classList.contains('js-active')) {
+        if (e.key === 'Escape' && hamMenu.classList.contains('js-active'))
             closeMenu();
-        }
     });
 
-    // Click Outside: Close the menu if a click occurs outside the menu panel and the trigger button
     document.addEventListener('click', (e) => {
         if (
             hamMenu.classList.contains('js-active') &&
@@ -48,4 +61,8 @@ export default function () {
             closeMenu();
         }
     });
+
+    // Run adjustments on window resize and initial execution
+    window.addEventListener('resize', handleNavigationResponsiveLayout);
+    handleNavigationResponsiveLayout();
 }
