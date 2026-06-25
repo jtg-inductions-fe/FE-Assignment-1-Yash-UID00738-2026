@@ -6,13 +6,13 @@
     @include flex-layout(flex-start, center, column);
     width: 100%;
 
-    @include respond-to('mobile') {
+    @include media-query('mobile') {
         padding: 3rem 1.5rem;
     }
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         padding: 6rem 14rem;
     }
-    @include respond-to('desktop') {
+    @include media-query('desktop') {
         padding: 2.5rem 13rem;
         flex-direction: row-reverse;
         align-items: flex-start;
@@ -28,10 +28,10 @@
     padding: 10rem;
     padding-top: 7rem;
 
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         padding: 10rem 11rem;
     }
-    @include respond-to('mobile') {
+    @include media-query('mobile') {
         padding: 3rem 5rem;
     }
 }
@@ -40,7 +40,7 @@
     @include flex-layout(flex-start, center, row);
     position: relative;
     gap: 2rem;
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         gap: 3rem;
     }
 }
@@ -50,7 +50,7 @@
     gap: 3rem;
     width: 50%;
     height: 100%;
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         width: 47%;
     }
 }
@@ -58,7 +58,7 @@
 .hero-section__second-images-container {
     height: 70%;
     width: 50%;
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         width: 48%;
     }
 }
@@ -83,21 +83,21 @@
     position: absolute;
     left: -10%;
     bottom: -10%;
-    background-color: color('font-pink');
+    background-color: get-color('font-pink');
     border-radius: 100%;
-    filter: drop-shadow(8px 12px 14px color('shadow-gray'));
+    filter: drop-shadow(8px 12px 14px get-color('shadow-gray'));
     padding: 1rem;
 
-    @include respond-to('mobile') {
+    @include media-query('mobile') {
         width: 30px;
         height: 30px;
     }
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         width: 55px;
         height: 55px;
         padding: 1.5rem;
     }
-    @include respond-to('desktop') {
+    @include media-query('desktop') {
         width: 60px;
         height: 60px;
     }
@@ -118,27 +118,27 @@
     position: absolute;
     right: -25%;
     bottom: 10%;
-    background-color: color('primary-white');
+    background-color: get-color('primary-white');
     @include flex-layout(flex-start, center, row);
     gap: 0.5rem;
     border-radius: $medium-border-radius;
-    filter: drop-shadow(8px 12px 14px color('shadow-gray'));
+    filter: drop-shadow(8px 12px 14px get-color('shadow-gray'));
     padding: 1rem 2rem;
 
-    @include respond-to('mobile') {
+    @include media-query('mobile') {
         height: 30px;
         padding: 0rem 0.5rem;
     }
-    @include respond-to('desktop') {
+    @include media-query('desktop') {
         padding: 2rem 4rem;
     }
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         padding: 1rem 4.5rem;
     }
 }
 
 .top-places-icon {
-    @include respond-to('mobile') {
+    @include media-query('mobile') {
         width: 15px;
         height: 15px;
     }
@@ -149,20 +149,20 @@
     bottom: -1%;
     right: 22%;
     border-radius: 100%;
-    background-color: color('primary-orange');
+    background-color: get-color('primary-orange');
     padding: 1rem;
-    filter: drop-shadow(8px 12px 14px color('shadow-gray'));
+    filter: drop-shadow(8px 12px 14px get-color('shadow-gray'));
 
-    @include respond-to('mobile') {
+    @include media-query('mobile') {
         width: 30px;
         height: 30px;
     }
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         width: 55px;
         height: 55px;
         padding: 1.5rem;
     }
-    @include respond-to('desktop') {
+    @include media-query('desktop') {
         width: 60px;
         height: 60px;
     }
@@ -172,12 +172,12 @@
     width: 60%;
     gap: 7rem;
 
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         width: 100%;
         padding: 0rem 4rem;
         gap: 5rem;
     }
-    @include respond-to('mobile') {
+    @include media-query('mobile') {
         width: 100%;
         padding: 0;
         gap: 5rem;
@@ -186,7 +186,7 @@
 
 .travel-section__explore-container {
     gap: 5rem;
-    @include respond-to('mobile') {
+    @include media-query('mobile') {
         gap: 3rem;
     }
 }
@@ -195,7 +195,7 @@
 .travel-section__explore-container {
     @include flex-layout(center, center, column);
     text-align: center;
-    @include respond-to('desktop') {
+    @include media-query('desktop') {
         padding-top: 3.7rem;
         text-align: start;
         @include flex-layout(center, start, column);
@@ -206,13 +206,13 @@
     @include flex-layout(flex-start, center, row);
     width: fit-content;
     gap: 1rem;
-    background-color: color('primary-white');
-    color: color('font-black');
+    background-color: get-color('primary-white');
+    color: get-color('font-black');
     padding: 1.5rem 4rem;
     border-radius: $large-border-radius;
-    filter: drop-shadow(1px 1px 40px color('shadow-gray'));
+    filter: drop-shadow(1px 1px 40px get-color('shadow-gray'));
 
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         padding: 1.5rem 2rem;
     }
 }
@@ -228,27 +228,27 @@
 
     p {
         display: inline;
-        color: color('font-pink');
+        color: get-color('font-pink');
     }
 
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         font-size: 6.5rem;
     }
-    @include respond-to('desktop') {
+    @include media-query('desktop') {
         font-size: 7.5rem;
     }
-    @include respond-to('mobile') {
+    @include media-query('mobile') {
         padding-inline: 2rem;
     }
 }
 
 .travel-section-heading2 {
     font-family: $secondary-font-family;
-    color: color('font-gray');
+    color: get-color('font-gray');
     font-weight: $normal-font-weight;
     font-size: $medium-font-size;
 
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         font-size: 2rem;
         padding: 0rem 13rem;
     }
@@ -259,18 +259,18 @@
     @include flex-layout(flex-start, stretch, column);
     gap: 3rem;
 
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         flex-direction: row;
         justify-content: center;
         align-items: center;
         width: 61%;
         gap: 2rem;
     }
-    @include respond-to('desktop') {
+    @include media-query('desktop') {
         flex-direction: row;
         justify-content: start;
     }
-    @include respond-to('mobile') {
+    @include media-query('mobile') {
         gap: 3rem;
     }
 }
@@ -278,14 +278,14 @@
 .travel-section__get-started-btn {
     width: 100%;
 
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         width: 35%;
         padding: 1.5rem 0.5rem;
     }
-    @include respond-to('desktop') {
+    @include media-query('desktop') {
         width: 35%;
     }
-    @include respond-to('mobile') {
+    @include media-query('mobile') {
         padding-block: 2rem;
     }
 }
@@ -294,12 +294,12 @@
     @include flex-layout(center, center, row);
     gap: 1.5rem;
     width: 100%;
-    border: 1px solid lighten(color('font-gray'), 50%);
+    border: 1px solid lighten(get-color('font-gray'), 50%);
 
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         width: 40%;
     }
-    @include respond-to('desktop') {
+    @include media-query('desktop') {
         gap: 0.5rem;
         width: 45%;
     }
