@@ -209,7 +209,6 @@
 .travel-section {
     &__explore-container {
         gap: 3rem;
-
         @include flex-layout(center, center, column);
         text-align: center;
 
@@ -260,7 +259,6 @@
             font-size: 2rem;
             padding: 0rem clamp(2rem, 10vw, 13rem);
         }
-
         @include media-query('desktop') {
             padding: 0rem;
         }
@@ -268,7 +266,6 @@
 
     &__btn-container {
         width: 100%;
-
         @include flex-layout(flex-start, stretch, column);
         gap: 3rem;
 
@@ -279,7 +276,6 @@
             width: 61%;
             gap: 2rem;
         }
-
         @include media-query('desktop') {
             flex-direction: row;
             justify-content: start;
@@ -295,7 +291,6 @@
             width: 35%;
             padding: 1.5rem 0.5rem;
         }
-
         @include media-query('desktop') {
             width: 50%;
         }
@@ -310,7 +305,6 @@
         @include media-query('tablet') {
             width: 40%;
         }
-
         @include media-query('desktop') {
             gap: 0.5rem;
             width: 50%;
