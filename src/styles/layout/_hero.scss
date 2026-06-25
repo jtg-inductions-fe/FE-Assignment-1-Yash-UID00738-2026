@@ -3,7 +3,7 @@
 @use '../abstracts/mixins' as *;
 
 /* ==========================================================================
-   HERO SECTION BLOCK
+   HERO SECTION 
    ========================================================================== */
 .hero-section {
     @include flex-layout(flex-start, center, column);
@@ -21,7 +21,6 @@
         align-items: flex-start;
     }
 
-    /* --- Nested Elements --- */
     &-images__outer-container {
         background-image: url(../../../public/assets/images/layer.svg);
         background-repeat: no-repeat;
@@ -199,7 +198,7 @@
 }
 
 /* ==========================================================================
-   TRAVEL SECTION CONTENT & TYPOGRAPHY
+   TRAVEL SECTION CONTENT 
    ========================================================================== */
 .travel-section {
     &__explore-container {
