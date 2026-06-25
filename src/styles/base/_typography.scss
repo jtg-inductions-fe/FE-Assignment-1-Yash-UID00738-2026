@@ -5,7 +5,7 @@ html {
     font-size: 50%;
     font-family: $font-primary, $fallback-font;
 
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         font-size: 56.25%;
     }
     @include respond-to('desktop') {
