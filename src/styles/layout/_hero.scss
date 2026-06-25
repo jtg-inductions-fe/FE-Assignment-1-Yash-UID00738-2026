@@ -316,16 +316,6 @@
     @include media-query('desktop') {
         background-color: rgba(get-color('primary-white'), 0.2);
     }
-
-    @include respond-to('tablet') {
-        font-size: 6.5rem;
-    }
-    @include respond-to('desktop') {
-        font-size: 7.5rem;
-    }
-    @include respond-to('mobile') {
-        padding-inline: 2rem;
-    }
 }
 
 .handbag-image {
