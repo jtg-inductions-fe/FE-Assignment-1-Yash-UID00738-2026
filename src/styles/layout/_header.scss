@@ -2,137 +2,166 @@
 @use '../abstracts/functions' as *;
 @use '../abstracts/mixins' as *;
 
-header {
+/* ==========================================================================
+   HEADER BLOCK
+   ========================================================================== */
+.header {
     @include flex-layout(space-between, center, row);
     font-size: $medium-font-size;
     height: 12vh;
     position: relative;
-    padding: 9rem 13rem;
 
-    @include respond-to('mobile') {
-        padding: 6rem 1.5rem;
-        flex-flow: row-reverse;
-    }
+    // Default Mobile Styles
+    padding: 6rem 1.5rem;
+    flex-flow: row-reverse;
 
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         padding: 5rem 7rem;
+        flex-flow: row;
     }
-}
 
-.header-nav {
-    @include respond-to('mobile') {
+    @include media-query('desktop') {
+        padding: 9rem 13rem;
+        flex-flow: row;
+    }
+
+    &__btn-container {
         display: none;
-    }
-    @include respond-to('tablet') {
-        display: none;
-    }
-}
 
-.sign-btn-container {
-    @include respond-to('mobile') {
-        display: none;
-    }
-}
-.sign-up-btn {
-    padding: 1.5rem 3rem;
-}
-
-.header-nav-list {
-    @include flex-layout;
-    list-style: none;
-    gap: 6.8rem;
-
-    a {
-        text-decoration: none;
-        color: color('font-gray');
-        &:hover {
-            color: color('font-black');
+        @include media-query('tablet') {
+            display: block;
+        }
+        @include media-query('desktop') {
+            display: block;
         }
     }
-}
 
-.header-ham-btn {
-    background: transparent;
-    border: none;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-
-    @include respond-to('desktop') {
-        display: none;
-    }
-    &.js-active {
-        opacity: 0;
-    }
-}
-
-.header-ham-icon {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.header-ham-menu {
-    background-color: color('primary-body');
-    transition: all 0.5s ease-in-out;
-    position: fixed;
-    right: -100%;
-    top: 0;
-    height: 100vh;
-    width: 250px;
-    z-index: 9;
-
-    @include respond-to('tablet') {
-        left: -100%;
-    }
-    @include respond-to('desktop') {
-        display: none;
+    &__sign-up-btn {
+        padding: 1.5rem 3rem;
     }
 
-    &.js-active {
-        @include respond-to('mobile') {
+    &__ham-btn {
+        background: transparent;
+        border: none;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+
+        @include media-query('desktop') {
+            display: none;
+        }
+
+        &.js-active {
+            opacity: 0;
+        }
+    }
+
+    &__ham-icon {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    &__drawer {
+        background-color: get-color('primary-body');
+        transition: all 0.5s ease-in-out;
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        width: 250px;
+        z-index: 9;
+
+        @include media-query('tablet') {
+            left: -100%;
+        }
+        @include media-query('desktop') {
+            display: none;
+        }
+
+        &.js-active {
             right: 0;
-        }
-        @include respond-to('tablet') {
-            left: 0;
+
+            @include media-query('tablet') {
+                left: 0;
+            }
         }
     }
-}
 
-.ham-menu-close {
-    cursor: pointer;
-    position: absolute;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    top: 1.5rem;
+    &__drawer-close {
+        cursor: pointer;
+        position: absolute;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        top: 1.5rem;
 
-    @include respond-to('mobile') {
+        // Default Mobile Styles
         transform: rotate(180deg);
         left: 1.5rem;
-    }
-    @include respond-to('tablet') {
-        right: 1.5rem;
-        top: 1.5rem;
+
+        @include media-query('tablet') {
+            right: 1.5rem;
+            top: 1.5rem;
+            left: auto;
+            transform: none;
+        }
     }
 }
 
-.ham-menu-list {
-    @include flex-layout($direction: column);
-    list-style: none;
-    width: 250px;
-    gap: 3rem;
-    padding: 5rem 2rem;
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+.nav-menu {
+    &__list {
+        list-style: none;
+    }
 
-    li a {
+    &__link {
         text-decoration: none;
-        color: color('font-black');
     }
-}
 
-.ham-menu-login,
-.ham-menu-sign-up {
-    @include respond-to('tablet') {
+    &--header {
         display: none;
+
+        @include media-query('tablet') {
+            display: none;
+        }
+
+        @include media-query('desktop') {
+            display: block;
+        }
+
+        .nav-menu__list {
+            @include flex-layout;
+            gap: 6.8rem;
+        }
+
+        .nav-menu__link {
+            color: get-color('font-gray');
+
+            &:hover {
+                color: get-color('font-black');
+            }
+        }
+    }
+
+    &--drawer {
+        .nav-menu__list {
+            @include flex-layout($direction: column);
+            width: 250px;
+            gap: 3rem;
+            padding: 5rem 2rem;
+        }
+
+        .nav-menu__link {
+            color: get-color('font-black');
+        }
+
+        .nav-menu__item--auth {
+            @include media-query('tablet') {
+                display: none;
+            }
+        }
     }
 }

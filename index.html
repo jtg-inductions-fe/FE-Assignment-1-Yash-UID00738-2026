@@ -10,80 +10,118 @@
         />
         <link rel="stylesheet" href="src/styles/main.scss" />
         <link
-            rel="icon"
             type="image/x-icon"
+            rel="icon"
             href="./public/assets/favicon/favicon.ico"
         />
     </head>
     <body>
-        <header>
+        <header class="header">
             <button
                 type="button"
-                class="header-ham-btn"
+                class="header__ham-btn"
                 aria-label="Open navigation menu"
                 aria-expanded="false"
                 aria-controls="mobile-menu"
             >
                 <img
                     src="./public/assets/header/ham-icon.svg"
-                    class="header-ham-icon"
+                    class="header__ham-icon"
                     alt="ham-icon"
                     width="40px"
                     height="40px"
                 />
             </button>
+
             <div
-                class="header-ham-menu"
+                class="header__drawer"
                 id="mobile-menu"
                 role="navigation"
                 aria-label="Mobile navigation"
             >
-                <ul class="ham-menu-list">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#discover">Discover</a></li>
-                    <li><a href="#special-deals">Special Deals</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li>
-                        <a href="#login" class="ham-menu-login">Log In</a>
-                    </li>
-                    <li>
-                        <a href="#sign-up" class="ham-menu-sign-up">Sign Up</a>
-                    </li>
-                </ul>
+                <nav class="nav-menu nav-menu--drawer">
+                    <ul class="nav-menu__list">
+                        <li class="nav-menu__item">
+                            <a href="#home" class="nav-menu__link">Home</a>
+                        </li>
+                        <li class="nav-menu__item">
+                            <a href="#discover" class="nav-menu__link"
+                                >Discover</a
+                            >
+                        </li>
+                        <li class="nav-menu__item">
+                            <a href="#special-deals" class="nav-menu__link"
+                                >Special Deals</a
+                            >
+                        </li>
+                        <li class="nav-menu__item">
+                            <a href="#contact" class="nav-menu__link"
+                                >Contact</a
+                            >
+                        </li>
+                        <li class="nav-menu__item nav-menu__item--auth">
+                            <a href="#login" class="nav-menu__link">Log In</a>
+                        </li>
+                        <li class="nav-menu__item nav-menu__item--auth">
+                            <a href="#sign-up" class="nav-menu__link"
+                                >Sign Up</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+
                 <button
                     type="button"
-                    class="ham-menu-close"
+                    class="header__drawer-close"
                     aria-label="Close navigation menu"
                 >
                     &lt;
                 </button>
             </div>
 
-            <img
-                src="./public/assets/header/brand-logo.svg"
-                class="header-brand-logo"
-                alt="brand-logo"
-                width="40px"
-                height="40px"
-            />
-            <nav class="header-nav">
-                <ul class="header-nav-list">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#discover">Discover</a></li>
-                    <li><a href="#special-deals">Special Deals</a></li>
-                    <li><a href="#contact">Contact</a></li>
+            <a
+                href="#home"
+                class="header__brand-logo"
+                aria-label="Travlog Home"
+            >
+                <img
+                    src="./public/assets/header/brand-logo.svg"
+                    class="header__brand-logo-img"
+                    alt=""
+                    width="40px"
+                    height="40px"
+                />
+            </a>
+
+            <nav class="nav-menu nav-menu--header">
+                <ul class="nav-menu__list">
+                    <li class="nav-menu__item">
+                        <a href="#home" class="nav-menu__link">Home</a>
+                    </li>
+                    <li class="nav-menu__item">
+                        <a href="#discover" class="nav-menu__link">Discover</a>
+                    </li>
+                    <li class="nav-menu__item">
+                        <a href="#special-deals" class="nav-menu__link"
+                            >Special Deals</a
+                        >
+                    </li>
+                    <li class="nav-menu__item">
+                        <a href="#contact" class="nav-menu__link">Contact</a>
+                    </li>
                 </ul>
             </nav>
-            <div class="sign-btn-container">
-                <button type="button" class="login-btn btn-secondary">
-                    Log In
-                </button>
-                <button type="button" class="sign-up-btn btn-primary">
+
+            <div class="header__btn-container">
+                <button type="button" class="btn btn--secondary">Log In</button>
+                <button
+                    type="button"
+                    class="header__sign-up-btn btn btn--primary"
+                >
                     Sign Up
                 </button>
             </div>
         </header>
-
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>

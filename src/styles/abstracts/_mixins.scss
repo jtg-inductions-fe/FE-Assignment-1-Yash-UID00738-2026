@@ -13,19 +13,16 @@
 }
 
 /// Media Query Breakpoint Helper
-/// @param {String} $breakpoint - mobile, tablet, or desktop
-@mixin respond-to($breakpoint) {
-    @if $breakpoint == 'mobile' {
-        @media (max-width: $mobile-size) {
-            @content;
-        }
-    } @else if $breakpoint == 'tablet' {
-        // Cleaner handling without complex inline interpolation math
-        @media (min-width: #{$mobile-size + 1px}) and (max-width: $tablet-size) {
+/// @param {String} $breakpoint - tablet or desktop
+@mixin media-query($breakpoint) {
+    @if $breakpoint == 'tablet' {
+        // Naturally applies to everything from tablet size upwards
+        @media (min-width: $mobile-size) {
             @content;
         }
     } @else if $breakpoint == 'desktop' {
-        @media (min-width: #{$tablet-size + 1px}) {
+        // Overrides or adds onto tablet styles once it hits desktop size
+        @media (min-width: $tablet-size) {
             @content;
         }
     }

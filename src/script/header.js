@@ -6,23 +6,21 @@
  */
 
 export default function () {
-    // Select required DOM elements for the menu functionality
-    const hamBtn = document.querySelector('.header-ham-btn');
-    const closeBtn = document.querySelector('.ham-menu-close');
-    const hamMenu = document.querySelector('.header-ham-menu');
+    // Select required DOM elements based on updated BEM classes
+    const hamBtn = document.querySelector('.header__ham-btn');
+    const closeBtn = document.querySelector('.header__drawer-close');
+    const hamMenu = document.querySelector('.header__drawer');
 
     // Guard clause: Prevent script errors if the elements don't exist on the current page
     if (!hamBtn || !closeBtn || !hamMenu) {
         return;
     }
 
-    /**
-     * Closes the hamburger menu by removing active utility classes.
-     */
-    function closeMenu() {
+    // Closes the hamburger menu by removing active utility classes.
+    const closeMenu = () => {
         hamMenu.classList.remove('js-active');
         hamBtn.classList.remove('js-active');
-    }
+    };
 
     // Open menu on hamburger button click
     hamBtn.addEventListener('click', () => {

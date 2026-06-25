@@ -4,7 +4,7 @@
 /// @param {Color} $key - The name of the color configuration key.
 /// @return {Color} The corresponding hex or rgba color value from theme map.
 
-@function color($key) {
+@function get-color($key) {
     @if map-has-key($theme, $key) {
         @return map-get($theme, $key);
     }
