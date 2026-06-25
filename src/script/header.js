@@ -23,22 +23,27 @@ export default function () {
         const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
 
         if (isDesktop) {
+            // Always ensure the desktop modifier class is present on desktop viewports
+            navMenu.classList.add('nav-menu--desktop');
+
+            // Move it to the header if it isn't already there
             if (navMenu.parentNode !== header) {
                 header.insertBefore(
                     navMenu,
                     header.querySelector('.header__btn-container'),
                 );
-                navMenu.classList.add('nav-menu--desktop'); // Add desktop configuration
                 closeMenu();
             }
         } else {
+            // Remove the desktop modifier class on mobile/tablet viewports
+            navMenu.classList.remove('nav-menu--desktop');
+
+            // Move it into the drawer side panel if it isn't already there
             if (navMenu.parentNode !== hamMenu) {
                 hamMenu.insertBefore(navMenu, closeBtn);
-                navMenu.classList.remove('nav-menu--desktop'); // Strip back to standard mobile view
             }
         }
     }
-
     // Event Listeners
     hamBtn.addEventListener('click', () => {
         hamMenu.classList.add('js-active');
