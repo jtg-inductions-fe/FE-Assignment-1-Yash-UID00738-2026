@@ -341,16 +341,6 @@
     @include media-query('mobile') {
         padding-inline: 2rem;
     }
-
-    @include respond-to('tablet') {
-        font-size: 6.5rem;
-    }
-    @include respond-to('desktop') {
-        font-size: 7.5rem;
-    }
-    @include respond-to('mobile') {
-        padding-inline: 2rem;
-    }
 }
 
 .handbag-image {

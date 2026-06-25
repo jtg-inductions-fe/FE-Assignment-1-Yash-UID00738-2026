@@ -1,45 +1,49 @@
 @use '../abstracts/mixins' as *;
 @use '../abstracts/variables' as *;
 
+/* ==========================================================================
+   PARTNERS SECTION BLOCK
+   ========================================================================== */
 .partners-section {
     @include flex-layout(center, center, row);
     width: 100%;
     padding: 2.5rem 2rem;
 
-    @include respond-to('tablet') {
+    @include media-query('tablet') {
         padding: 2.5rem 5rem;
     }
 
-    @include respond-to('desktop') {
+    @include media-query('desktop') {
         padding: 2.5rem 7rem;
     }
-}
 
-.partners-section__logo-container {
-    @include flex-layout(center, center, row);
-    width: 100%;
-    column-gap: 2rem;
-    flex-wrap: wrap;
-
-    @include respond-to('tablet') {
-        width: 57%;
-        column-gap: 3rem;
-    }
-
-    @include respond-to('desktop') {
-        column-gap: 5rem;
+    &__logo-container {
+        @include flex-layout(center, center, row);
         width: 100%;
-    }
-}
+        column-gap: 2rem;
+        flex-wrap: wrap;
 
-.partners-brand-logo {
-    width: 27%;
-    img {
-        width: 100%;
-        object-fit: cover;
+        @include media-query('tablet') {
+            width: 57%;
+            column-gap: 3rem;
+        }
+
+        @include media-query('desktop') {
+            column-gap: 5rem;
+            width: 100%;
+        }
     }
 
-    @include respond-to('desktop') {
-        width: 15%;
+    &__brand-logo {
+        width: 27%;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        @include media-query('desktop') {
+            width: 15%;
+        }
     }
 }
