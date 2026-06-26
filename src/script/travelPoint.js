@@ -1,3 +1,8 @@
+/**
+ * @module TravelPointSection
+ * @description Initializes and displays the company mata details cards and formats metric values.
+ */
+
 export default function () {
     const companyTravelData = {
         'Holiday Package': 501,
@@ -7,7 +12,7 @@ export default function () {
     };
 
     const formatMetricValue = (value) => {
-        if (value < 100) return value.toString(); // Leave small numbers as strings without "+"
+        if (value < 100) return value.toString();
 
         // Find the magnitude power (number of digits minus 1)
         const placeValuePower = Math.floor(Math.log10(value));
@@ -30,14 +35,16 @@ export default function () {
 
     const displayCompanyTravelData = (companyTravelData) => {
         const cardContainer = document.querySelector(
-            '.travel-point-section__travel-info-container--company-details',
+            '.travel-point-section__company-details',
         );
+
+        if (!cardContainer) return; // Guard clause safety check
 
         for (const key in companyTravelData) {
             const card = document.createElement('div');
-            card.classList.add(
-                'travel-point-section__travel-info-container--company-details-card',
-            );
+
+            card.classList.add('travel-point-section__card');
+
             card.innerHTML = `
                 <h2>${formatMetricValue(companyTravelData[key])}</h2>
                 <p>${key}</p>
