@@ -2,13 +2,6 @@
 @use '../abstracts/mixins' as *;
 
 html {
-    font-size: 50%;
+    font-size: 62.5%;
     font-family: $font-primary, $fallback-font;
-
-    @include media-query('tablet') {
-        font-size: 56.25%;
-    }
-    @include respond-to('desktop') {
-        font-size: 62.5%;
-    }
 }

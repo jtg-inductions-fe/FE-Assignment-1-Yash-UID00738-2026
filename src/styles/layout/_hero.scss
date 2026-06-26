@@ -8,7 +8,7 @@
 .hero-section {
     @include flex-layout(flex-start, center, column);
     width: 100%;
-    max-width: 1440px;
+    max-width: $desktop-size; // FIXED: Mapped to your variable
     margin-inline: auto;
     padding: 3rem 1.5rem;
 
@@ -31,7 +31,7 @@
         padding-top: 3rem;
 
         @include media-query('tablet') {
-            padding: 10rem 8vw 7rem 8vw;
+            padding: 10rem 11vw 5rem 9vw;
             padding-top: 7rem;
         }
     }
@@ -76,7 +76,7 @@
 
         @include media-query('tablet') {
             width: 100%;
-            padding: 0rem 4vw;
+            padding: 4rem 4vw;
             gap: 5rem;
         }
         @include media-query('desktop') {
@@ -163,7 +163,8 @@
 
     @include media-query('tablet') {
         height: auto;
-        padding: 1rem clamp(2rem, 4vw, 4.5rem);
+        right: -30%;
+        padding: 2rem clamp(2rem, 4vw, 4.5rem);
     }
     @include media-query('desktop') {
         padding: 2rem 4rem;
@@ -190,6 +191,7 @@
         width: 55px;
         height: 55px;
         padding: 1.5rem;
+        bottom: -2%;
     }
     @include media-query('desktop') {
         width: 60px;
@@ -207,7 +209,7 @@
         text-align: center;
 
         @include media-query('tablet') {
-            gap: 5rem;
+            gap: 3rem;
         }
         @include media-query('desktop') {
             padding-top: 3.7rem;
@@ -221,7 +223,7 @@
         font-weight: $bold-font-weight;
         padding-inline: 2rem;
 
-        p {
+        span {
             display: inline;
             color: get-color('font-pink');
         }
@@ -236,7 +238,9 @@
     }
 
     &-heading2 {
-        font-family: $secondary-font-family;
+        font-family:
+            #{$font-secondary},
+            #{$fallback-font};
         color: get-color('font-gray');
         font-weight: $normal-font-weight;
         font-size: $medium-font-size;
@@ -286,7 +290,7 @@
         @include flex-layout(center, center, row);
         gap: 1.5rem;
         width: 100%;
-        border: 1px solid lighten(get-color('font-gray'), 50%);
+        border: 1px solid adjust-color(get-color('font-gray'), $lightness: 50%);
 
         @include media-query('tablet') {
             width: 40%;
