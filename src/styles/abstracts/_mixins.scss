@@ -14,6 +14,7 @@
 
 /// Media Query Breakpoint Helper
 /// @param {String} $breakpoint - tablet or desktop
+
 @mixin media-query($breakpoint) {
     @if $breakpoint == 'tablet' {
         // Naturally applies to everything from tablet size upwards
@@ -25,5 +26,28 @@
         @media (min-width: $tablet-size) {
             @content;
         }
+    }
+}
+
+/// Automates @font-face declarations following web performance standards.
+/// @param {String} $name - The font-family name string
+/// @param {String} $filename - The filename inside your font directory
+/// @param {Number} $weight [400] - Font weight (400, 500, 700)
+/// @param {String} $ext - File extension ('woff2')
+/// @param {String} $style [normal] - Font style (normal, italic)
+
+@mixin declare-font(
+    $name,
+    $filename,
+    $weight: $normal-font-weight,
+    $ext: woff2,
+    $style: normal
+) {
+    @font-face {
+        font-family: $name;
+        src: url('#{$font-base-path}/#{$filename}.#{$ext}') format('#{$ext}');
+        font-weight: $weight;
+        font-style: $style;
+        font-display: swap;
     }
 }

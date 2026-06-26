@@ -4,11 +4,11 @@
 /* ==========================================================================
    BUTTON BLOCK
    ========================================================================== */
+
 .btn {
-    // Base Shared Button Styles
     cursor: pointer;
     border: none;
-    padding: 1.5rem 2.5rem;
+    padding: 1.5rem 3rem;
     border-radius: $medium-border-radius;
     font-weight: $bold-font-weight;
     font-size: $medium-font-size;
@@ -30,10 +30,13 @@
     &--secondary {
         background-color: get-color('primary-body');
         color: get-color('font-black');
+        transform: translateY(-2px);
 
         &:hover {
-            background-color: darken(get-color('primary-body'), 5%);
-            transform: translateY(-2px);
+            background-color: adjust-color(
+                get-color('primary-body'),
+                $lightness: -5%
+            );
         }
     }
 
@@ -43,8 +46,10 @@
         color: get-color('primary-body');
 
         &:hover {
-            background-color: lighten(get-color('primary-purple'), 8%);
-            transform: translateY(-2px);
+            background-color: adjust-color(
+                get-color('primary-purple'),
+                $lightness: 8%
+            );
             box-shadow: 0 8px 20px rgba(get-color('primary-purple'), 0.25);
         }
     }

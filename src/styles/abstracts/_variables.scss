@@ -1,14 +1,16 @@
-//root-font size variables
+// Root-font size variables
 $small-font-size: 1.2rem;
 $medium-font-size: 1.6rem;
 $large-font-size: 1.8rem;
 
-// font weight - variables
+// Font weight - variables
 $thin-font-weight: 200;
 $normal-font-weight: 400;
+$medium-font-weight: 500;
 $bold-font-weight: 700;
+$extra-bold-font-weight: 900;
 
-//colors variables
+// Colors variables
 $palette: (
     'purple': #5d50c6,
     'white': #ffffff,
@@ -22,19 +24,37 @@ $theme: (
     'font-gray': map-get($palette, 'gray'),
 );
 
-//breakpoints variables
+// Breakpoints variables
 $desktop-size: 1440px;
-$tablet-size: 1024px;
+$tablet-size: 1025px;
 $mobile-size: 430px;
 
-//border-radius variables
+// Border-radius variables
 $small-border-radius: 12px;
 $medium-border-radius: 25px;
 $large-border-radius: 30px;
 
-//font family names
-$primary-font-family: 'Circular Std';
-$secondary-font-family: Inter;
+// Font family names
+$fallback-font: sans-serif;
+$font-primary: 'Circular Std';
+$font-secondary: Inter;
 
-//font family paths
-$font-base-path: '../../assets';
+// Font family paths
+$font-base-path: '../../../public/assets/fonts';
+
+// z-index variables
+$z-index-0: 0;
+$z-index-1: 1;
+$z-index-10: 10;
+$z-index-100: 100;
+$z-index-1000: 1000;
+$z-index-9999: 9999;
+
+// Box-shadow variables
+$shadow-sm: 0 2px 8px rgba(23, 23, 23, 0.04);
+$shadow-md: 0 4px 20px rgba(23, 23, 23, 0.08);
+$shadow-lg: 0 8px 30px rgba(23, 23, 23, 0.12);
+$shadow-xl: 0 12px 40px rgba(23, 23, 23, 0.16);
+
+// Color-specific shadows (gray drop-shadows)
+$shadow-gray-base: rgba(23, 23, 23, 0.25);

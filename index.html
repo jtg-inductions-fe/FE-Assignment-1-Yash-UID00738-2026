@@ -22,23 +22,18 @@
                 class="header__ham-btn"
                 aria-label="Open navigation menu"
                 aria-expanded="false"
-                aria-controls="mobile-menu"
+                aria-controls="main-navigation"
             >
                 <img
                     src="./public/assets/header/ham-icon.svg"
                     class="header__ham-icon"
-                    alt="ham-icon"
-                    width="40px"
-                    height="40px"
+                    alt="header__ham-icon"
+                    width="40"
+                    height="40"
                 />
             </button>
 
-            <div
-                class="header__drawer"
-                id="mobile-menu"
-                role="navigation"
-                aria-label="Mobile navigation"
-            >
+            <div class="header__drawer" id="mobile-menu">
                 <button
                     type="button"
                     class="header__drawer-close"
@@ -57,12 +52,16 @@
                     src="./public/assets/header/brand-logo.svg"
                     class="header__brand-logo-img"
                     alt=""
-                    width="40px"
-                    height="40px"
+                    width="40"
+                    height="40"
                 />
             </a>
 
-            <nav class="nav-menu">
+            <nav
+                class="nav-menu"
+                id="main-navigation"
+                aria-label="Main Navigation"
+            >
                 <ul class="nav-menu__list">
                     <li class="nav-menu__item">
                         <a href="#home" class="nav-menu__link">Home</a>
@@ -78,13 +77,16 @@
                     <li class="nav-menu__item">
                         <a href="#contact" class="nav-menu__link">Contact</a>
                     </li>
-                    <li class="nav-menu__item nav-menu__item--auth">
-                        <a href="#login" class="nav-menu__link">Log In</a>
-                    </li>
-                    <li class="nav-menu__item nav-menu__item--auth">
-                        <a href="#sign-up" class="nav-menu__link">Sign Up</a>
-                    </li>
                 </ul>
+
+                <div class="nav-menu__auth-container">
+                    <button type="button" class="btn btn--secondary">
+                        Log In
+                    </button>
+                    <button type="button" class="btn btn--primary">
+                        Sign Up
+                    </button>
+                </div>
             </nav>
 
             <div class="header__btn-container">

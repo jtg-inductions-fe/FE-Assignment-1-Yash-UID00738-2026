@@ -11,3 +11,22 @@
     @warn "Unknown `#{$key}` in your theme configuration.";
     @return null;
 }
+
+/// Fetches a specific shadow value
+/// @param {size} $size - particular shadow we want.
+
+@function get-shadow($size) {
+    @if $size == 'sm' {
+        @return $shadow-sm;
+    }
+    @if $size == 'md' {
+        @return $shadow-md;
+    }
+    @if $size == 'lg' {
+        @return $shadow-lg;
+    }
+    @if $size == 'xl' {
+        @return $shadow-xl;
+    }
+    @error "Unknown shadow size: #{$size}";
+}

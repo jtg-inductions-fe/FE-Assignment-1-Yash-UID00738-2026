@@ -1,4 +1,6 @@
+@use '../abstracts/variables' as *;
+
 html {
     font-size: 62.5%;
-    font-family: 'Circular Std';
+    font-family: $font-primary, $fallback-font;
 }
