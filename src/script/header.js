@@ -4,6 +4,7 @@
  * Handles opening, closing, keyboard accessibility (Escape key), and clicking outside
  * the menu to dismiss it.
  */
+
 export default function () {
     const hamBtn = document.querySelector('.header__ham-btn');
     const closeBtn = document.querySelector('.header__drawer-close');
