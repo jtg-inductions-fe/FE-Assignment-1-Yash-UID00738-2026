@@ -104,6 +104,7 @@
         @include flex-layout(center, center, column);
         gap: 1rem;
         width: 100%;
+        position: relative;
 
         @include media-query('tablet') {
             flex-direction: row;
@@ -115,6 +116,20 @@
             flex-direction: row;
             flex-wrap: wrap;
             padding: 0;
+        }
+    }
+
+    &__star-icon {
+        display: none;
+
+        @include media-query('tablet') {
+            display: none;
+        }
+        @include media-query('desktop') {
+            display: block;
+            position: absolute;
+            right: -8vw;
+            top: -17%;
         }
     }
 
