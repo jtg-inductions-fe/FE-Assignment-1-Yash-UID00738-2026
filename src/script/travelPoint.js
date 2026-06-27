@@ -1,9 +1,13 @@
 /**
  * @module TravelPointSection
- * @description Initializes and displays the company mata details cards and formats metric values.
+ * @description Initializes and displays the company data details cards and formats metric values.
  */
 
-export default function () {
+/**
+ * Initializes the travel point section metrics display.
+ * @returns {void}
+ */
+const travelPointInit = () => {
     const companyTravelData = {
         'Holiday Package': 501,
         'Luxury Hotel': 100,
@@ -11,17 +15,18 @@ export default function () {
         'Happy Customer': 2001,
     };
 
+    /**
+     * Formats numeric values into shorthand strings (e.g., k+, l+, cr+).
+     * @param {number} value
+     * @returns {string}
+     */
     const formatMetricValue = (value) => {
         if (value < 100) return value.toString();
 
-        // Find the magnitude power (number of digits minus 1)
         const placeValuePower = Math.floor(Math.log10(value));
         const factor = Math.pow(10, placeValuePower);
-
-        // Round completely down to the leading digit
         const floorValue = Math.floor(value / factor) * factor;
 
-        // Match the rounded value to the correct shorthand suffix rule
         if (floorValue >= 10000000) {
             return `${floorValue / 10000000}cr+`;
         } else if (floorValue >= 100000) {
@@ -33,20 +38,24 @@ export default function () {
         return `${floorValue}+`;
     };
 
-    const displayCompanyTravelData = (companyTravelData) => {
+    /**
+     * Generates and appends metric cards to the DOM.
+     * @param {Object} data
+     * @returns {void}
+     */
+    const displayCompanyTravelData = (data) => {
         const cardContainer = document.querySelector(
             '.travel-point-section__company-details',
         );
 
-        if (!cardContainer) return; // Guard clause safety check
+        if (!cardContainer) return;
 
-        for (const key in companyTravelData) {
+        for (const key in data) {
             const card = document.createElement('div');
-
             card.classList.add('travel-point-section__card');
 
             card.innerHTML = `
-                <h2>${formatMetricValue(companyTravelData[key])}</h2>
+                <h2>${formatMetricValue(data[key])}</h2>
                 <p>${key}</p>
             `;
 
@@ -55,4 +64,6 @@ export default function () {
     };
 
     displayCompanyTravelData(companyTravelData);
-}
+};
+
+export { travelPointInit };
