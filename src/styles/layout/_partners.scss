@@ -19,24 +19,24 @@
 
     @include media-query('desktop') {
         width: 100%;
-        padding: 6.5rem clamp(6rem, 13vw, 12rem);
+        padding: 7rem clamp(6rem, 13vw, 12rem);
     }
 
     &__logo-container {
         @include flex-layout(center, center, row);
         width: 100%;
-        column-gap: 2rem;
-        row-gap: 0;
+        column-gap: 5%;
+        row-gap: 1rem;
         flex-wrap: wrap;
 
         @include media-query('tablet') {
-            column-gap: 3.5rem;
-            row-gap: 7px;
+            column-gap: 8%;
+            row-gap: 1.5rem;
         }
 
         @include media-query('desktop') {
             justify-content: space-between;
-            column-gap: 5rem;
+            column-gap: 2%;
         }
     }
 
