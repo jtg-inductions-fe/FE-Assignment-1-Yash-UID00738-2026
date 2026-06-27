@@ -1,1 +1,220 @@
-// todo - add header section styles
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+/* ==========================================================================
+   HEADER BLOCK
+   ========================================================================== */
+
+.header {
+    @include flex-layout(space-between, center, row);
+    font-size: $medium-font-size;
+    flex-flow: row-reverse;
+    padding: 4rem clamp(1.5rem, 4vw, 3rem);
+    position: sticky;
+    top: 0;
+    z-index: $z-index-100;
+    background-color: get-color('primary-body');
+
+    @include media-query('tablet') {
+        padding: 3.5rem clamp(3rem, 7vw, 6.5rem);
+        flex-flow: row;
+    }
+
+    @include media-query('desktop') {
+        padding: 6.5rem clamp(6rem, 13vw, 12rem);
+    }
+
+    &__brand-logo {
+        display: inline-block;
+        line-height: 0;
+    }
+
+    &__brand-logo-img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    &__btn-container {
+        display: none;
+
+        @include media-query('tablet') {
+            display: block;
+        }
+    }
+
+    &__ham-btn {
+        background: transparent;
+        border: none;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+
+        @include media-query('desktop') {
+            display: none;
+        }
+
+        &.js-active {
+            opacity: 0;
+        }
+    }
+
+    &__ham-icon {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    &__drawer {
+        background-color: get-color('primary-body');
+        transition:
+            transform 0.5s ease-in-out,
+            visibility 0.5s ease-in-out;
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        width: 250px;
+        z-index: $z-index-10;
+        right: 0;
+        left: auto;
+        transform: translateX(100%);
+        visibility: hidden;
+
+        &.js-active {
+            transform: translateX(0);
+            visibility: visible;
+        }
+
+        @include media-query('tablet') {
+            left: 0;
+            right: auto;
+            transform: translateX(-100%);
+            visibility: hidden;
+
+            &.js-active {
+                transform: translateX(0);
+                visibility: visible;
+            }
+        }
+
+        @include media-query('desktop') {
+            display: none;
+        }
+    }
+
+    &__drawer-close {
+        cursor: pointer;
+        position: absolute;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        top: 1.5rem;
+        transform: rotate(180deg);
+        left: 1.5rem;
+
+        @include media-query('tablet') {
+            right: 1.5rem;
+            top: 1.5rem;
+            left: auto;
+            transform: none;
+        }
+    }
+}
+
+/* ==========================================================================
+   NAVIGATION COMPONENT 
+   ========================================================================== */
+
+.nav-menu {
+    @include flex-layout(flex-start, stretch, column);
+
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: $z-index-10 + 1;
+    transition:
+        transform 0.5s ease-in-out,
+        visibility 0.5s ease-in-out;
+    right: 0;
+    left: auto;
+    transform: translateX(100%);
+    visibility: hidden;
+
+    .header__drawer.js-active ~ & {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    @include media-query('tablet') {
+        left: 0;
+        right: auto;
+        transform: translateX(-100%);
+        visibility: hidden;
+    }
+
+    &__list {
+        @include flex-layout($direction: column);
+        width: 100%;
+        gap: 3rem;
+        padding: 5rem 2rem 2rem 2rem;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: get-color('font-black');
+    }
+
+    &__item {
+        list-style: none;
+    }
+
+    &__auth-container {
+        @include flex-layout(center, center, row);
+        gap: 1.5rem;
+        width: 100%;
+        padding: 2rem;
+        margin-top: auto;
+        margin-bottom: 3rem;
+
+        .btn {
+            flex: 1;
+            padding: 1.2rem 2rem;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        @include media-query('tablet') {
+            display: none;
+        }
+    }
+
+    @include media-query('desktop') {
+        position: static;
+        height: auto;
+        width: auto;
+        transform: none;
+        visibility: visible;
+        display: block;
+
+        &__list {
+            @include flex-layout(flex-start, center, row);
+            gap: clamp(3rem, 6.8vw, 6.8rem);
+            width: auto;
+            padding: 0;
+        }
+
+        &__link {
+            color: get-color('font-gray');
+
+            &:hover {
+                color: get-color('font-black');
+            }
+        }
+
+        &__auth-container {
+            display: none;
+        }
+    }
+}

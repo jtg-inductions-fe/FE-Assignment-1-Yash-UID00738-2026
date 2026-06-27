@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// ==========================================================================
+// PRIMARY FONT FAMILY ('Circular Std')
+// ==========================================================================
+@include declare-font($font-primary, 'primary-regular', $normal-font-weight);
+@include declare-font($font-primary, 'primary-medium', $medium-font-weight);
+@include declare-font($font-primary, 'primary-bold', $bold-font-weight);
+@include declare-font(
+    $font-primary,
+    'primary-extra-bold',
+    $extra-bold-font-weight
+);
+
+// ==========================================================================
+// SECONDARY FONT FAMILY ('Inter')
+// ==========================================================================
+@include declare-font(
+    $font-secondary,
+    'secondary-regular',
+    $normal-font-weight
+);
+@include declare-font($font-secondary, 'secondary-medium', $medium-font-weight);
+@include declare-font($font-secondary, 'secondary-bold', $bold-font-weight);
+@include declare-font(
+    $font-secondary,
+    'secondary-extra-bold',
+    $extra-bold-font-weight
+);
