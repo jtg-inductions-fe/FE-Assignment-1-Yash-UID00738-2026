@@ -19,6 +19,7 @@ $palette: (
     'pink': #f85e9f,
     'light-gray': #bbbbbb,
     'orange': #ff5722,
+    'light-pink': #ffd5c8,
 );
 $theme: (
     'primary-purple': map-get($palette, 'purple'),
@@ -29,6 +30,7 @@ $theme: (
     'font-gray': map-get($palette, 'gray'),
     'shadow-gray': map-get($palette, 'light-gray'),
     'font-pink': map-get($palette, 'pink'),
+    'secondary-pink': map-get($palette, 'light-pink'),
 );
 
 // Breakpoints variables
@@ -58,10 +60,10 @@ $z-index-1000: 1000;
 $z-index-9999: 9999;
 
 // Box-shadow variables
-$shadow-sm: 0 2px 8px rgba(23, 23, 23, 0.04);
-$shadow-md: 0 4px 20px rgba(23, 23, 23, 0.08);
-$shadow-lg: 0 8px 30px rgba(23, 23, 23, 0.12);
-$shadow-xl: 0 12px 40px rgba(23, 23, 23, 0.16);
+$shadow-sm: 4px 6px 40px map-get($palette, 'light-gray');
+$shadow-md: 8px 12px 40px map-get($palette, 'light-gray');
+$shadow-lg: 12px 16px 50px map-get($palette, 'light-gray');
+$shadow-xl: 16px 20px 50px map-get($palette, 'light-gray');
 
 // Color-specific shadows (gray drop-shadows)
 $shadow-gray-base: rgba(23, 23, 23, 0.25);
