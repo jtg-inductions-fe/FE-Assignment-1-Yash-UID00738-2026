@@ -1,0 +1,125 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+/* ==========================================================================
+   TESTIMONIALS BLOCK
+   ========================================================================== */
+
+.testimonials-section {
+    text-align: center;
+    padding-block: 12rem;
+
+    &__header {
+        @include flex-layout(center, center, column);
+
+        gap: 2rem;
+    }
+
+    &__carousel {
+        padding-block: 1.5rem;
+        position: relative;
+    }
+
+    &__carousel-arrow {
+        background-color: get-color('primary-white') !important;
+        color: get-color('font-black');
+        border: 1px solid get-color('shadow-gray') !important;
+        width: 64px !important ;
+        height: 64px !important;
+        transition: all 0.3s ease;
+        top: 23% !important;
+        filter: drop-shadow($shadow-xl);
+
+        @include media-query('tablet') {
+            width: 100px !important;
+            height: 100px !important;
+        }
+
+        svg {
+            width: 24px !important;
+            height: auto;
+
+            @include media-query('tablet') {
+                width: 50px;
+            }
+        }
+
+        &:hover {
+            background-color: get-color('primary-purple') !important;
+            color: get-color('primary-white');
+        }
+    }
+
+    &__subtitle {
+        font-size: $small-font-size + 0.5rem;
+        font-weight: $bold-font-weight;
+        letter-spacing: 3px;
+        color: get-color('font-pink');
+    }
+
+    &__title {
+        font-size: $extra-large-font-size + 1rem;
+        font-weight: $bold-font-weight;
+    }
+
+    &__slide {
+        @include flex-layout(center, center, column);
+    }
+
+    &__card {
+        @include flex-layout(center, center, column);
+
+        width: 75%;
+        gap: 7rem;
+    }
+
+    &__author {
+        @include flex-layout(center, center, column);
+        gap: 3rem;
+    }
+
+    &__stars {
+        @include flex-layout(center, center, row);
+
+        gap: 1rem;
+        width: 70%;
+    }
+
+    &__avatar-container {
+        width: 40%;
+        border-radius: 100%;
+    }
+
+    &__avatar {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    &__role {
+        font-size: $large-font-size;
+        font-weight: $bold-font-weight;
+        color: get-color('font-gray');
+    }
+
+    &__name {
+        color: get-color('primary-orange');
+        font-size: $extra-large-font-size;
+        font-weight: $extra-bold-font-weight;
+    }
+
+    &__review-text {
+        font-size: $large-font-size;
+        color: get-color('font-gray');
+    }
+}
+.splide__pagination {
+    display: flex;
+    bottom: -5% !important;
+
+    &__page {
+        width: 25px !important;
+        height: 25px !important;
+    }
+}
