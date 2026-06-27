@@ -13,6 +13,7 @@ body {
     border-radius: 100%;
     filter: blur(180px);
     opacity: 0.4;
+    pointer-events: none;
     height: 50rem;
     width: 20rem;
     position: absolute;
