@@ -4,46 +4,83 @@
 /* ==========================================================================
    PARTNERS SECTION BLOCK
    ========================================================================== */
+
 .partners-section {
     @include flex-layout(center, center, row);
     width: 100%;
-    padding: 2.5rem 2rem;
+    max-width: $desktop-size;
+    margin-inline: auto;
+    padding: 3.5rem clamp(1.5rem, 4vw, 3rem);
 
     @include media-query('tablet') {
-        padding: 2.5rem 5rem;
+        padding: 4.5rem clamp(3rem, 7vw, 6.5rem);
+        width: 75%;
     }
 
     @include media-query('desktop') {
-        padding: 2.5rem 7rem;
+        width: 100%;
+        padding: 6.5rem clamp(6rem, 13vw, 12rem);
     }
 
     &__logo-container {
         @include flex-layout(center, center, row);
         width: 100%;
         column-gap: 2rem;
+        row-gap: 0;
         flex-wrap: wrap;
 
         @include media-query('tablet') {
-            width: 57%;
-            column-gap: 3rem;
+            column-gap: 3.5rem;
+            row-gap: 7px;
         }
 
         @include media-query('desktop') {
+            justify-content: space-between;
             column-gap: 5rem;
-            width: 100%;
         }
     }
 
     &__brand-logo {
-        width: 27%;
+        height: 50px;
+        width: 28%;
+        object-fit: contain;
 
-        img {
-            width: 100%;
-            object-fit: cover;
+        &--expedia {
+            width: 20%;
+        }
+        &--airbnb {
+            width: 20%;
+        }
+
+        @include media-query('tablet') {
+            width: 30%;
+
+            &--expedia {
+                width: 15%;
+            }
+            &--airbnb {
+                width: 15%;
+            }
         }
 
         @include media-query('desktop') {
-            width: 15%;
+            width: auto;
+
+            &--tripadvisor {
+                width: 19%;
+            }
+            &--expedia {
+                width: 10%;
+            }
+            &--booking {
+                width: 17%;
+            }
+            &--airbnb {
+                width: 10%;
+            }
+            &--orbitz {
+                width: 15%;
+            }
         }
     }
 }
