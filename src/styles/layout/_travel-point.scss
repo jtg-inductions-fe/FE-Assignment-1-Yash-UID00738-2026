@@ -109,8 +109,9 @@
             flex-direction: row;
             flex-wrap: wrap;
             gap: 3rem;
-            padding: 5rem 6vw;
+            padding: 5rem 6vw 3rem;
         }
+
         @include media-query('desktop') {
             flex-direction: row;
             flex-wrap: wrap;

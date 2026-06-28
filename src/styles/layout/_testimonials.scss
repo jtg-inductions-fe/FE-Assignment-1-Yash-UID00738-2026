@@ -11,6 +11,14 @@
     text-align: center;
     padding-block: 12rem;
 
+    @include media-query('tablet') {
+        padding-block: 0;
+    }
+
+    @include media-query('desktop') {
+        padding-block: 11rem;
+    }
+
     &__header {
         @include flex-layout(center, center, column);
 
@@ -20,6 +28,14 @@
     &__carousel {
         padding-block: 6.5rem;
         position: relative;
+
+        @include media-query('tablet') {
+            padding-block: 4.5rem;
+        }
+
+        @include media-query('desktop') {
+            padding-block: 6.5rem;
+        }
     }
 
     &__carousel-arrow {
@@ -35,6 +51,7 @@
         @include media-query('tablet') {
             width: 100px !important;
             height: 100px !important;
+            top: 42% !important;
         }
 
         svg {
@@ -50,18 +67,42 @@
             background-color: get-color('primary-purple') !important;
             color: get-color('primary-white');
         }
+
+        &--prev {
+            left: 5% !important;
+
+            @include media-query('desktop') {
+                left: 10% !important;
+            }
+        }
+
+        &--next {
+            right: 5% !important;
+
+            @include media-query('desktop') {
+                right: 10% !important;
+            }
+        }
     }
 
     &__subtitle {
-        font-size: $small-font-size + 0.5rem;
+        font-size: $medium-font-size;
         font-weight: $bold-font-weight;
         letter-spacing: 3px;
         color: get-color('font-pink');
+
+        @include media-query('tablet') {
+            font-size: $extra-large-font-size;
+        }
     }
 
     &__title {
         font-size: $extra-large-font-size + 1rem;
         font-weight: $bold-font-weight;
+
+        @include media-query('tablet') {
+            font-size: $extra-large-font-size + 1.5rem;
+        }
     }
 
     &__slide {
@@ -73,6 +114,10 @@
 
         width: 100%;
         gap: 7rem;
+
+        @include media-query('desktop') {
+            gap: 6rem;
+        }
     }
 
     &__author {
@@ -91,6 +136,14 @@
     &__avatar-container {
         width: 30%;
         border-radius: 100%;
+
+        @include media-query('tablet') {
+            width: 13%;
+        }
+
+        @include media-query('desktop') {
+            width: 10%;
+        }
     }
 
     &__avatar {
@@ -115,6 +168,12 @@
         font-size: $large-font-size;
         color: get-color('font-gray');
         line-height: 27px;
+
+        @include media-query('tablet') {
+            font-size: $large-font-size + 0.5rem;
+            line-height: 34px;
+            padding-inline: 22vw;
+        }
     }
 }
 
