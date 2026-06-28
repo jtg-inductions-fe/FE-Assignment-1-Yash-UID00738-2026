@@ -7,18 +7,11 @@
  * Initializes the travel point section metrics display.
  * @returns {void}
  */
-const travelPointInit = () => {
-    const companyTravelData = {
-        'Holiday Package': 501,
-        'Luxury Hotel': 100,
-        'Premium Airlines': 7,
-        'Happy Customer': 2001,
-    };
-
+const travelPointInit = async () => {
     /**
      * Formats numeric values into shorthand strings (e.g., k+, l+, cr+).
      * @param {number} value
-     * @returns {string}
+     * @returns {string} shorthand strings
      */
     const formatMetricValue = (value) => {
         if (value < 100) return value.toString();
@@ -43,11 +36,11 @@ const travelPointInit = () => {
      * @param {Object} data
      * @returns {void}
      */
-    const displayCompanyTravelData = (data) => {
-        const cardContainer = document.querySelector(
-            '.travel-point-section__company-details',
-        );
+    const cardContainer = document.querySelector(
+        '.travel-point-section__company-details',
+    );
 
+    const displayCompanyTravelData = (data) => {
         if (!cardContainer) return;
 
         for (const key in data) {
@@ -63,7 +56,22 @@ const travelPointInit = () => {
         }
     };
 
-    displayCompanyTravelData(companyTravelData);
+    try {
+        const response = await fetch('../../public/data/travelPoint.json');
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const companyTravelData = await response.json();
+        displayCompanyTravelData(companyTravelData);
+    } catch {
+        cardContainer.innerHTML = `
+                <p>
+                    Metrics are temporarily unavailable.
+                </p>
+            `;
+    }
 };
 
 export { travelPointInit };
