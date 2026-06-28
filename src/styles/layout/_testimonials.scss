@@ -10,13 +10,35 @@
 .testimonials-section {
     text-align: center;
     padding-block: 12rem;
+    position: relative;
 
     @include media-query('tablet') {
         padding-block: 0;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 60%;
+            left: 0;
+            width: 100%;
+            height: 110%;
+            transform: translateY(-50%);
+            background-image: url('../../../public/assets/images/Vector\ \(6\).svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% auto;
+            opacity: 0.08;
+            z-index: -1;
+            pointer-events: none;
+        }
     }
 
     @include media-query('desktop') {
         padding-block: 11rem;
+
+        &::before {
+            top: 70%;
+        }
     }
 
     &__header {
