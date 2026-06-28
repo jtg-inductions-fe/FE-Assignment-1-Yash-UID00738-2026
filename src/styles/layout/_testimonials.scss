@@ -17,7 +17,7 @@
     }
 
     &__carousel {
-        padding-block: 1.5rem;
+        padding-block: 6.5rem;
         position: relative;
     }
 
@@ -70,7 +70,7 @@
     &__card {
         @include flex-layout(center, center, column);
 
-        width: 75%;
+        width: 100%;
         gap: 7rem;
     }
 
@@ -87,7 +87,7 @@
     }
 
     &__avatar-container {
-        width: 40%;
+        width: 30%;
         border-radius: 100%;
     }
 
@@ -98,7 +98,7 @@
     }
 
     &__role {
-        font-size: $large-font-size;
+        font-size: $extra-large-font-size;
         font-weight: $bold-font-weight;
         color: get-color('font-gray');
     }
@@ -116,10 +116,16 @@
 }
 .splide__pagination {
     display: flex;
+    gap: 2rem;
     bottom: -5% !important;
 
     &__page {
         width: 25px !important;
         height: 25px !important;
+
+        &.is-active {
+            background-color: get-color('font-pink') !important;
+            transform: none !important;
+        }
     }
 }
