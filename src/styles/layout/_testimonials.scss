@@ -1,6 +1,7 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/functions' as *;
 @use '../abstracts/mixins' as *;
+@use 'sass:color';
 
 /* ==========================================================================
    TESTIMONIALS BLOCK
@@ -76,13 +77,14 @@
 
     &__author {
         @include flex-layout(center, center, column);
+
         gap: 3rem;
     }
 
     &__stars {
         @include flex-layout(center, center, row);
 
-        gap: 1rem;
+        gap: 2rem;
         width: 70%;
     }
 
@@ -112,8 +114,10 @@
     &__review-text {
         font-size: $large-font-size;
         color: get-color('font-gray');
+        line-height: 27px;
     }
 }
+
 .splide__pagination {
     display: flex;
     gap: 2rem;
@@ -122,6 +126,10 @@
     &__page {
         width: 25px !important;
         height: 25px !important;
+        background: color.adjust(
+            get-color('font-gray'),
+            $lightness: 80%
+        ) !important;
 
         &.is-active {
             background-color: get-color('font-pink') !important;

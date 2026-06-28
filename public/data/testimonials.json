@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Mark Smith",
+        "role": "Travel Enthusiast",
+        "avatar": "../assets/images/testimonials-avatar.png",
+        "rating": 5,
+        "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC."
+    },
+    {
+        "id": 2,
+        "name": "Mark Smith",
+        "role": "Travel Enthusiast",
+        "avatar": "../assets/images/testimonials-avatar.png",
+        "rating": 5,
+        "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC."
+    },
+    {
+        "id": 3,
+        "name": "Mark Smith",
+        "role": "Travel Enthusiast",
+        "avatar": "../assets/images/testimonials-avatar.png",
+        "rating": 5,
+        "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC."
+    }
+]
