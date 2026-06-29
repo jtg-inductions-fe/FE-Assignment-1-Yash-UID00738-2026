@@ -1,0 +1,132 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+.footer {
+    @include flex-layout(space-between, flex-start, column);
+    padding: 2rem 1rem;
+    gap: 4rem;
+    margin-top: 5.6rem;
+
+    @include media-query('tablet') {
+        padding: 4rem;
+        margin-top: 9.5rem;
+    }
+
+    @include media-query('desktop') {
+        flex-direction: row;
+        gap: 2rem;
+        padding: 2rem 7.3rem;
+    }
+
+    &__top {
+        @include flex-layout(space-between, flex-start, column);
+        gap: 2rem;
+    }
+
+    &__heading {
+        @include flex-layout();
+        gap: 1rem;
+
+        h2 {
+            font-size: $extra-large-font-size;
+            font-family:
+                #{$font-primary},
+                #{$fallback-font};
+        }
+    }
+
+    &__para {
+        font-size: $medium-font-size;
+        font-family:
+            #{$font-primary},
+            #{$fallback-font};
+        color: get-color('font-gray');
+        line-height: 160%;
+
+        @include media-query('tablet') {
+            font-size: $extra-large-font-size;
+        }
+    }
+
+    &__socials {
+        font-size: 2rem;
+        @include flex-layout(flex-start, center, row);
+        gap: 2rem;
+    }
+
+    &__bottom {
+        @include flex-layout(space-between, flex-start, column);
+        width: 100%;
+        gap: 5rem;
+        margin-top: 1rem;
+
+        @include media-query('tablet') {
+            display: grid;
+            gap: 1.8rem;
+            grid-template-columns: 1fr 1fr 1fr;
+            margin-top: 0;
+        }
+    }
+
+    &__company,
+    &__contact,
+    &__meet {
+        @include flex-layout(space-between, flex-start, column);
+        width: 100%;
+
+        @include media-query('tablet') {
+            justify-content: flex-start;
+            gap: 2rem;
+        }
+
+        h3 {
+            font-size: $extra-large-font-size;
+            font-family:
+                #{$font-primary},
+                #{$fallback-font};
+            width: 100%;
+            @include flex-layout();
+        }
+    }
+
+    &__link-container {
+        @include flex-layout(space-between, flex-start, column);
+        gap: 1.5rem;
+        transition: max-height 0.3s ease;
+        max-height: 0;
+        overflow: hidden;
+        padding-top: 1rem;
+
+        @include media-query('tablet') {
+            gap: 2.5rem;
+            max-height: 300px;
+            padding-top: 0;
+        }
+    }
+
+    &__link {
+        font-size: $large-font-size;
+        font-family:
+            #{$font-secondary},
+            #{$fallback-font};
+        color: get-color('font-gray');
+        font-weight: $normal-font-weight;
+    }
+}
+
+.dropdown {
+    transition: all 0.3s ease;
+
+    @include media-query('tablet') {
+        display: none;
+    }
+}
+
+.accordion {
+    max-height: 250px;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
