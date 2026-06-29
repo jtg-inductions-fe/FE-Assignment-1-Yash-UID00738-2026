@@ -89,6 +89,8 @@
         padding: 0 5vw;
         line-height: 30px;
 
+        @include line-clamp();
+
         @include media-query('tablet') {
             font-size: $l-font-size;
         }

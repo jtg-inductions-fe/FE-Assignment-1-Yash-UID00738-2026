@@ -19,6 +19,7 @@
         padding: 2.5rem 5vw;
         flex-direction: row-reverse;
         align-items: flex-start;
+        margin-inline: auto;
     }
 
     &-images__outer-container {
@@ -246,6 +247,8 @@
         color: get-color('font-gray');
         font-weight: $normal-font-weight;
         font-size: $md-font-size;
+
+        @include line-clamp();
 
         @include media-query('tablet') {
             font-size: $l-font-size;

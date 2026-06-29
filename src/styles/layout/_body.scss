@@ -32,3 +32,12 @@ body {
         left: 0;
     }
 }
+
+.container {
+    margin-inline: auto;
+    position: relative;
+
+    @include media-query('desktop') {
+        max-width: 1440px;
+    }
+}
