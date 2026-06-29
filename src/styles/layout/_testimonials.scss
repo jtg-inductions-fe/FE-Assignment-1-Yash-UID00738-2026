@@ -108,22 +108,22 @@
     }
 
     &__subtitle {
-        font-size: $medium-font-size;
+        font-size: $md-font-size;
         font-weight: $bold-font-weight;
         letter-spacing: 3px;
         color: get-color('font-pink');
 
         @include media-query('tablet') {
-            font-size: $extra-large-font-size;
+            font-size: $xl-font-size;
         }
     }
 
     &__title {
-        font-size: $extra-large-font-size + 1rem;
+        font-size: $xxl-font-size;
         font-weight: $bold-font-weight;
 
         @include media-query('tablet') {
-            font-size: $extra-large-font-size + 1.5rem;
+            font-size: $xxxl-font-size;
         }
     }
 
@@ -175,24 +175,24 @@
     }
 
     &__role {
-        font-size: $extra-large-font-size;
+        font-size: $xl-font-size;
         font-weight: $bold-font-weight;
         color: get-color('font-gray');
     }
 
     &__name {
         color: get-color('primary-orange');
-        font-size: $extra-large-font-size;
+        font-size: $xl-font-size;
         font-weight: $extra-bold-font-weight;
     }
 
     &__review-text {
-        font-size: $large-font-size;
+        font-size: $l-font-size;
         color: get-color('font-gray');
         line-height: 27px;
 
         @include media-query('tablet') {
-            font-size: $large-font-size + 0.5rem;
+            font-size: $xl-font-size;
             line-height: 34px;
             padding-inline: 22vw;
         }
