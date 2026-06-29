@@ -66,31 +66,31 @@
 
     &__badge {
         color: get-color('font-pink');
-        font-size: $medium-font-size;
+        font-size: $md-font-size;
         letter-spacing: 2.5px;
 
         @include media-query('tablet') {
-            font-size: $large-font-size + 1rem;
+            font-size: $xl-font-size;
             letter-spacing: 3px;
         }
     }
 
     &__heading {
-        font-size: $large-font-size + 1.5rem;
+        font-size: $xxl-font-size;
 
         @include media-query('tablet') {
-            font-size: $large-font-size + 2.2rem;
+            font-size: $xxxl-font-size;
         }
     }
 
     &__description {
-        font-size: $medium-font-size;
+        font-size: $md-font-size;
         color: get-color('font-gray');
         padding: 0 5vw;
         line-height: 30px;
 
         @include media-query('tablet') {
-            font-size: $medium-font-size + 0.2rem;
+            font-size: $l-font-size;
         }
         @include media-query('desktop') {
             padding: 0;
@@ -151,12 +151,12 @@
 
         h2 {
             color: get-color('primary-orange');
-            font-size: $large-font-size + 2rem;
+            font-size: $xxxl-font-size;
             margin: 0;
         }
 
         p {
-            font-size: $large-font-size;
+            font-size: $l-font-size;
             margin: 0;
         }
     }

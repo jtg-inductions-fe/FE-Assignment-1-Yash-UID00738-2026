@@ -7,6 +7,7 @@
    ========================================================================== */
 .hero-section {
     @include flex-layout(flex-start, center, column);
+
     width: 100%;
     max-width: $desktop-size;
     padding: 3rem 1.5rem;
@@ -148,6 +149,7 @@
     background-color: get-color('primary-white');
 
     @include flex-layout(flex-start, center, row);
+
     gap: 0.5rem;
     border-radius: $medium-border-radius;
     filter: drop-shadow($shadow-md);
@@ -216,7 +218,7 @@
     }
 
     &__heading1 {
-        font-size: 4rem;
+        font-size: $xxxl-font-size;
         font-weight: $bold-font-weight;
         padding-inline: 2rem;
 
@@ -226,12 +228,12 @@
         }
 
         @include media-query('tablet') {
-            font-size: 6.5rem;
+            font-size: $xxxxl-font-size;
             padding-inline: 0;
         }
 
         @include media-query('desktop') {
-            font-size: clamp(6.5rem, 6vw + 1rem, 7.5rem);
+            font-size: clamp($xxxxl-font-size, 6vw + 1rem, $xxxxxl-font-size);
             letter-spacing: -3px;
             word-spacing: -8px;
         }
@@ -243,15 +245,15 @@
             #{$fallback-font};
         color: get-color('font-gray');
         font-weight: $normal-font-weight;
-        font-size: $medium-font-size;
+        font-size: $md-font-size;
 
         @include media-query('tablet') {
-            font-size: 2rem;
+            font-size: $l-font-size;
             padding: 0rem clamp(2rem, 10vw, 13rem);
         }
 
         @include media-query('desktop') {
-            font-size: clamp(1.5rem, 2vw, 2rem);
+            font-size: clamp($md-font-size, 2vw, $l-font-size);
             padding: 0rem;
         }
     }
