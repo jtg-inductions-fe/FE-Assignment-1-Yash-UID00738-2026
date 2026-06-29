@@ -57,7 +57,7 @@ const travelPointInit = async () => {
     };
 
     try {
-        const response = await fetch('../../public/data/travelPoint.json');
+        const response = await fetch('/data/travelPoint.json');
 
         if (!response.ok) {
             throw new Error('Network response was not ok');
