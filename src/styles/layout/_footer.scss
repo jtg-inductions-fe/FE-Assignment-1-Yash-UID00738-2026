@@ -4,24 +4,30 @@
 
 .footer {
     @include flex-layout(space-between, flex-start, column);
-    padding: 2rem 1rem;
-    gap: 4rem;
-    margin-top: 5.6rem;
+    padding-inline: 7vw;
+    gap: 7rem;
+    margin-top: 2.6rem;
+    padding-bottom: 8rem;
 
     @include media-query('tablet') {
-        padding: 4rem;
-        margin-top: 9.5rem;
+        padding-inline: 6vw;
+        margin-top: 25.5rem;
     }
 
     @include media-query('desktop') {
+        margin-top: 16.5rem;
         flex-direction: row;
         gap: 2rem;
-        padding: 2rem 7.3rem;
+        padding-inline: 9vw;
     }
 
     &__top {
         @include flex-layout(space-between, flex-start, column);
-        gap: 2rem;
+        gap: 3rem;
+
+        @include media-query('desktop') {
+            gap: 4rem;
+        }
     }
 
     &__heading {
@@ -52,13 +58,13 @@
     &__socials {
         font-size: $l-font-size;
         @include flex-layout(flex-start, center, row);
-        gap: 2rem;
+        gap: 3rem;
     }
 
     &__bottom {
         @include flex-layout(space-between, flex-start, column);
         width: 100%;
-        gap: 5rem;
+        gap: 7rem;
         margin-top: 1rem;
 
         @include media-query('tablet') {
@@ -92,14 +98,14 @@
 
     &__link-container {
         @include flex-layout(space-between, flex-start, column);
-        gap: 1.5rem;
+        gap: 2.5rem;
         transition: max-height 0.3s ease;
         max-height: 0;
         overflow: hidden;
         padding-top: 1rem;
 
         @include media-query('tablet') {
-            gap: 2.5rem;
+            gap: 4.5rem;
             max-height: 300px;
             padding-top: 0;
         }
@@ -112,6 +118,10 @@
             #{$fallback-font};
         color: get-color('font-gray');
         font-weight: $normal-font-weight;
+
+        &:hover {
+            color: get-color('font-black');
+        }
     }
 }
 
