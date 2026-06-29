@@ -190,6 +190,8 @@
         color: get-color('font-gray');
         line-height: 27px;
 
+        @include line-clamp();
+
         @include media-query('tablet') {
             font-size: $xl-font-size;
             line-height: 34px;

@@ -82,6 +82,8 @@
         @include media-query('tablet') {
             font-size: $xl-font-size;
         }
+
+        @include line-clamp();
     }
 
     &__socials {
