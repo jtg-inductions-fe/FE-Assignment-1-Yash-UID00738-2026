@@ -9,7 +9,7 @@ const testimonialsInit = async () => {
     if (!splideList) return;
 
     try {
-        const response = await fetch('./public/data/testimonials.json');
+        const response = await fetch('../../public/data/testimonials.json');
 
         if (!response.ok) throw new Error('Network response was not ok');
 
@@ -39,7 +39,7 @@ const testimonialsInit = async () => {
                         <div class="testimonials-section__stars">
                             ${`
                             <img
-                                src="../../public/assets/images/star.svg"
+                                src="../../src/assets/images/star.svg"
                                 alt=""
                                 aria-hidden="true"
                                 class="testimonials-section__stars-icon"
