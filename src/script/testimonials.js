@@ -5,6 +5,7 @@
 
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/css';
+import starIcon from '../../src/assets/images/star.svg';
 
 /**
  * Fetches testimonial data from a JSON file and mounts the Splide carousel.
@@ -48,7 +49,7 @@ const testimonialsInit = async () => {
                         <div class="testimonials-section__stars">
                             ${`
                             <img
-                                src="../../src/assets/images/star.svg"
+                                src="${starIcon}"
                                 alt=""
                                 aria-hidden="true"
                                 class="testimonials-section__stars-icon"
