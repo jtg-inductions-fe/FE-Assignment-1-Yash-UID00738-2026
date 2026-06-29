@@ -1,6 +1,15 @@
+/**
+ * @module TestimonialsSection
+ * @description Initializes and renders the testimonials slider.
+ */
+
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/css';
 
+/**
+ * Fetches testimonial data from a JSON file and mounts the Splide carousel.
+ * @returns {Promise<void>}
+ */
 const testimonialsInit = async () => {
     const splideList = document.querySelector('.splide__list');
     const testimonialsSection = document.querySelector('.testimonials-section');
@@ -9,7 +18,7 @@ const testimonialsInit = async () => {
     if (!splideList) return;
 
     try {
-        const response = await fetch('../../public/data/testimonials.json');
+        const response = await fetch('/data/testimonials.json');
 
         if (!response.ok) throw new Error('Network response was not ok');
 
