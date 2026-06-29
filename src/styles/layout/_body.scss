@@ -41,3 +41,42 @@ body {
         max-width: 1440px;
     }
 }
+
+.mid-shadow {
+    display: none;
+    background-color: get-color('primary-yellow');
+    border-radius: 100%;
+    filter: blur(180px);
+    opacity: 0.4;
+    pointer-events: none;
+    position: absolute;
+    z-index: $z-index-1000;
+
+    @include media-query('tablet') {
+        display: block;
+        filter: blur(220px);
+        height: 80rem;
+        width: 50rem;
+        top: 50%;
+        right: -30%;
+    }
+    @include media-query('desktop') {
+        top: 50%;
+        right: -30%;
+    }
+}
+
+.arrow-obj-decorative {
+    position: absolute;
+    left: 50px;
+    display: none;
+
+    @include media-query('tablet') {
+        display: block;
+        top: 1200px;
+    }
+
+    @include media-query('desktop') {
+        top: 850px;
+    }
+}
