@@ -1,7 +1,12 @@
 // Root-font size variables
-$small-font-size: 1.2rem;
-$medium-font-size: 1.6rem;
-$large-font-size: 1.8rem;
+$sm-font-size: 1.2rem;
+$md-font-size: 1.6rem;
+$l-font-size: 1.8rem;
+$xl-font-size: 2.5rem;
+$xxl-font-size: 3.2rem;
+$xxxl-font-size: 4rem;
+$xxxxl-font-size: 6.5rem;
+$xxxxxl-font-size: 7.5rem;
 
 // Font weight - variables
 $thin-font-weight: 200;
@@ -16,12 +21,21 @@ $palette: (
     'white': #ffffff,
     'black': #000000,
     'gray': rgba(#191825, 0.5),
+    'pink': #f85e9f,
+    'light-gray': #bbbbbb,
+    'orange': #ff5722,
+    'light-pink': #ffd5c8,
 );
 $theme: (
     'primary-purple': map-get($palette, 'purple'),
+    'primary-white': map-get($palette, 'white'),
     'primary-body': map-get($palette, 'white'),
+    'primary-orange': map-get($palette, 'orange'),
     'font-black': map-get($palette, 'black'),
     'font-gray': map-get($palette, 'gray'),
+    'shadow-gray': map-get($palette, 'light-gray'),
+    'font-pink': map-get($palette, 'pink'),
+    'secondary-pink': map-get($palette, 'light-pink'),
 );
 
 // Breakpoints variables
@@ -40,7 +54,7 @@ $font-primary: 'Circular Std';
 $font-secondary: Inter;
 
 // Font family paths
-$font-base-path: '../../../public/assets/fonts';
+$font-base-path: '../../assets/fonts';
 
 // z-index variables
 $z-index-0: 0;
@@ -51,10 +65,10 @@ $z-index-1000: 1000;
 $z-index-9999: 9999;
 
 // Box-shadow variables
-$shadow-sm: 0 2px 8px rgba(23, 23, 23, 0.04);
-$shadow-md: 0 4px 20px rgba(23, 23, 23, 0.08);
-$shadow-lg: 0 8px 30px rgba(23, 23, 23, 0.12);
-$shadow-xl: 0 12px 40px rgba(23, 23, 23, 0.16);
+$shadow-sm: 4px 6px 40px map-get($palette, 'light-gray');
+$shadow-md: 8px 12px 40px map-get($palette, 'light-gray');
+$shadow-lg: 12px 16px 50px map-get($palette, 'light-gray');
+$shadow-xl: 16px 20px 50px map-get($palette, 'light-gray');
 
 // Color-specific shadows (gray drop-shadows)
 $shadow-gray-base: rgba(23, 23, 23, 0.25);

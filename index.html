@@ -12,10 +12,10 @@
         <link
             type="image/x-icon"
             rel="icon"
-            href="./public/assets/favicon/favicon.ico"
+            href="/assets/favicon/favicon.ico"
         />
     </head>
-    <body>
+    <body class="container">
         <header class="header">
             <button
                 type="button"
@@ -25,9 +25,10 @@
                 aria-controls="main-navigation"
             >
                 <img
-                    src="./public/assets/header/ham-icon.svg"
+                    src="./src/assets/images/ham-icon.svg"
                     class="header__ham-icon"
-                    alt="header__ham-icon"
+                    alt=""
+                    aria-hidden="true"
                     width="40"
                     height="40"
                 />
@@ -49,9 +50,10 @@
                 aria-label="Travlog Home"
             >
                 <img
-                    src="./public/assets/header/brand-logo.svg"
+                    src="./src/assets/images/brand-logo.svg"
                     class="header__brand-logo-img"
                     alt=""
+                    aria-hidden="true"
                     width="40"
                     height="40"
                 />
@@ -99,6 +101,213 @@
                 </button>
             </div>
         </header>
+
+        <div class="top-shadow"></div>
+
+        <main>
+            <section class="hero-section">
+                <div class="hero-section-images__outer-container">
+                    <div class="hero-section__images-container">
+                        <div class="hero-section__column-stacked">
+                            <div class="hero-section__image-card">
+                                <img
+                                    src="./src/assets/images/hero-destination-1.png"
+                                    alt="Scenic view of a travel destination"
+                                    width="200px"
+                                    height="220px"
+                                    class="hero-section__image"
+                                />
+                                <div class="share-icon-container">
+                                    <img
+                                        src="./src/assets/images/icon-share.svg"
+                                        alt=""
+                                        aria-hidden="true"
+                                        width="32px"
+                                        height="32px"
+                                        class="share-icon"
+                                    />
+                                </div>
+                            </div>
+                            <div class="hero-section__image-card">
+                                <img
+                                    src="./src/assets/images/hero-destination-2.png"
+                                    alt="Traveler exploring a scenic location"
+                                    width="200px"
+                                    height="220px"
+                                    class="hero-section__image"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="hero-section__column-single">
+                            <div class="hero-section__featured-card">
+                                <img
+                                    src="./src/assets/images/hero-destination-3.png"
+                                    alt="Beautiful landscape of a top travel destination"
+                                    width="200px"
+                                    height="320px"
+                                    class="hero-section__image"
+                                />
+                                <div class="top-places-icon-container">
+                                    <img
+                                        src="./src/assets/images/icon-location.svg"
+                                        alt=""
+                                        aria-hidden="true"
+                                        width="24px"
+                                        height="24px"
+                                        class="top-places-icon"
+                                    />
+                                    <h4 class="top-places-name">Top Places</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-icon-container">
+                            <img
+                                src="./src/assets/images/icon-add-user.svg"
+                                alt=""
+                                aria-hidden="true"
+                                width="32px"
+                                height="32px"
+                                class="contact-icon"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-section__travel-section-container">
+                    <div class="travel-section__explore-container">
+                        <div class="explore-world-container">
+                            <h2 class="explore-world-msg">
+                                Explore the world!
+                            </h2>
+                            <img
+                                src="./src/assets/images/icon-handbag.svg"
+                                alt=""
+                                aria-hidden="true"
+                                width="25px"
+                                height="25px"
+                                class="handbag-image"
+                            />
+                        </div>
+                        <h1 class="travel-section__heading1">
+                            Travel
+                            <span class="travel-section-heading1--highlight"
+                                >top destination</span
+                            >
+                            of the world
+                        </h1>
+                        <p class="travel-section__heading2">
+                            We always make our customer happy by providing as
+                            many choices as possible
+                        </p>
+                    </div>
+                    <div class="travel-section__btn-container">
+                        <button
+                            type="button"
+                            class="travel-section__get-started-btn btn btn--primary"
+                        >
+                            Get Started
+                        </button>
+                        <button
+                            type="button"
+                            class="travel-section__watch-demo-btn btn btn--secondary"
+                        >
+                            <img
+                                src="./src/assets/images/icon-play.svg"
+                                alt=""
+                                aria-hidden="true"
+                                width="15px"
+                                height="15px"
+                                class="watch-demo-icon"
+                            />
+                            <span class="travel-section__watch-demo-heading">
+                                Watch Demo
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="partners-section" aria-label="Our Partners">
+                <div class="partners-section__logo-container">
+                    <img
+                        src="./src/assets/images/logo-tripadvisor.svg"
+                        alt="Tripadvisor logo"
+                        class="partners-section__brand-logo partners-section__brand-logo--tripadvisor"
+                        width="150"
+                        height="100"
+                    />
+                    <img
+                        src="./src/assets/images/logo-expedia.svg"
+                        alt="Expedia logo"
+                        class="partners-section__brand-logo partners-section__brand-logo--expedia"
+                        width="115"
+                        height="80"
+                    />
+                    <img
+                        src="./src/assets/images/logo-booking.svg"
+                        alt="Booking.com logo"
+                        class="partners-section__brand-logo partners-section__brand-logo--booking"
+                        width="150"
+                        height="100"
+                    />
+                    <img
+                        src="./src/assets/images/logo-airbnb.svg"
+                        alt="Airbnb logo"
+                        class="partners-section__brand-logo partners-section__brand-logo--airbnb"
+                        width="150"
+                        height="100"
+                    />
+                    <img
+                        src="./src/assets/images/logo-orbitz.svg"
+                        alt="Orbitz logo"
+                        class="partners-section__brand-logo partners-section__brand-logo--orbitz"
+                        width="150"
+                        height="100"
+                    />
+                </div>
+            </section>
+
+            <section class="travel-point-section">
+                <div class="travel-point-section__banner-container">
+                    <img
+                        src="./src/assets/images/travel-point-banner.png"
+                        alt="Overview of our dream holiday locations"
+                        width="428"
+                        height="342"
+                        class="travel-point-section__banner"
+                    />
+                </div>
+
+                <div class="travel-point-section__info-container">
+                    <div class="travel-point-section__meta">
+                        <span class="travel-point-section__badge"
+                            >TRAVEL POINT</span
+                        >
+                        <h2 class="travel-point-section__heading">
+                            We helping you find your dream location
+                        </h2>
+                        <p class="travel-point-section__description">
+                            Contrary to popular belief, Lorem Ipsum is not
+                            simply random text. It has roots in a piece of
+                            classical Latin literature from 45 BC.
+                        </p>
+                    </div>
+                    <div class="travel-point-section__company-details">
+                        <img
+                            src="./src/assets/images/travel-point-star.svg"
+                            alt=""
+                            width="279.02px"
+                            height="349.4px"
+                            class="travel-point-section__star-icon"
+                            aria-hidden="true"
+                        />
+                    </div>
+                </div>
+            </section>
+        </main>
+
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>

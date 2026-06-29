@@ -8,7 +8,8 @@
 
 .header {
     @include flex-layout(space-between, center, row);
-    font-size: $medium-font-size;
+
+    font-size: $md-font-size;
     flex-flow: row-reverse;
     padding: 4rem clamp(1.5rem, 4vw, 3rem);
     position: sticky;
@@ -108,7 +109,7 @@
         position: absolute;
         background: none;
         border: none;
-        font-size: 2rem;
+        font-size: $l-font-size;
         top: 1.5rem;
         transform: rotate(180deg);
         left: 1.5rem;
@@ -181,7 +182,7 @@
         .btn {
             flex: 1;
             padding: 1.2rem 2rem;
-            font-size: 1.4rem;
+            font-size: $sm-font-size;
             text-align: center;
         }
 

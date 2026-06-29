@@ -1,0 +1,337 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+
+/* ==========================================================================
+   HERO SECTION 
+   ========================================================================== */
+.hero-section {
+    @include flex-layout(flex-start, center, column);
+
+    width: 100%;
+    max-width: $desktop-size;
+    padding: 3rem 1.5rem;
+
+    @include media-query('tablet') {
+        padding: 6rem 12vw;
+    }
+    @include media-query('desktop') {
+        padding: 2.5rem 5vw;
+        flex-direction: row-reverse;
+        align-items: flex-start;
+        margin-inline: auto;
+    }
+
+    &-images__outer-container {
+        background-image: url('../../../src/assets/images/hero-background.svg');
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: contain;
+        width: 100%;
+        padding: 3rem 5rem;
+        padding-top: 3rem;
+
+        @include media-query('tablet') {
+            padding: 10rem 11vw 5rem 9vw;
+            padding-top: 7rem;
+        }
+    }
+
+    &__images-container {
+        @include flex-layout(flex-start, center, row);
+        position: relative;
+        gap: 2rem;
+
+        @include media-query('tablet') {
+            gap: 3rem;
+        }
+    }
+
+    &__column-stacked {
+        @include flex-layout(flex-start, stretch, column);
+        gap: 3rem;
+        width: 50%;
+        height: 100%;
+
+        @include media-query('tablet') {
+            width: 47%;
+        }
+    }
+
+    &__column-single {
+        height: 70%;
+        width: 50%;
+
+        @include media-query('tablet') {
+            width: 48%;
+        }
+    }
+
+    &__travel-section-container {
+        width: 100%;
+        padding: 0;
+        gap: 5rem;
+
+        @include flex-layout(center, center, column);
+        text-align: center;
+
+        @include media-query('tablet') {
+            width: 100%;
+            padding: 4rem 4vw;
+            gap: 5rem;
+        }
+
+        @include media-query('desktop') {
+            width: 55%;
+            padding-top: 3.7rem;
+            padding-right: 0;
+            text-align: start;
+
+            @include flex-layout(center, start, column);
+        }
+    }
+}
+
+/* ==========================================================================
+   IMAGE CONTAINER BLOCKS & FLOATING BADGES
+   ========================================================================== */
+.hero-section {
+    &__image-card {
+        position: relative;
+        height: 50%;
+        flex: 1;
+        width: 100%;
+    }
+
+    &__featured-card {
+        position: relative;
+    }
+
+    &__image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+.share-icon-container {
+    position: absolute;
+    left: -10%;
+    bottom: -10%;
+    background-color: get-color('font-pink');
+    border-radius: 100%;
+    filter: drop-shadow($shadow-md);
+    padding: 1rem;
+    width: 30px;
+    height: 30px;
+
+    @include media-query('tablet') {
+        width: 55px;
+        height: 55px;
+        padding: 1.5rem;
+    }
+    @include media-query('desktop') {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.share-icon,
+.contact-icon {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.top-places-icon-container {
+    position: absolute;
+    right: -25%;
+    bottom: 10%;
+    background-color: get-color('primary-white');
+
+    @include flex-layout(flex-start, center, row);
+
+    gap: 0.5rem;
+    border-radius: $medium-border-radius;
+    filter: drop-shadow($shadow-md);
+    height: 30px;
+    padding: 0rem 0.5rem;
+
+    @include media-query('tablet') {
+        height: auto;
+        right: -30%;
+        padding: 2rem clamp(2rem, 4vw, 4.5rem);
+    }
+
+    @include media-query('desktop') {
+        padding: 2rem 4rem;
+    }
+}
+
+.top-places-icon {
+    width: 15px;
+    height: 15px;
+}
+
+.contact-icon-container {
+    position: absolute;
+    bottom: -1%;
+    right: 22%;
+    border-radius: 100%;
+    background-color: get-color('primary-orange');
+    padding: 1rem;
+    filter: drop-shadow($shadow-md);
+    width: 30px;
+    height: 30px;
+
+    @include media-query('tablet') {
+        width: 55px;
+        height: 55px;
+        padding: 1.5rem;
+        bottom: -2%;
+    }
+    @include media-query('desktop') {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* ==========================================================================
+   TRAVEL SECTION CONTENT 
+   ========================================================================== */
+.travel-section {
+    &__explore-container {
+        gap: 3rem;
+        @include flex-layout(center, center, column);
+        text-align: center;
+
+        @include media-query('tablet') {
+            gap: 3rem;
+        }
+
+        @include media-query('desktop') {
+            gap: 4rem;
+            padding-top: 3.7rem;
+            text-align: start;
+
+            @include flex-layout(center, start, column);
+        }
+    }
+
+    &__heading1 {
+        font-size: $xxxl-font-size;
+        font-weight: $bold-font-weight;
+        padding-inline: 2rem;
+
+        span {
+            display: inline;
+            color: get-color('font-pink');
+        }
+
+        @include media-query('tablet') {
+            font-size: $xxxxl-font-size;
+            padding-inline: 0;
+        }
+
+        @include media-query('desktop') {
+            font-size: clamp($xxxxl-font-size, 6vw + 1rem, $xxxxxl-font-size);
+            letter-spacing: -3px;
+            word-spacing: -8px;
+        }
+    }
+
+    &__heading2 {
+        font-family:
+            #{$font-secondary},
+            #{$fallback-font};
+        color: get-color('font-gray');
+        font-weight: $normal-font-weight;
+        font-size: $md-font-size;
+
+        @include line-clamp();
+
+        @include media-query('tablet') {
+            font-size: $l-font-size;
+            padding: 0rem clamp(2rem, 10vw, 13rem);
+        }
+
+        @include media-query('desktop') {
+            font-size: clamp($md-font-size, 2vw, $l-font-size);
+            padding: 0rem;
+        }
+    }
+
+    &__btn-container {
+        width: 100%;
+        @include flex-layout(flex-start, stretch, column);
+        gap: 3rem;
+
+        @include media-query('tablet') {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 61%;
+            gap: 2rem;
+        }
+        @include media-query('desktop') {
+            flex-direction: row;
+            justify-content: start;
+            width: 100%;
+        }
+    }
+
+    &__get-started-btn {
+        width: 100%;
+        padding-block: 2rem;
+
+        @include media-query('tablet') {
+            width: 35%;
+            padding: 1.5rem 0.5rem;
+        }
+        @include media-query('desktop') {
+            width: 50%;
+        }
+    }
+
+    &__watch-demo-btn {
+        @include flex-layout(center, center, row);
+        gap: 1.5rem;
+        width: 100%;
+        border: 1px solid adjust-color(get-color('font-gray'), $lightness: 50%);
+
+        @include media-query('tablet') {
+            width: 40%;
+        }
+        @include media-query('desktop') {
+            gap: 0.5rem;
+            width: 50%;
+        }
+    }
+}
+
+/* ==========================================================================
+   EXPLORE WORLD BADGE COMPONENT
+   ========================================================================== */
+.explore-world-container {
+    @include flex-layout(flex-start, center, row);
+    width: fit-content;
+    gap: 1rem;
+    background-color: rgba(get-color('primary-white'), 0.5);
+    color: get-color('font-pink');
+    padding: 1.5rem 4rem;
+    border-radius: $large-border-radius;
+    filter: drop-shadow($shadow-sm);
+
+    @include media-query('tablet') {
+        padding: 1.5rem 2rem;
+    }
+
+    @include media-query('desktop') {
+        background-color: rgba(get-color('primary-white'), 0.5);
+    }
+}
+
+.handbag-image {
+    width: 15px;
+    height: 15px;
+}

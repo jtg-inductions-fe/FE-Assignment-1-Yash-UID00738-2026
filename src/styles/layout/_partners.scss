@@ -1,0 +1,85 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+/* ==========================================================================
+   PARTNERS SECTION BLOCK
+   ========================================================================== */
+.partners-section {
+    @include flex-layout(center, center, row);
+    width: 100%;
+    max-width: $desktop-size;
+    margin-inline: auto;
+    padding: 3.5rem clamp(1.5rem, 4vw, 3rem);
+
+    @include media-query('tablet') {
+        padding: 4.5rem clamp(3rem, 7vw, 6.5rem);
+        width: 75%;
+    }
+
+    @include media-query('desktop') {
+        width: 100%;
+        padding: 7rem clamp(6rem, 13vw, 12rem);
+    }
+
+    &__logo-container {
+        @include flex-layout(center, center, row);
+        width: 100%;
+        column-gap: 5%;
+        row-gap: 1rem;
+        flex-wrap: wrap;
+
+        @include media-query('tablet') {
+            column-gap: 8%;
+            row-gap: 1.5rem;
+        }
+
+        @include media-query('desktop') {
+            justify-content: space-between;
+            column-gap: 2%;
+        }
+    }
+
+    &__brand-logo {
+        height: 50px;
+        width: 28%;
+        object-fit: contain;
+
+        &--expedia {
+            width: 20%;
+        }
+        &--airbnb {
+            width: 20%;
+        }
+
+        @include media-query('tablet') {
+            width: 30%;
+
+            &--expedia {
+                width: 15%;
+            }
+            &--airbnb {
+                width: 15%;
+            }
+        }
+
+        @include media-query('desktop') {
+            width: auto;
+
+            &--tripadvisor {
+                width: 19%;
+            }
+            &--expedia {
+                width: 10%;
+            }
+            &--booking {
+                width: 17%;
+            }
+            &--airbnb {
+                width: 10%;
+            }
+            &--orbitz {
+                width: 15%;
+            }
+        }
+    }
+}

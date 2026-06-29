@@ -15,6 +15,9 @@
 // --- Layout ---
 @use 'layout/body';
 @use 'layout/header';
+@use 'layout/hero';
+@use 'layout/partners';
+@use 'layout/travel-point';
 
 // --- Pages ---
 @use 'pages/index';
