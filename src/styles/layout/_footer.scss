@@ -29,7 +29,7 @@
         gap: 1rem;
 
         h2 {
-            font-size: $extra-large-font-size;
+            font-size: $xl-font-size;
             font-family:
                 #{$font-primary},
                 #{$fallback-font};
@@ -37,7 +37,7 @@
     }
 
     &__para {
-        font-size: $medium-font-size;
+        font-size: $md-font-size;
         font-family:
             #{$font-primary},
             #{$fallback-font};
@@ -45,12 +45,12 @@
         line-height: 160%;
 
         @include media-query('tablet') {
-            font-size: $extra-large-font-size;
+            font-size: $xl-font-size;
         }
     }
 
     &__socials {
-        font-size: 2rem;
+        font-size: $l-font-size;
         @include flex-layout(flex-start, center, row);
         gap: 2rem;
     }
@@ -81,7 +81,7 @@
         }
 
         h3 {
-            font-size: $extra-large-font-size;
+            font-size: $xl-font-size;
             font-family:
                 #{$font-primary},
                 #{$fallback-font};
@@ -106,7 +106,7 @@
     }
 
     &__link {
-        font-size: $large-font-size;
+        font-size: $l-font-size;
         font-family:
             #{$font-secondary},
             #{$fallback-font};
