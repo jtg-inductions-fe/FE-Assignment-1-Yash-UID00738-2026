@@ -7,7 +7,7 @@
    ========================================================================== */
 .travel-point-section {
     @include flex-layout(center, center, column);
-    gap: 3rem;
+    gap: 6rem;
     width: 100%;
     padding-top: 7rem;
 
@@ -17,7 +17,6 @@
     @include media-query('desktop') {
         flex-direction: row;
         gap: 0;
-        padding-right: 7vw;
         padding-top: 5rem;
     }
 
@@ -28,6 +27,7 @@
 
         @include media-query('tablet') {
             max-width: 1024px;
+            width: 114%;
         }
         @include media-query('desktop') {
             max-width: none;
@@ -109,7 +109,7 @@
             flex-direction: row;
             flex-wrap: wrap;
             gap: 3rem;
-            padding: 5rem 6vw 3rem;
+            padding-block: 5rem 3rem;
         }
 
         @include media-query('desktop') {

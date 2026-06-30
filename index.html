@@ -15,8 +15,8 @@
             href="/assets/favicon/favicon.ico"
         />
     </head>
-    <body class="container">
-        <header class="header">
+    <body>
+        <header class="container header">
             <button
                 type="button"
                 class="header__ham-btn"
@@ -104,14 +104,12 @@
 
         <div class="top-shadow"></div>
 
-        <div class="mid-shadow"></div>
-
         <div class="arrow-obj-decorative">
             <img src="/src/assets/images/arrow-object.svg" aria-hidden="true" />
         </div>
 
         <main>
-            <section class="hero-section">
+            <section class="container hero-section">
                 <div class="hero-section-images__outer-container">
                     <div class="hero-section__images-container">
                         <div class="hero-section__column-stacked">
@@ -235,7 +233,10 @@
                 </div>
             </section>
 
-            <section class="partners-section" aria-label="Our Partners">
+            <section
+                class="partners-section container"
+                aria-label="Our Partners"
+            >
                 <div class="partners-section__logo-container">
                     <img
                         src="./src/assets/images/logo-tripadvisor.svg"
@@ -273,9 +274,11 @@
                         height="100"
                     />
                 </div>
+
+                <div class="partners-section__shadow-element"></div>
             </section>
 
-            <section class="travel-point-section">
+            <section class="container travel-point-section">
                 <div class="travel-point-section__banner-container">
                     <img
                         src="./src/assets/images/travel-point-banner.png"
@@ -314,62 +317,64 @@
             </section>
 
             <section class="testimonials-section">
-                <div class="testimonials-section__header">
-                    <span class="testimonials-section__subtitle"
-                        >TESTIMONIALS</span
+                <div class="container">
+                    <div class="testimonials-section__header">
+                        <span class="testimonials-section__subtitle"
+                            >TESTIMONIALS</span
+                        >
+                        <h2 class="testimonials-section__title">
+                            Trust our clients
+                        </h2>
+                    </div>
+
+                    <section
+                        id="image-carousel"
+                        class="splide testimonials-section__carousel"
+                        aria-label="Client Testimonials"
                     >
-                    <h2 class="testimonials-section__title">
-                        Trust our clients
-                    </h2>
+                        <div class="splide__arrows">
+                            <button
+                                type="button"
+                                class="splide__arrow splide__arrow--prev testimonials-section__carousel-arrow testimonials-section__carousel-arrow--prev"
+                            >
+                                <svg
+                                    viewBox="0 0 12 8"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M9.33488 3.16784H0.639979C0.286517 3.16784 -2.00272e-05 3.45438 -2.00272e-05 3.80784C-2.00272e-05 4.1613 0.286517 4.44784 0.639979 4.44784H9.33488L7.25959 6.52313C7.00966 6.77306 7.00966 7.17829 7.25959 7.42823C7.50953 7.67816 7.91475 7.67816 8.16469 7.42823L10.88 4.71293C11.3799 4.21306 11.3799 3.40261 10.88 2.90274L8.16469 0.187452C7.91475 -0.0624839 7.50953 -0.0624839 7.25959 0.187452C7.00966 0.437387 7.00966 0.842613 7.25959 1.09255L9.33488 3.16784Z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="splide__arrow splide__arrow--next testimonials-section__carousel-arrow testimonials-section__carousel-arrow--next"
+                            >
+                                <svg
+                                    viewBox="0 0 12 8"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M9.33488 3.16784H0.639979C0.286517 3.16784 -2.00272e-05 3.45438 -2.00272e-05 3.80784C-2.00272e-05 4.1613 0.286517 4.44784 0.639979 4.44784H9.33488L7.25959 6.52313C7.00966 6.77306 7.00966 7.17829 7.25959 7.42823C7.50953 7.67816 7.91475 7.67816 8.16469 7.42823L10.88 4.71293C11.3799 4.21306 11.3799 3.40261 10.88 2.90274L8.16469 0.187452C7.91475 -0.0624839 7.50953 -0.0624839 7.25959 0.187452C7.00966 0.437387 7.00966 0.842613 7.25959 1.09255L9.33488 3.16784Z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="splide__track">
+                            <ul class="splide__list"></ul>
+                        </div>
+                    </section>
                 </div>
-
-                <section
-                    id="image-carousel"
-                    class="splide testimonials-section__carousel"
-                    aria-label="Client Testimonials"
-                >
-                    <div class="splide__arrows">
-                        <button
-                            type="button"
-                            class="splide__arrow splide__arrow--prev testimonials-section__carousel-arrow testimonials-section__carousel-arrow--prev"
-                        >
-                            <svg
-                                viewBox="0 0 12 8"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M9.33488 3.16784H0.639979C0.286517 3.16784 -2.00272e-05 3.45438 -2.00272e-05 3.80784C-2.00272e-05 4.1613 0.286517 4.44784 0.639979 4.44784H9.33488L7.25959 6.52313C7.00966 6.77306 7.00966 7.17829 7.25959 7.42823C7.50953 7.67816 7.91475 7.67816 8.16469 7.42823L10.88 4.71293C11.3799 4.21306 11.3799 3.40261 10.88 2.90274L8.16469 0.187452C7.91475 -0.0624839 7.50953 -0.0624839 7.25959 0.187452C7.00966 0.437387 7.00966 0.842613 7.25959 1.09255L9.33488 3.16784Z"
-                                    fill="currentColor"
-                                />
-                            </svg>
-                        </button>
-
-                        <button
-                            type="button"
-                            class="splide__arrow splide__arrow--next testimonials-section__carousel-arrow testimonials-section__carousel-arrow--next"
-                        >
-                            <svg
-                                viewBox="0 0 12 8"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M9.33488 3.16784H0.639979C0.286517 3.16784 -2.00272e-05 3.45438 -2.00272e-05 3.80784C-2.00272e-05 4.1613 0.286517 4.44784 0.639979 4.44784H9.33488L7.25959 6.52313C7.00966 6.77306 7.00966 7.17829 7.25959 7.42823C7.50953 7.67816 7.91475 7.67816 8.16469 7.42823L10.88 4.71293C11.3799 4.21306 11.3799 3.40261 10.88 2.90274L8.16469 0.187452C7.91475 -0.0624839 7.50953 -0.0624839 7.25959 0.187452C7.00966 0.437387 7.00966 0.842613 7.25959 1.09255L9.33488 3.16784Z"
-                                    fill="currentColor"
-                                />
-                            </svg>
-                        </button>
-                    </div>
-
-                    <div class="splide__track">
-                        <ul class="splide__list"></ul>
-                    </div>
-                </section>
             </section>
         </main>
 
-        <footer class="footer">
+        <footer class="footer container">
             <div class="footer__top">
                 <div class="footer__heading">
                     <img

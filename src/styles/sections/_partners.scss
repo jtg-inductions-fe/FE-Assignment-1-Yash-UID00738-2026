@@ -1,5 +1,6 @@
 @use '../abstracts/mixins' as *;
 @use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
 
 /* ==========================================================================
    PARTNERS SECTION BLOCK
@@ -7,18 +8,17 @@
 .partners-section {
     @include flex-layout(center, center, row);
     width: 100%;
-    max-width: $desktop-size;
-    margin-inline: auto;
-    padding: 3.5rem clamp(1.5rem, 4vw, 3rem);
+    padding-block: 3.5rem;
+    position: relative;
 
     @include media-query('tablet') {
-        padding: 4.5rem clamp(3rem, 7vw, 6.5rem);
+        padding-block: 4.5rem;
         width: 75%;
     }
 
     @include media-query('desktop') {
         width: 100%;
-        padding: 7rem clamp(6rem, 13vw, 12rem);
+        padding-block: 5rem;
     }
 
     &__logo-container {
@@ -81,5 +81,28 @@
                 width: 15%;
             }
         }
+    }
+}
+
+.partners-section__shadow-element {
+    display: none;
+    background-color: get-color('primary-yellow');
+    border-radius: 100%;
+    filter: blur(180px);
+    opacity: 0.4;
+    pointer-events: none;
+    position: absolute;
+    z-index: $z-index-1000;
+
+    @include media-query('tablet') {
+        display: block;
+        filter: blur(167px);
+        height: 40rem;
+        width: 46rem;
+        top: -43%;
+        right: -56%;
+    }
+    @include media-query('desktop') {
+        right: -22%;
     }
 }

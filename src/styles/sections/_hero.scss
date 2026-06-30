@@ -9,17 +9,15 @@
     @include flex-layout(flex-start, center, column);
 
     width: 100%;
-    max-width: $desktop-size;
-    padding: 3rem 1.5rem;
+    padding-block: 3rem;
 
     @include media-query('tablet') {
-        padding: 6rem 12vw;
+        padding-block: 6rem;
     }
     @include media-query('desktop') {
-        padding: 2.5rem 5vw;
+        padding-block: 2.5rem;
         flex-direction: row-reverse;
         align-items: flex-start;
-        margin-inline: auto;
     }
 
     &-images__outer-container {
@@ -32,7 +30,12 @@
         padding-top: 3rem;
 
         @include media-query('tablet') {
-            padding: 10rem 11vw 5rem 9vw;
+            padding: 10rem 15vw 5rem 15vw;
+            padding-top: 7rem;
+        }
+
+        @include media-query('desktop') {
+            padding: 10rem 6vw 5rem 8vw;
             padding-top: 7rem;
         }
     }
@@ -83,8 +86,7 @@
 
         @include media-query('desktop') {
             width: 55%;
-            padding-top: 3.7rem;
-            padding-right: 0;
+            padding: 3.7rem 0 0 0;
             text-align: start;
 
             @include flex-layout(center, start, column);
