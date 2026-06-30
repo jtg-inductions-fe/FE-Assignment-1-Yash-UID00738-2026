@@ -5,22 +5,18 @@
 .footer {
     @include flex-layout(space-between, flex-start, column);
 
-    padding-inline: 7vw;
     gap: 7rem;
-    margin-top: 2.6rem;
-    padding-bottom: 8rem;
+    padding-block: 4rem;
     position: relative;
 
     @include media-query('tablet') {
-        padding-inline: 6vw;
-        margin-top: 25.5rem;
+        margin-top: 18.5rem;
     }
 
     @include media-query('desktop') {
         margin-top: 16.5rem;
         flex-direction: row;
         gap: 2rem;
-        padding-inline: 9vw;
     }
 
     &__background-object {

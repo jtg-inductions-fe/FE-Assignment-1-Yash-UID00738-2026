@@ -11,19 +11,19 @@
 
     font-size: $md-font-size;
     flex-flow: row-reverse;
-    padding: 4rem clamp(1.5rem, 4vw, 3rem);
+    padding-block: 4rem;
     position: sticky;
     top: 0;
     z-index: $z-index-100;
     background-color: get-color('primary-body');
 
     @include media-query('tablet') {
-        padding: 3.5rem clamp(3rem, 7vw, 6.5rem);
+        padding-block: 3.5rem;
         flex-flow: row;
     }
 
     @include media-query('desktop') {
-        padding: 6.5rem clamp(6rem, 13vw, 12rem);
+        padding-block: 6.5rem;
     }
 
     &__brand-logo {
