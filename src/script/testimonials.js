@@ -55,6 +55,7 @@ const testimonialsInit = async () => {
                                 class="testimonials-section__stars-icon"
                                 width="25"
                                 height="25"
+                                loading="lazy"
                             />
                             `.repeat(data.rating)}
                         </div>
