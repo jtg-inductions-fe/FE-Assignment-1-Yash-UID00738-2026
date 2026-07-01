@@ -488,6 +488,40 @@
             </div>
         </footer>
 
+        <div class="deals-modal">
+            <div class="deals-modal__overlay"></div>
+
+            <div class="deals-modal__content">
+                <button class="deals-modal__close" aria-label="Close modal">
+                    &times;
+                </button>
+
+                <div class="deals-modal__header">
+                    <span class="deals-modal__badge">
+                        <img
+                            src="./src/assets/images/gift-icon.svg"
+                            aria-hidden="true"
+                            width="13"
+                            height="13"
+                        />
+                        <h2>SPECIAL DEALS</h2>
+                    </span>
+                    <h1 class="deals-modal__title">Spin & Win!</h1>
+                    <p class="deals-modal__subtitle">
+                        Tap the center of the wheel to spin
+                    </p>
+                </div>
+
+                <div class="wheel-wrapper">
+                    <div class="wheel-pointer"></div>
+
+                    <div class="wheel">
+                        <div class="wheel__loading">Loading...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>
