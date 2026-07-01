@@ -6,17 +6,20 @@
     @include flex-layout(space-between, flex-start, column);
 
     gap: 7rem;
-    padding-block: 4rem;
+    padding-block: 8rem;
     position: relative;
+    padding-inline: 6vw;
 
     @include media-query('tablet') {
-        margin-top: 18.5rem;
+        padding-block: 4rem;
+        margin-top: 19.5rem;
     }
 
     @include media-query('desktop') {
         margin-top: 16.5rem;
         flex-direction: row;
-        gap: 2rem;
+        gap: 10rem;
+        padding-inline: 9vw;
     }
 
     &__background-object {
@@ -51,6 +54,7 @@
 
         @include media-query('desktop') {
             gap: 4rem;
+            width: 95%;
         }
     }
 
@@ -102,6 +106,10 @@
             grid-template-columns: 1fr 1fr 1fr;
             margin-top: 0;
         }
+
+        @include media-query('desktop') {
+            gap: 4.5rem;
+        }
     }
 
     &__company,
@@ -112,7 +120,7 @@
 
         @include media-query('tablet') {
             justify-content: flex-start;
-            gap: 2rem;
+            gap: 3rem;
         }
 
         h3 {
@@ -147,7 +155,7 @@
         font-family:
             #{$font-secondary},
             #{$fallback-font};
-        color: get-color('font-gray');
+        color: get-color('font-dark-gray');
         font-weight: $normal-font-weight;
 
         &:hover {

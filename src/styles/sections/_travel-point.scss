@@ -18,6 +18,7 @@
         flex-direction: row;
         gap: 0;
         padding-top: 5rem;
+        padding-right: 7vw;
     }
 
     &__banner-container {
@@ -30,7 +31,7 @@
             width: 114%;
         }
         @include media-query('desktop') {
-            max-width: none;
+            width: 100%;
         }
     }
 
@@ -48,8 +49,9 @@
         padding-top: 1rem;
 
         @include media-query('desktop') {
-            width: 53%;
-            gap: 6rem;
+            width: 55%;
+            gap: 7rem;
+            padding-top: 4rem;
         }
     }
 
@@ -110,6 +112,7 @@
             flex-wrap: wrap;
             gap: 3rem;
             padding-block: 5rem 3rem;
+            padding-inline: 5vw;
         }
 
         @include media-query('desktop') {
@@ -142,6 +145,7 @@
         text-align: center;
         @include flex-layout(center, center, column);
         gap: 1.5rem;
+        position: relative;
 
         @include media-query('tablet') {
             padding: 3rem 5.5rem;
@@ -162,5 +166,29 @@
             font-size: $l-font-size;
             margin: 0;
         }
+
+        &:nth-child(2)::after {
+            content: '';
+            display: none;
+
+            @include media-query('desktop') {
+                display: block;
+                position: absolute;
+                right: -60%;
+                top: -36%;
+                width: 279px;
+                height: 349px;
+                background-image: url('../assets/images/travel-point-star.svg');
+                background-repeat: no-repeat;
+                background-size: contain;
+                pointer-events: none;
+            }
+        }
     }
+}
+
+.travel-point-section-container {
+    width: 100%;
+    max-width: $desktop-size;
+    margin-inline: auto;
 }

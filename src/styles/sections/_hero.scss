@@ -151,6 +151,8 @@
     bottom: 10%;
     background-color: get-color('primary-white');
 
+    color: get-color('font-dark-gray');
+
     @include flex-layout(flex-start, center, row);
 
     gap: 0.5rem;
@@ -166,13 +168,18 @@
     }
 
     @include media-query('desktop') {
-        padding: 2rem 4rem;
+        font-size: $sm-font-size;
+        padding: 1.6rem 3.2rem;
     }
 }
 
 .top-places-icon {
     width: 15px;
     height: 15px;
+    @include media-query('desktop') {
+        width: 24px;
+        height: 24px;
+    }
 }
 
 .contact-icon-container {
@@ -238,7 +245,6 @@
         @include media-query('desktop') {
             font-size: clamp($xxxxl-font-size, 6vw + 1rem, $xxxxxl-font-size);
             letter-spacing: -3px;
-            word-spacing: -8px;
         }
     }
 
@@ -278,35 +284,31 @@
         @include media-query('desktop') {
             flex-direction: row;
             justify-content: start;
+            align-items: start;
             width: 100%;
         }
     }
 
     &__get-started-btn {
         width: 100%;
-        padding-block: 2rem;
 
         @include media-query('tablet') {
-            width: 35%;
-            padding: 1.5rem 0.5rem;
+            width: 30%;
         }
         @include media-query('desktop') {
-            width: 50%;
+            width: 36%;
         }
     }
 
     &__watch-demo-btn {
         @include flex-layout(center, center, row);
         gap: 1.5rem;
-        width: 100%;
         border: 1px solid adjust-color(get-color('font-gray'), $lightness: 50%);
 
         @include media-query('tablet') {
-            width: 40%;
         }
         @include media-query('desktop') {
             gap: 0.5rem;
-            width: 50%;
         }
     }
 }

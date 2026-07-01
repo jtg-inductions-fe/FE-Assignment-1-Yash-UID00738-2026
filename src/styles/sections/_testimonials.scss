@@ -9,7 +9,7 @@
 
 .testimonials-section {
     text-align: center;
-    padding-block: 11rem;
+    padding-block: 8rem;
     position: relative;
 
     @include media-query('tablet') {
@@ -28,16 +28,15 @@
             background-position: center;
             background-size: 100% auto;
             opacity: 0.08;
-            z-index: -1;
             pointer-events: none;
         }
     }
 
     @include media-query('desktop') {
-        padding-block: 11rem;
+        padding-block: 10rem;
 
         &::before {
-            top: 70%;
+            top: 67%;
         }
     }
 
@@ -53,10 +52,6 @@
 
         @include media-query('tablet') {
             padding-block: 4.5rem;
-        }
-
-        @include media-query('desktop') {
-            padding-block: 6.5rem;
         }
     }
 
@@ -176,7 +171,7 @@
     &__role {
         font-size: $xl-font-size;
         font-weight: $bold-font-weight;
-        color: get-color('font-gray');
+        color: get-color('font-dark-gray');
     }
 
     &__name {
@@ -189,13 +184,16 @@
         font-size: $l-font-size;
         color: get-color('font-gray');
         line-height: 27px;
+        color: get-color('font-dark-gray');
+
+        margin-inline: auto;
 
         @include line-clamp();
 
         @include media-query('tablet') {
             font-size: $xl-font-size;
             line-height: 34px;
-            padding-inline: 22vw;
+            max-width: 600px;
         }
     }
 }
@@ -217,5 +215,20 @@
             background-color: get-color('font-pink') !important;
             transform: none !important;
         }
+    }
+}
+
+.testimonials-section-container {
+    width: 100%;
+    max-width: $desktop-size;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+
+    @include media-query('tablet') {
+        padding-inline: 1.5vw;
+    }
+
+    @include media-query('desktop') {
+        padding-inline: 0;
     }
 }
