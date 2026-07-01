@@ -15,8 +15,8 @@
             href="/assets/favicon/favicon.ico"
         />
     </head>
-    <body class="container">
-        <header class="header">
+    <body>
+        <header class="container header">
             <button
                 type="button"
                 class="header__ham-btn"
@@ -100,18 +100,25 @@
                     Sign Up
                 </button>
             </div>
+
+            <div class="top-shadow"></div>
+
+            <div class="arrow-obj-decorative">
+                <img
+                    src="/src/assets/images/arrow-object.svg"
+                    aria-hidden="true"
+                />
+            </div>
         </header>
 
-        <div class="top-shadow"></div>
-
         <main>
-            <section class="hero-section">
+            <section class="container hero-section">
                 <div class="hero-section-images__outer-container">
                     <div class="hero-section__images-container">
                         <div class="hero-section__column-stacked">
                             <div class="hero-section__image-card">
                                 <img
-                                    src="./src/assets/images/hero-destination-1.png"
+                                    src="./src/assets/images/hero-destination-1.webp"
                                     alt="Scenic view of a travel destination"
                                     width="200px"
                                     height="220px"
@@ -130,7 +137,7 @@
                             </div>
                             <div class="hero-section__image-card">
                                 <img
-                                    src="./src/assets/images/hero-destination-2.png"
+                                    src="./src/assets/images/hero-destination-2.webp"
                                     alt="Traveler exploring a scenic location"
                                     width="200px"
                                     height="220px"
@@ -142,7 +149,7 @@
                         <div class="hero-section__column-single">
                             <div class="hero-section__featured-card">
                                 <img
-                                    src="./src/assets/images/hero-destination-3.png"
+                                    src="./src/assets/images/hero-destination-3.webp"
                                     alt="Beautiful landscape of a top travel destination"
                                     width="200px"
                                     height="320px"
@@ -229,7 +236,10 @@
                 </div>
             </section>
 
-            <section class="partners-section" aria-label="Our Partners">
+            <section
+                class="partners-section container"
+                aria-label="Our Partners"
+            >
                 <div class="partners-section__logo-container">
                     <img
                         src="./src/assets/images/logo-tripadvisor.svg"
@@ -267,9 +277,13 @@
                         height="100"
                     />
                 </div>
+
+                <div class="partners-section__shadow-element"></div>
             </section>
 
-            <section class="travel-point-section">
+            <section
+                class="travel-point-section travel-point-section-container"
+            >
                 <div class="travel-point-section__banner-container">
                     <img
                         src="./src/assets/images/travel-point-banner.png"
@@ -277,6 +291,7 @@
                         width="428"
                         height="342"
                         class="travel-point-section__banner"
+                        loading="lazy"
                     />
                 </div>
 
@@ -294,19 +309,184 @@
                             classical Latin literature from 45 BC.
                         </p>
                     </div>
-                    <div class="travel-point-section__company-details">
-                        <img
-                            src="./src/assets/images/travel-point-star.svg"
-                            alt=""
-                            width="279.02px"
-                            height="349.4px"
-                            class="travel-point-section__star-icon"
-                            aria-hidden="true"
-                        />
-                    </div>
+                    <div class="travel-point-section__company-details"></div>
                 </div>
             </section>
+
+            <section
+                class="testimonials-section testimonials-section-container"
+            >
+                <div class="testimonials-section__header">
+                    <span class="testimonials-section__subtitle"
+                        >TESTIMONIALS</span
+                    >
+                    <h2 class="testimonials-section__title">
+                        Trust our clients
+                    </h2>
+                </div>
+
+                <section
+                    id="image-carousel"
+                    class="splide testimonials-section__carousel"
+                    aria-label="Client Testimonials"
+                >
+                    <div class="splide__arrows">
+                        <button
+                            type="button"
+                            class="splide__arrow splide__arrow--prev testimonials-section__carousel-arrow testimonials-section__carousel-arrow--prev"
+                        >
+                            <svg
+                                viewBox="0 0 12 8"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M9.33488 3.16784H0.639979C0.286517 3.16784 -2.00272e-05 3.45438 -2.00272e-05 3.80784C-2.00272e-05 4.1613 0.286517 4.44784 0.639979 4.44784H9.33488L7.25959 6.52313C7.00966 6.77306 7.00966 7.17829 7.25959 7.42823C7.50953 7.67816 7.91475 7.67816 8.16469 7.42823L10.88 4.71293C11.3799 4.21306 11.3799 3.40261 10.88 2.90274L8.16469 0.187452C7.91475 -0.0624839 7.50953 -0.0624839 7.25959 0.187452C7.00966 0.437387 7.00966 0.842613 7.25959 1.09255L9.33488 3.16784Z"
+                                    fill="currentColor"
+                                />
+                            </svg>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="splide__arrow splide__arrow--next testimonials-section__carousel-arrow testimonials-section__carousel-arrow--next"
+                        >
+                            <svg
+                                viewBox="0 0 12 8"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M9.33488 3.16784H0.639979C0.286517 3.16784 -2.00272e-05 3.45438 -2.00272e-05 3.80784C-2.00272e-05 4.1613 0.286517 4.44784 0.639979 4.44784H9.33488L7.25959 6.52313C7.00966 6.77306 7.00966 7.17829 7.25959 7.42823C7.50953 7.67816 7.91475 7.67816 8.16469 7.42823L10.88 4.71293C11.3799 4.21306 11.3799 3.40261 10.88 2.90274L8.16469 0.187452C7.91475 -0.0624839 7.50953 -0.0624839 7.25959 0.187452C7.00966 0.437387 7.00966 0.842613 7.25959 1.09255L9.33488 3.16784Z"
+                                    fill="currentColor"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="splide__track">
+                        <ul class="splide__list"></ul>
+                    </div>
+                </section>
+            </section>
         </main>
+
+        <footer class="footer">
+            <div class="footer__top">
+                <div class="footer__heading">
+                    <img
+                        src="./src/assets/images/brand-logo.svg"
+                        alt=""
+                        aria-hidden="true"
+                    />
+                    <h2>Travlog</h2>
+                </div>
+
+                <p class="footer__para">
+                    Contrary to popular belief, Lorem Ipsum is not simply random
+                    text. It has roots in a piece of classical Latin literature
+                    from 45 BC.
+                </p>
+
+                <div class="footer__socials">
+                    <a class="footer__facebook-social-container" href="#">
+                        <img
+                            src="/src/assets/images/facebook-logo.svg"
+                            alt="facebook-social"
+                        />
+                    </a>
+                    <a class="footer__twitter-social-container" href="#">
+                        <img
+                            src="/src/assets/images/twitter.svg"
+                            alt="twitter-social"
+                        />
+                    </a>
+                    <a class="footer__instagram-social-container" href="#">
+                        <img
+                            src="/src/assets/images/instagram-logo.svg"
+                            alt="instagram-social"
+                        />
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <div class="footer__company">
+                    <h3 class="footer__subheading">
+                        Company
+                        <span class="dropdown">
+                            <img
+                                src="/src/assets/images/drop-down-arrow.svg"
+                                alt="drop-down-arrow"
+                            />
+                        </span>
+                    </h3>
+                    <ul class="footer__link-container company-links">
+                        <li><a class="footer__link" href="#">About</a></li>
+                        <li><a class="footer__link" href="#">Career</a></li>
+                        <li><a class="footer__link" href="#">Mobile</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__contact">
+                    <h3 class="footer__subheading">
+                        Contact Us
+                        <span class="dropdown">
+                            <img
+                                src="/src/assets/images/drop-down-arrow.svg"
+                                alt="drop-down-arrow"
+                            />
+                        </span>
+                    </h3>
+                    <ul class="footer__link-container contact-links">
+                        <li>
+                            <a class="footer__link" href="#">Why Travlog?</a>
+                        </li>
+                        <li>
+                            <a class="footer__link" href="#">Partner with us</a>
+                        </li>
+                        <li><a class="footer__link" href="#">FAQ's</a></li>
+                        <li><a class="footer__link" href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__meet">
+                    <h3 class="footer__subheading">
+                        Meet Us
+                        <span class="dropdown">
+                            <img
+                                src="/src/assets/images/drop-down-arrow.svg"
+                                alt="drop-down-arrow"
+                            />
+                        </span>
+                    </h3>
+                    <ul class="footer__link-container meet-links">
+                        <li>
+                            <a class="footer__link" href="#"
+                                >+00 92 1234 56789</a
+                            >
+                        </li>
+                        <li>
+                            <a class="footer__link" href="#"
+                                >info@travlog.com</a
+                            >
+                        </li>
+                        <li>
+                            <a class="footer__link" href="#"
+                                >205. R Street, New York BD23200</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__background-object">
+                <img
+                    src="/src/assets/images/footer-background.svg"
+                    aria-hidden="true"
+                />
+            </div>
+        </footer>
 
         <script type="module" src="./src/script/index.js"></script>
     </body>

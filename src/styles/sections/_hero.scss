@@ -9,21 +9,19 @@
     @include flex-layout(flex-start, center, column);
 
     width: 100%;
-    max-width: $desktop-size;
-    padding: 3rem 1.5rem;
+    padding-block: 3rem;
 
     @include media-query('tablet') {
-        padding: 6rem 12vw;
+        padding-block: 6rem;
     }
     @include media-query('desktop') {
-        padding: 2.5rem 5vw;
+        padding-block: 2.5rem;
         flex-direction: row-reverse;
         align-items: flex-start;
-        margin-inline: auto;
     }
 
     &-images__outer-container {
-        background-image: url('../../../src/assets/images/hero-background.svg');
+        background-image: url('../assets/images/hero-background.svg');
         background-repeat: no-repeat;
         background-position: top;
         background-size: contain;
@@ -32,7 +30,12 @@
         padding-top: 3rem;
 
         @include media-query('tablet') {
-            padding: 10rem 11vw 5rem 9vw;
+            padding: 10rem 15vw 5rem 15vw;
+            padding-top: 7rem;
+        }
+
+        @include media-query('desktop') {
+            padding: 10rem 6vw 5rem 8vw;
             padding-top: 7rem;
         }
     }
@@ -83,8 +86,7 @@
 
         @include media-query('desktop') {
             width: 55%;
-            padding-top: 3.7rem;
-            padding-right: 0;
+            padding: 3.7rem 0 0 0;
             text-align: start;
 
             @include flex-layout(center, start, column);
@@ -149,6 +151,8 @@
     bottom: 10%;
     background-color: get-color('primary-white');
 
+    color: get-color('font-dark-gray');
+
     @include flex-layout(flex-start, center, row);
 
     gap: 0.5rem;
@@ -164,13 +168,18 @@
     }
 
     @include media-query('desktop') {
-        padding: 2rem 4rem;
+        font-size: $sm-font-size;
+        padding: 1.6rem 3.2rem;
     }
 }
 
 .top-places-icon {
     width: 15px;
     height: 15px;
+    @include media-query('desktop') {
+        width: 24px;
+        height: 24px;
+    }
 }
 
 .contact-icon-container {
@@ -236,7 +245,6 @@
         @include media-query('desktop') {
             font-size: clamp($xxxxl-font-size, 6vw + 1rem, $xxxxxl-font-size);
             letter-spacing: -3px;
-            word-spacing: -8px;
         }
     }
 
@@ -276,35 +284,31 @@
         @include media-query('desktop') {
             flex-direction: row;
             justify-content: start;
+            align-items: start;
             width: 100%;
         }
     }
 
     &__get-started-btn {
         width: 100%;
-        padding-block: 2rem;
 
         @include media-query('tablet') {
-            width: 35%;
-            padding: 1.5rem 0.5rem;
+            width: 30%;
         }
         @include media-query('desktop') {
-            width: 50%;
+            width: 36%;
         }
     }
 
     &__watch-demo-btn {
         @include flex-layout(center, center, row);
         gap: 1.5rem;
-        width: 100%;
         border: 1px solid adjust-color(get-color('font-gray'), $lightness: 50%);
 
         @include media-query('tablet') {
-            width: 40%;
         }
         @include media-query('desktop') {
             gap: 0.5rem;
-            width: 50%;
         }
     }
 }

@@ -1,0 +1,234 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:color';
+
+/* ==========================================================================
+   TESTIMONIALS BLOCK
+   ========================================================================== */
+
+.testimonials-section {
+    text-align: center;
+    padding-block: 8rem;
+    position: relative;
+
+    @include media-query('tablet') {
+        padding-block: 0;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 60%;
+            left: 0;
+            width: 100%;
+            height: 110%;
+            transform: translateY(-50%);
+            background-image: url('../assets/images/testimonials-background.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% auto;
+            opacity: 0.08;
+            pointer-events: none;
+        }
+    }
+
+    @include media-query('desktop') {
+        padding-block: 10rem;
+
+        &::before {
+            top: 67%;
+        }
+    }
+
+    &__header {
+        @include flex-layout(center, center, column);
+
+        gap: 2rem;
+    }
+
+    &__carousel {
+        padding-block: 6.5rem;
+        position: relative;
+
+        @include media-query('tablet') {
+            padding-block: 4.5rem;
+        }
+    }
+
+    &__carousel-arrow {
+        background-color: get-color('primary-white') !important;
+        color: get-color('font-black');
+        border: 1px solid get-color('shadow-gray') !important;
+        width: 64px !important ;
+        height: 64px !important;
+        transition: all 0.3s ease;
+        top: 23% !important;
+        filter: drop-shadow($shadow-xl);
+
+        @include media-query('tablet') {
+            width: 100px !important;
+            height: 100px !important;
+            top: 42% !important;
+        }
+
+        svg {
+            width: 24px !important;
+            height: auto;
+
+            @include media-query('tablet') {
+                width: 50px;
+            }
+        }
+
+        &:hover {
+            background-color: get-color('primary-purple') !important;
+            color: get-color('primary-white');
+        }
+
+        &--prev {
+            left: 5% !important;
+
+            @include media-query('desktop') {
+                left: 10% !important;
+            }
+        }
+
+        &--next {
+            right: 5% !important;
+
+            @include media-query('desktop') {
+                right: 10% !important;
+            }
+        }
+    }
+
+    &__subtitle {
+        font-size: $md-font-size;
+        font-weight: $bold-font-weight;
+        letter-spacing: 3px;
+        color: get-color('font-pink');
+
+        @include media-query('tablet') {
+            font-size: $xl-font-size;
+        }
+    }
+
+    &__title {
+        font-size: $xxl-font-size;
+        font-weight: $bold-font-weight;
+
+        @include media-query('tablet') {
+            font-size: $xxxl-font-size;
+        }
+    }
+
+    &__slide {
+        @include flex-layout(center, center, column);
+    }
+
+    &__card {
+        @include flex-layout(center, center, column);
+
+        width: 100%;
+        gap: 7.5rem;
+
+        @include media-query('desktop') {
+            gap: 6rem;
+        }
+    }
+
+    &__author {
+        @include flex-layout(center, center, column);
+        gap: 3rem;
+    }
+
+    &__stars {
+        @include flex-layout(center, center, row);
+
+        gap: 2rem;
+        width: 70%;
+    }
+
+    &__avatar-container {
+        width: 30%;
+        border-radius: 100%;
+
+        @include media-query('tablet') {
+            width: 13%;
+        }
+
+        @include media-query('desktop') {
+            width: 10%;
+        }
+    }
+
+    &__avatar {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    &__role {
+        font-size: $xl-font-size;
+        font-weight: $bold-font-weight;
+        color: get-color('font-dark-gray');
+    }
+
+    &__name {
+        color: get-color('primary-orange');
+        font-size: $xl-font-size;
+        font-weight: $extra-bold-font-weight;
+    }
+
+    &__review-text {
+        font-size: $l-font-size;
+        color: get-color('font-gray');
+        line-height: 27px;
+        color: get-color('font-dark-gray');
+
+        margin-inline: auto;
+
+        @include line-clamp();
+
+        @include media-query('tablet') {
+            font-size: $xl-font-size;
+            line-height: 34px;
+            max-width: 600px;
+        }
+    }
+}
+
+.splide__pagination {
+    display: flex;
+    gap: 2rem;
+    bottom: -5% !important;
+
+    &__page {
+        width: 25px !important;
+        height: 25px !important;
+        background: color.adjust(
+            get-color('font-gray'),
+            $lightness: 80%
+        ) !important;
+
+        &.is-active {
+            background-color: get-color('font-pink') !important;
+            transform: none !important;
+        }
+    }
+}
+
+.testimonials-section-container {
+    width: 100%;
+    max-width: $desktop-size;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+
+    @include media-query('tablet') {
+        padding-inline: 1.5vw;
+    }
+
+    @include media-query('desktop') {
+        padding-inline: 0;
+    }
+}

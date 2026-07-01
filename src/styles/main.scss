@@ -7,17 +7,21 @@
 // --- Base Styles ---
 @use 'base/animations';
 @use 'base/reset';
-@use 'base/typography';
 
 // --- Components ---
 @use 'components/buttons';
 
 // --- Layout ---
-@use 'layout/body';
-@use 'layout/header';
-@use 'layout/hero';
-@use 'layout/partners';
-@use 'layout/travel-point';
+@use 'sections/body';
+@use 'sections/header';
+@use 'sections/hero';
+@use 'sections/partners';
+@use 'sections/travel-point';
+@use 'sections/testimonials';
+@use 'sections/footer';
 
 // --- Pages ---
 @use 'pages/index';
+
+// --- typography ---
+@use 'typography/typography';
