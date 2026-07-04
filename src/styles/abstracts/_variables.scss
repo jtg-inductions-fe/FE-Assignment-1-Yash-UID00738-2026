@@ -29,6 +29,7 @@ $palette: (
     'dark-gray': #53525c,
     'cyan': #06b6d4,
     'off-white': #eeeeee,
+    'red': #f4436c,
 );
 $theme: (
     'primary-purple': map-get($palette, 'purple'),
@@ -44,6 +45,7 @@ $theme: (
     'primary-cyan': map-get($palette, 'cyan'),
     'font-dark-gray': map-get($palette, 'dark-gray'),
     'surface-light': map-get($palette, 'off-white'),
+    'primary-red': map-get($palette, 'red'),
 );
 
 // Breakpoints variables

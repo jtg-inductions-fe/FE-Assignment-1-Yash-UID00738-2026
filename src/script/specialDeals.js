@@ -162,7 +162,9 @@ const specialDealsInit = async () => {
         const wonDealContainer = document.querySelector(
             '.spin-and-win-component__won-deal',
         );
-        wonDealContainer.classList.add('won-deal--active');
+        wonDealContainer.classList.add(
+            'spin-and-win-component__won-deal--active',
+        );
 
         const card = generateDealCardHTML(wonDealObject);
         wonDealContainer.innerHTML = `<h2 class="won-deal__heading">you won!</h2>`;
@@ -292,6 +294,7 @@ const specialDealsInit = async () => {
                 event.preventDefault();
                 dealsModal.classList.add('is-open');
                 wheel.classList.add('wheel--active');
+                document.querySelector('html').style.overflowY = 'hidden';
                 specialDealsHandler();
             });
         }
@@ -312,6 +315,7 @@ const specialDealsInit = async () => {
                         dealsModal.classList.remove('is-open');
                         wheel.classList.remove('wheel--active');
                         spinEventManager.remove();
+                        document.querySelector('html').style.overflowY = 'auto';
                         break;
 
                     case 'view-unlocked':
