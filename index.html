@@ -492,7 +492,11 @@
             <div class="deals-modal__overlay"></div>
 
             <div class="deals-modal__content">
-                <button class="deals-modal__close" aria-label="Close modal">
+                <button
+                    class="deals-modal__close"
+                    aria-label="Close modal"
+                    data-action="close"
+                >
                     &times;
                 </button>
 
@@ -501,23 +505,75 @@
                         <img
                             src="./src/assets/images/gift-icon.svg"
                             aria-hidden="true"
-                            width="13"
-                            height="13"
+                            width="16"
+                            height="16"
                         />
                         <h2>SPECIAL DEALS</h2>
                     </span>
-                    <h1 class="deals-modal__title">Spin & Win!</h1>
-                    <p class="deals-modal__subtitle">
-                        Tap the center of the wheel to spin
-                    </p>
                 </div>
 
-                <div class="wheel-wrapper">
-                    <div class="wheel-pointer"></div>
+                <div
+                    class="spin-and-win-component spin-and-win-component--active"
+                >
+                    <h1 class="deals-modal__title heading-lg">Spin & Win!</h1>
 
-                    <div class="wheel">
-                        <div class="wheel__loading">Loading...</div>
+                    <p class="deals-modal__subtitle subheading-md">
+                        Tap the center of the wheel to spin
+                    </p>
+
+                    <div class="wheel-wrapper">
+                        <div class="wheel" id="spinWheel">
+                            <div class="wheel__loading">Loading...</div>
+
+                            <div class="wheel__segment wheel__segment--1"></div>
+                            <div class="wheel__segment wheel__segment--2"></div>
+                            <div class="wheel__segment wheel__segment--3"></div>
+                            <div class="wheel__segment wheel__segment--4"></div>
+
+                            <button class="wheel__spin-btn" id="spinBtn">
+                                Spin
+                            </button>
+                        </div>
+
+                        <div class="wheel-pointer"></div>
                     </div>
+
+                    <div class="spin-and-win-component__won-deal">
+                        <h2 class="won-deal__heading heading-sm">you won!</h2>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="view-unlocked-deals-btn btn btn--secondary"
+                        data-action="view-unlocked"
+                    >
+                        <h2 class="view-unlocked-deals-btn__heading heading-md">
+                            View All Unlocked Deals
+                        </h2>
+                        <span class="view-unlocked-deals-btn__badge">0</span>
+                    </button>
+                </div>
+
+                <div class="unlocked-deals-component">
+                    <h1 class="deals-modal__title heading-lg">
+                        Unlocked Deals
+                    </h1>
+
+                    <p class="deals-modal__subtitle subheading-md">
+                        All the deals you've unlocked yet!
+                    </p>
+
+                    <div
+                        class="unlocked-deals-component__deals-container"
+                    ></div>
+
+                    <button
+                        type="button"
+                        class="go-back-btn btn btn--secondary"
+                        data-action="go-back"
+                    >
+                        <h2 class="go-back-btn__heading heading-md">Go Back</h2>
+                    </button>
                 </div>
             </div>
         </div>

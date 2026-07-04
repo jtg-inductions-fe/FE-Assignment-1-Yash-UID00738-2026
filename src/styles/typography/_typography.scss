@@ -1,6 +1,43 @@
 @use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
 
-html {
-    font-size: 62.5%;
-    font-family: $font-primary, $fallback-font;
+.heading-lg {
+    font-size: $xl-font-size;
+    font-weight: $bold-font-weight;
+    color: get-color('font-black');
+    line-height: 1.2;
+}
+
+.heading-md {
+    font-size: $l-font-size;
+    font-weight: $bold-font-weight;
+    color: get-color('font-black');
+}
+
+.heading-sm {
+    font-size: $md-font-size;
+    font-weight: $bold-font-weight;
+    color: get-color('font-black');
+}
+
+.subheading-lg {
+    font-size: $md-font-size;
+    color: get-color('font-gray');
+}
+
+.subheading-md {
+    font-size: $sm-font-size;
+    color: get-color('font-gray');
+}
+
+.subheading-sm {
+    font-size: $sm-font-size;
+    color: get-color('primary-purple');
+}
+
+.text-promo {
+    font-size: $sm-font-size;
+    font-weight: $bold-font-weight;
+    letter-spacing: 1px;
+    color: get-color('font-black');
 }
