@@ -4,9 +4,15 @@
 @use 'abstracts/variables' as *;
 @use 'abstracts/fonts' as *;
 
+// --- typography ---
+@use 'typography/typography';
+
 // --- Base Styles ---
 @use 'base/animations';
 @use 'base/reset';
+
+// --- Pages ---
+@use 'pages/index';
 
 // --- Components ---
 @use 'components/buttons';
@@ -22,9 +28,3 @@
 @use 'sections/testimonials';
 @use 'sections/footer';
 @use 'sections/special-deals';
-
-// --- Pages ---
-@use 'pages/index';
-
-// --- typography ---
-@use 'typography/typography';

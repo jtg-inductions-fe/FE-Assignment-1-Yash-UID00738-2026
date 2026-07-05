@@ -1,9 +1,23 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/functions' as *;
 @use '../abstracts/mixins' as *;
+@use 'sass:color';
 
 .copy-btn {
     border: none;
     background: none;
     cursor: pointer;
+
+    path {
+        stroke: get-color('font-pink');
+        transition: stroke 0.2s ease;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+
+        path {
+            stroke: color.adjust(get-color('shadow-gray'), $lightness: -20%);
+        }
+    }
 }

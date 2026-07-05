@@ -7,6 +7,7 @@
    ========================================================================== */
 .travel-point-section {
     @include flex-layout(center, center, column);
+
     gap: 6rem;
     width: 100%;
     padding-top: 7rem;
@@ -103,6 +104,7 @@
 
     &__company-details {
         @include flex-layout(center, center, column);
+
         gap: 1rem;
         width: 100%;
         position: relative;

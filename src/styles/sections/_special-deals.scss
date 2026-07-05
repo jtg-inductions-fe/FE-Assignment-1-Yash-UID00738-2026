@@ -1,11 +1,9 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/functions' as *;
 @use '../abstracts/mixins' as *;
+@use '../typography/typography' as *;
 @use 'sass:color';
 
-/* ==========================================================================
-   SPECIAL DEALS MODAL
-   ========================================================================== */
 /* ==========================================================================
    SPECIAL DEALS MODAL
    ========================================================================== */
@@ -13,15 +11,19 @@
     position: fixed;
     inset: 0;
     z-index: $z-index-100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    @include flex-layout(center, flex-end, row);
+
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transition:
         opacity 0.3s ease,
         visibility 0.3s ease;
+
+    @include media-query('desktop') {
+        align-items: center;
+    }
 
     &.is-open {
         opacity: 1;
@@ -81,9 +83,10 @@
     }
 
     &__badge-heading {
+        @extend .subheading-sm;
+
         color: get-color('primary-red');
         font-weight: $thin-font-weight;
-        font-size: $sm-font-size;
         letter-spacing: 1px;
         font-family: $font-secondary;
     }
@@ -157,8 +160,10 @@
         }
 
         & > h2 {
-            font-size: $sm-font-size;
+            @extend .subheading-md;
+
             font-weight: $extra-bold-font-weight;
+            color: get-color('primary-white');
             text-align: center;
             padding: 0 15px;
         }
@@ -183,9 +188,9 @@
         }
         &--4 {
             background-color: get-color('primary-yellow');
-            color: get-color('font-black');
             & > h2 {
                 transform: rotate(135deg);
+                color: get-color('font-black');
             }
         }
     }

@@ -15,7 +15,7 @@
         padding-block: 6rem;
     }
     @include media-query('desktop') {
-        padding-block: 2.5rem;
+        padding-block: 6.5rem 2.5rem;
         flex-direction: row-reverse;
         align-items: flex-start;
     }
