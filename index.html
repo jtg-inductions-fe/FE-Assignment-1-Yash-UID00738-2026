@@ -8,11 +8,11 @@
             name="description"
             content="A travel agency called travlog, helps in exploring new places and book packages for holidays"
         />
-        <link rel="stylesheet" href="src/styles/main.scss" />
+        <link rel="stylesheet" href="./src/styles/main.scss" />
         <link
             type="image/x-icon"
             rel="icon"
-            href="/assets/favicon/favicon.ico"
+            href="./assets/favicon/favicon.ico"
         />
     </head>
     <body>
@@ -45,7 +45,7 @@
             </div>
 
             <a
-                href="#home"
+                href="#hero-section"
                 class="header__brand-logo"
                 aria-label="Travlog Home"
             >
@@ -66,18 +66,28 @@
             >
                 <ul class="nav-menu__list">
                     <li class="nav-menu__item">
-                        <a href="#home" class="nav-menu__link">Home</a>
+                        <a
+                            href="#hero-section"
+                            class="nav-menu__link"
+                            id="home-link"
+                            >Home</a
+                        >
                     </li>
                     <li class="nav-menu__item">
-                        <a href="#discover" class="nav-menu__link">Discover</a>
+                        <a href="#travel-point-section" class="nav-menu__link"
+                            >Discover</a
+                        >
                     </li>
                     <li class="nav-menu__item">
-                        <a href="#special-deals" class="nav-menu__link"
+                        <a
+                            href="#special-deals"
+                            class="nav-menu__link"
+                            id="special-deals-link"
                             >Special Deals</a
                         >
                     </li>
                     <li class="nav-menu__item">
-                        <a href="#contact" class="nav-menu__link">Contact</a>
+                        <a href="#footer" class="nav-menu__link">Contact</a>
                     </li>
                 </ul>
 
@@ -100,19 +110,12 @@
                     Sign Up
                 </button>
             </div>
-
-            <div class="top-shadow"></div>
-
-            <div class="arrow-obj-decorative">
-                <img
-                    src="/src/assets/images/arrow-object.svg"
-                    aria-hidden="true"
-                />
-            </div>
         </header>
 
+        <div class="top-shadow"></div>
+
         <main>
-            <section class="container hero-section">
+            <section class="container hero-section" id="hero-section">
                 <div class="hero-section-images__outer-container">
                     <div class="hero-section__images-container">
                         <div class="hero-section__column-stacked">
@@ -120,8 +123,8 @@
                                 <img
                                     src="./src/assets/images/hero-destination-1.webp"
                                     alt="Scenic view of a travel destination"
-                                    width="200px"
-                                    height="220px"
+                                    width="200"
+                                    height="220"
                                     class="hero-section__image"
                                 />
                                 <div class="share-icon-container">
@@ -129,8 +132,8 @@
                                         src="./src/assets/images/icon-share.svg"
                                         alt=""
                                         aria-hidden="true"
-                                        width="32px"
-                                        height="32px"
+                                        width="32"
+                                        height="32"
                                         class="share-icon"
                                     />
                                 </div>
@@ -139,8 +142,8 @@
                                 <img
                                     src="./src/assets/images/hero-destination-2.webp"
                                     alt="Traveler exploring a scenic location"
-                                    width="200px"
-                                    height="220px"
+                                    width="200"
+                                    height="220"
                                     class="hero-section__image"
                                 />
                             </div>
@@ -151,8 +154,8 @@
                                 <img
                                     src="./src/assets/images/hero-destination-3.webp"
                                     alt="Beautiful landscape of a top travel destination"
-                                    width="200px"
-                                    height="320px"
+                                    width="200"
+                                    height="320"
                                     class="hero-section__image"
                                 />
                                 <div class="top-places-icon-container">
@@ -160,8 +163,8 @@
                                         src="./src/assets/images/icon-location.svg"
                                         alt=""
                                         aria-hidden="true"
-                                        width="24px"
-                                        height="24px"
+                                        width="24"
+                                        height="24"
                                         class="top-places-icon"
                                     />
                                     <h4 class="top-places-name">Top Places</h4>
@@ -174,8 +177,8 @@
                                 src="./src/assets/images/icon-add-user.svg"
                                 alt=""
                                 aria-hidden="true"
-                                width="32px"
-                                height="32px"
+                                width="32"
+                                height="32"
                                 class="contact-icon"
                             />
                         </div>
@@ -192,8 +195,8 @@
                                 src="./src/assets/images/icon-handbag.svg"
                                 alt=""
                                 aria-hidden="true"
-                                width="25px"
-                                height="25px"
+                                width="25"
+                                height="25"
                                 class="handbag-image"
                             />
                         </div>
@@ -224,8 +227,8 @@
                                 src="./src/assets/images/icon-play.svg"
                                 alt=""
                                 aria-hidden="true"
-                                width="15px"
-                                height="15px"
+                                width="20"
+                                height="20"
                                 class="watch-demo-icon"
                             />
                             <span class="travel-section__watch-demo-heading">
@@ -233,6 +236,13 @@
                             </span>
                         </button>
                     </div>
+                </div>
+
+                <div class="arrow-obj-decorative">
+                    <img
+                        src="./src/assets/images/arrow-object.svg"
+                        aria-hidden="true"
+                    />
                 </div>
             </section>
 
@@ -283,6 +293,7 @@
 
             <section
                 class="travel-point-section travel-point-section-container"
+                id="travel-point-section"
             >
                 <div class="travel-point-section__banner-container">
                     <img
@@ -297,13 +308,15 @@
 
                 <div class="travel-point-section__info-container">
                     <div class="travel-point-section__meta">
-                        <span class="travel-point-section__badge"
+                        <span class="travel-point-section__badge heading-sm"
                             >TRAVEL POINT</span
                         >
                         <h2 class="travel-point-section__heading">
                             We helping you find your dream location
                         </h2>
-                        <p class="travel-point-section__description">
+                        <p
+                            class="travel-point-section__description subheading-lg"
+                        >
                             Contrary to popular belief, Lorem Ipsum is not
                             simply random text. It has roots in a piece of
                             classical Latin literature from 45 BC.
@@ -371,7 +384,7 @@
             </section>
         </main>
 
-        <footer class="footer">
+        <footer class="footer" id="footer">
             <div class="footer__top">
                 <div class="footer__heading">
                     <img
@@ -391,19 +404,19 @@
                 <div class="footer__socials">
                     <a class="footer__facebook-social-container" href="#">
                         <img
-                            src="/src/assets/images/facebook-logo.svg"
+                            src="./src/assets/images/facebook-logo.svg"
                             alt="facebook-social"
                         />
                     </a>
                     <a class="footer__twitter-social-container" href="#">
                         <img
-                            src="/src/assets/images/twitter.svg"
+                            src="./src/assets/images/twitter.svg"
                             alt="twitter-social"
                         />
                     </a>
                     <a class="footer__instagram-social-container" href="#">
                         <img
-                            src="/src/assets/images/instagram-logo.svg"
+                            src="./src/assets/images/instagram-logo.svg"
                             alt="instagram-social"
                         />
                     </a>
@@ -416,7 +429,7 @@
                         Company
                         <span class="dropdown">
                             <img
-                                src="/src/assets/images/drop-down-arrow.svg"
+                                src="./src/assets/images/drop-down-arrow.svg"
                                 alt="drop-down-arrow"
                             />
                         </span>
@@ -433,7 +446,7 @@
                         Contact Us
                         <span class="dropdown">
                             <img
-                                src="/src/assets/images/drop-down-arrow.svg"
+                                src="./src/assets/images/drop-down-arrow.svg"
                                 alt="drop-down-arrow"
                             />
                         </span>
@@ -455,7 +468,7 @@
                         Meet Us
                         <span class="dropdown">
                             <img
-                                src="/src/assets/images/drop-down-arrow.svg"
+                                src="./src/assets/images/drop-down-arrow.svg"
                                 alt="drop-down-arrow"
                             />
                         </span>
@@ -482,11 +495,110 @@
 
             <div class="footer__background-object">
                 <img
-                    src="/src/assets/images/footer-background.svg"
+                    src="./src/assets/images/footer-background.svg"
                     aria-hidden="true"
                 />
             </div>
         </footer>
+
+        <div
+            class="deals-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-label="special-deals-modal"
+        >
+            <div class="deals-modal__overlay"></div>
+
+            <div class="deals-modal__content">
+                <button
+                    type="button"
+                    class="deals-modal__close"
+                    aria-label="Close modal"
+                    data-action="close"
+                    id="closeBtn"
+                >
+                    &times;
+                </button>
+
+                <div class="deals-modal__header">
+                    <span class="deals-modal__badge">
+                        <img
+                            src="./src/assets/images/gift-icon.svg"
+                            aria-hidden="true"
+                            width="16"
+                            height="16"
+                        />
+                        <h2 class="deals-modal__badge-heading">
+                            SPECIAL DEALS
+                        </h2>
+                    </span>
+                </div>
+
+                <div
+                    class="spin-and-win-component spin-and-win-component--active"
+                >
+                    <h1 class="deals-modal__title heading-lg">Spin & Win!</h1>
+
+                    <p class="deals-modal__subtitle subheading-md">
+                        Tap the center of the wheel to spin
+                    </p>
+
+                    <div class="wheel-wrapper">
+                        <div class="wheel" id="spinWheel">
+                            <div class="wheel__loading">Loading...</div>
+
+                            <div class="wheel__segment wheel__segment--1"></div>
+                            <div class="wheel__segment wheel__segment--2"></div>
+                            <div class="wheel__segment wheel__segment--3"></div>
+                            <div class="wheel__segment wheel__segment--4"></div>
+
+                            <button class="wheel__spin-btn" id="spinBtn">
+                                Spin
+                            </button>
+                        </div>
+
+                        <div class="wheel-pointer"></div>
+                    </div>
+
+                    <div class="spin-and-win-component__won-deal">
+                        <h2 class="won-deal__heading heading-sm">you won!</h2>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="view-unlocked-deals-btn btn btn--secondary"
+                        data-action="view-unlocked"
+                    >
+                        <h2 class="view-unlocked-deals-btn__heading heading-sm">
+                            View All Unlocked Deals
+                        </h2>
+                        <span class="view-unlocked-deals-btn__badge">0</span>
+                    </button>
+                </div>
+
+                <div class="unlocked-deals-component">
+                    <h1 class="deals-modal__title heading-lg">
+                        Unlocked Deals
+                    </h1>
+
+                    <p class="deals-modal__subtitle subheading-md">
+                        All the deals you've unlocked yet!
+                    </p>
+
+                    <div
+                        class="unlocked-deals-component__deals-container"
+                    ></div>
+
+                    <button
+                        type="button"
+                        class="go-back-btn btn btn--secondary"
+                        data-action="go-back"
+                    >
+                        <h2 class="go-back-btn__heading heading-md">Go Back</h2>
+                    </button>
+                </div>
+            </div>
+        </div>
 
         <script type="module" src="./src/script/index.js"></script>
     </body>

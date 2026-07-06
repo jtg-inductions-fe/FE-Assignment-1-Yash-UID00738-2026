@@ -1,0 +1,393 @@
+/**
+ * @module specialDealsModal
+ * @description processes user won deals & all deals and activates spin and win component
+ */
+
+import {
+    getUserWonDeals,
+    setUserWonDeal,
+    getAllDeals,
+} from './utils/specialDealsService.js';
+
+/**
+ * Initializes the special deals module, fetching data and setting up the UI state.
+ * @returns {Promise<void>}
+ */
+const specialDealsInit = async () => {
+    const allDeals = (await getAllDeals()) || [];
+    let userWonDeals = (await getUserWonDeals()) || [];
+    let currentWheelDeals = [];
+
+    /**
+     * Controls winner selection and spinning of wheel
+     * @returns {Function}
+     */
+    const spinHandler = () => {
+        const FULL_ROTATION = 360;
+        const EXTRA_SPINS = 4;
+        const SPIN_DURATION = 4000;
+        let isSpinning = false;
+        let currentRotation = 0;
+        const LANDING_ANGLES = [45, 315, 135, 225];
+
+        return (spinWheel) => {
+            if (isSpinning) return;
+            isSpinning = true;
+
+            const winnerID = Math.floor(Math.random() * 4);
+            const targetAngle = LANDING_ANGLES[winnerID];
+            const currentMod = currentRotation % FULL_ROTATION;
+
+            let degreesToTarget = targetAngle - currentMod;
+
+            if (degreesToTarget < 0) {
+                degreesToTarget += FULL_ROTATION;
+            }
+
+            const extraSpins = FULL_ROTATION * EXTRA_SPINS;
+            currentRotation += extraSpins + degreesToTarget;
+
+            spinWheel.style.transform = `rotate(${currentRotation}deg)`;
+
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    isSpinning = false;
+                    resolve(winnerID);
+                }, SPIN_DURATION);
+            });
+        };
+    };
+
+    const spinWheelExecutor = spinHandler();
+
+    /**
+     * Manages the attachment and detachment of the spin button event listener.
+     * @type {Object}
+     */
+    const spinEventManager = {
+        activeListener: null,
+
+        add() {
+            const spinBtn = document.getElementById('spinBtn');
+            const spinWheel = document.getElementById('spinWheel');
+
+            this.remove();
+
+            this.activeListener = async () => {
+                spinBtn.disabled = true;
+
+                let winnerId = await spinWheelExecutor(spinWheel);
+                const baseDeal = currentWheelDeals[winnerId];
+
+                if (baseDeal) {
+                    const wonDeal = {
+                        ...baseDeal,
+                        wonAt: Date.now(),
+                    };
+                    userWonDeals.push(wonDeal);
+                    setUserWonDeal(wonDeal);
+                    displayWonDeal(wonDeal);
+                    updateUnlockedDealsBadge();
+
+                    replaceWonDeal(winnerId);
+                    updateUI();
+                }
+
+                spinBtn.disabled = false;
+            };
+
+            spinBtn.addEventListener('click', this.activeListener);
+        },
+
+        remove() {
+            const spinBtn = document.getElementById('spinBtn');
+            if (this.activeListener && spinBtn) {
+                spinBtn.removeEventListener('click', this.activeListener);
+                this.activeListener = null;
+            }
+        },
+    };
+
+    /**
+     * Generates the DOM element for a deal card.
+     * @param {Object} wonDealObject - The deal data.
+     * @returns {HTMLElement} The created deal card element.
+     */
+    const generateDealCardHTML = (wonDealObject) => {
+        const validDays = wonDealObject.validFor ? wonDealObject.validFor : 7;
+
+        const wonAt = wonDealObject.wonAt || Date.now();
+
+        const expiryTimestamp = wonAt + validDays * 24 * 60 * 60 * 1000;
+        const isExpired = Date.now() > expiryTimestamp;
+
+        const modifierClass = isExpired
+            ? 'deal-card--disabled'
+            : 'deal-card--active';
+
+        let expiryText;
+        if (isExpired) {
+            expiryText = 'Expired';
+        } else {
+            const daysLeft = Math.ceil(
+                (expiryTimestamp - Date.now()) / (24 * 60 * 60 * 1000),
+            );
+            expiryText = `Expires in ${daysLeft}d`;
+        }
+
+        const wonDealCard = document.createElement('div');
+
+        wonDealCard.classList.add('deal-card', modifierClass);
+
+        wonDealCard.innerHTML = `
+            <div class="deal-card__info-container">
+                <h2 class="heading-sm">${wonDealObject.label}</h2>
+                <h3 class="subheading-sm">${expiryText}</h3>
+            </div>
+            <div class="deal-card__promo-copy-container">
+                <div class="deal-card__promo-code-container">
+                    <h2 class="text-promo">${wonDealObject.promoCode}</h2>
+                </div>
+                <button class="copy-btn" type="button" aria-label="copy-btn" data-action="copy" ${isExpired ? 'disabled' : ''}>
+                    <svg width="24" height="24" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class= "copy-btn-icon">
+                        <path d="M2.80005 9.46647H2.13338C1.77976 9.46647 1.44062 9.326 1.19057 9.07595C0.940525 8.8259 0.800049 8.48676 0.800049 8.13314V2.13314C0.800049 1.77952 0.940525 1.44038 1.19057 1.19033C1.44062 0.94028 1.77976 0.799805 2.13338 0.799805H8.13338C8.487 0.799805 8.82614 0.94028 9.07619 1.19033C9.32624 1.44038 9.46672 1.77952 9.46672 2.13314V2.7998M6.80005 5.46647H12.8C13.5364 5.46647 14.1334 6.06343 14.1334 6.7998V12.7998C14.1334 13.5362 13.5364 14.1331 12.8 14.1331H6.80005C6.06367 14.1331 5.46672 13.5362 5.46672 12.7998V6.7998C5.46672 6.06343 6.06367 5.46647 6.80005 5.46647Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        `;
+        return wonDealCard;
+    };
+
+    /**
+     * Displays the most recently won deal in the UI.
+     * @param {Object} wonDealObject - The deal data to display.
+     * @returns {void}
+     */
+    const displayWonDeal = (wonDealObject) => {
+        const wonDealContainer = document.querySelector(
+            '.spin-and-win-component__won-deal',
+        );
+        wonDealContainer.classList.add(
+            'spin-and-win-component__won-deal--active',
+        );
+
+        const card = generateDealCardHTML(wonDealObject);
+        wonDealContainer.innerHTML = `<h2 class="won-deal__heading">you won!</h2>`;
+        wonDealContainer.appendChild(card);
+    };
+
+    /**
+     * Updates the UI badge displaying the total count of unlocked deals.
+     * @returns {void}
+     */
+    const updateUnlockedDealsBadge = () => {
+        const unlockedDealsBadge = document.querySelector(
+            '.view-unlocked-deals-btn__badge',
+        );
+        if (unlockedDealsBadge) {
+            unlockedDealsBadge.textContent = userWonDeals.length;
+        }
+    };
+
+    /**
+     * Renders all unlocked deals using a DocumentFragment.
+     * @param {Array} userWonDeals - The array of user's won deals.
+     * @returns {void}
+     */
+    const displayUnlockedDeals = (userWonDeals) => {
+        const dealsContainer = document.querySelector(
+            '.unlocked-deals-component__deals-container',
+        );
+
+        dealsContainer.innerHTML = '';
+
+        const fragment = document.createDocumentFragment();
+
+        for (let wonDealObject of userWonDeals) {
+            let card = generateDealCardHTML(wonDealObject);
+            fragment.appendChild(card);
+        }
+
+        dealsContainer.appendChild(fragment);
+    };
+
+    /**
+     * Filters and returns random deals that the user hasn't won AND aren't currently on the wheel.
+     * @param {Number} number Of Deals Required
+     * @returns {Array}
+     */
+    const getRandomAvailableDeals = (numberOfDealsRequired) => {
+        const wonCodes = userWonDeals.map((deal) => deal.promoCode);
+
+        const displayedCodes = currentWheelDeals
+            .filter((deal) => deal !== null)
+            .map((deal) => deal.promoCode);
+
+        const codesToExclude = [...wonCodes, ...displayedCodes];
+
+        const availableDeals = allDeals.filter(
+            (deal) => !codesToExclude.includes(deal.promoCode),
+        );
+
+        const shuffledDeals = availableDeals.sort(() => 0.5 - Math.random());
+        return shuffledDeals.slice(0, numberOfDealsRequired);
+    };
+
+    /**
+     * Replaces a won deal in the centralized state
+     * @param {Number} winnerID
+     */
+    const replaceWonDeal = (winnerID) => {
+        const newDealArray = getRandomAvailableDeals(1);
+
+        if (newDealArray.length > 0) {
+            currentWheelDeals[winnerID] = newDealArray[0];
+        } else {
+            currentWheelDeals[winnerID] = null;
+        }
+    };
+
+    /**
+     * Injects the centralized state into the DOM
+     * @returns {void}
+     */
+    const updateUI = () => {
+        const segments = document.querySelectorAll('.wheel__segment');
+
+        for (let i = 1; i <= segments.length; i++) {
+            const segment = document.querySelector(`.wheel__segment--${i}`);
+            segment.innerHTML = `<h2>${currentWheelDeals[i - 1]?.label || 'Try Again'}</h2>`;
+        }
+    };
+
+    /**
+     * controls calling of functions on open
+     * @returns {void}
+     */
+    const specialDealsHandler = () => {
+        currentWheelDeals = getRandomAvailableDeals(4);
+
+        while (currentWheelDeals.length < 4) {
+            currentWheelDeals.push(null);
+        }
+
+        updateUI();
+        spinEventManager.add();
+    };
+
+    const closeModal = () => {
+        const dealsModal = document.querySelector('.deals-modal');
+        const wheel = document.querySelector('.wheel');
+        const wonDealContainer = document.querySelector(
+            '.spin-and-win-component__won-deal',
+        );
+
+        dealsModal.classList.remove('is-open');
+        wheel.classList.remove('wheel--active');
+        wonDealContainer.classList.remove(
+            'spin-and-win-component__won-deal--active',
+        );
+        spinEventManager.remove();
+        document.querySelector('html').style.overflowY = 'auto';
+        document.getElementById('special-deals-link').blur();
+    };
+
+    /**
+     * Handles the opening and closing of the Special Deals Modal
+     * @returns {void}
+     */
+    const setupModalListeners = () => {
+        const navLink = document.querySelector('a[href="#special-deals"]');
+        const dealsModal = document.querySelector('.deals-modal');
+        const wheel = document.querySelector('.wheel');
+
+        const spinAndWinComponent = document.querySelector(
+            '.spin-and-win-component',
+        );
+        const unlockedDealsComponent = document.querySelector(
+            '.unlocked-deals-component',
+        );
+        let triggerElement = null;
+
+        if (navLink) {
+            navLink.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                triggerElement = document.activeElement;
+                document.querySelector('#closeBtn').focus();
+
+                dealsModal.classList.add('is-open');
+                wheel.classList.add('wheel--active');
+                document.querySelector('html').style.overflowY = 'hidden';
+                specialDealsHandler();
+            });
+        }
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // ==========================================
+        // Handles all clicks inside the modal using data-action
+        // ==========================================
+        if (dealsModal) {
+            dealsModal.addEventListener('click', async (event) => {
+                const actionElement = event.target.closest('[data-action]');
+
+                if (!actionElement) return;
+
+                const action = actionElement.getAttribute('data-action');
+
+                /* eslint-disable indent */
+                switch (action) {
+                    case 'close':
+                        closeModal();
+                        if (triggerElement) {
+                            triggerElement.focus();
+                        }
+                        break;
+
+                    case 'view-unlocked':
+                        spinAndWinComponent.classList.remove(
+                            'spin-and-win-component--active',
+                        );
+                        unlockedDealsComponent.classList.add(
+                            'unlocked-deals-component--active',
+                        );
+                        displayUnlockedDeals(userWonDeals);
+                        break;
+
+                    case 'go-back':
+                        spinAndWinComponent.classList.add(
+                            'spin-and-win-component--active',
+                        );
+                        unlockedDealsComponent.classList.remove(
+                            'unlocked-deals-component--active',
+                        );
+                        break;
+
+                    case 'copy': {
+                        const COPY_ACTIVE_DURATION = 800;
+                        const card = actionElement.closest('.deal-card');
+                        const promoCodeText =
+                            card.querySelector('.text-promo').textContent;
+
+                        await navigator.clipboard.writeText(promoCodeText);
+
+                        actionElement.classList.add('copy-btn--active');
+
+                        setTimeout(() => {
+                            actionElement.classList.remove('copy-btn--active');
+                        }, COPY_ACTIVE_DURATION);
+                    }
+                }
+            });
+        }
+    };
+
+    setupModalListeners();
+    updateUnlockedDealsBadge();
+};
+
+export { specialDealsInit };

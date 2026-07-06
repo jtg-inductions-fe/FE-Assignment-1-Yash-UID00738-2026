@@ -16,7 +16,7 @@
     }
 
     @include media-query('desktop') {
-        margin-top: 16.5rem;
+        margin-top: 12.5rem;
         flex-direction: row;
         gap: 10rem;
         padding-inline: 9vw;
@@ -43,7 +43,7 @@
 
         @include media-query('desktop') {
             right: -120px;
-            top: -15px;
+            top: 37px;
         }
     }
 

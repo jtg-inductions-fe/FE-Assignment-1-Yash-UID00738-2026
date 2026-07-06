@@ -1,0 +1,58 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/functions' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:color';
+
+.deal-card {
+    @include flex-layout(space-between, center, row);
+
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    border-radius: 16px;
+    text-align: left;
+    gap: 1rem;
+
+    &__info-container {
+        @include flex-layout(flex-start, flex-start, column);
+
+        width: 50%;
+        gap: 0.3rem;
+    }
+
+    &__promo-copy-container {
+        @include flex-layout(flex-end, center, row);
+
+        gap: 0.75rem;
+    }
+
+    &__promo-code-container {
+        border: 1px solid
+            color.adjust(get-color('shadow-gray'), $lightness: 10%);
+        padding: 0.4rem 0.8rem;
+        border-radius: 8px;
+        background-color: get-color('primary-white');
+    }
+
+    &--active {
+        background: linear-gradient(
+            90deg,
+            rgba(get-color('primary-red'), 0.05) 0%,
+            rgba(get-color('primary-purple'), 0.05) 100%
+        );
+        border: 1px solid get-color('font-pink');
+    }
+
+    &--disabled {
+        background-color: color.adjust(
+            get-color('shadow-gray'),
+            $lightness: 15%
+        );
+        pointer-events: none;
+        border: 1px solid
+            color.adjust(get-color('shadow-gray'), $lightness: -20%);
+
+        .subheading-sm {
+            color: get-color('font-gray') !important;
+        }
+    }
+}
