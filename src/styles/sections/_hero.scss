@@ -15,7 +15,7 @@
         padding-block: 6rem;
     }
     @include media-query('desktop') {
-        padding-block: 2.5rem;
+        padding-block: 6.5rem 2.5rem;
         flex-direction: row-reverse;
         align-items: flex-start;
     }
@@ -122,7 +122,7 @@
     bottom: -10%;
     background-color: get-color('font-pink');
     border-radius: 100%;
-    filter: drop-shadow($shadow-md);
+    box-shadow: $shadow-md;
     padding: 1rem;
     width: 30px;
     height: 30px;
@@ -133,6 +133,7 @@
         padding: 1.5rem;
     }
     @include media-query('desktop') {
+        padding: 1.7rem;
         width: 60px;
         height: 60px;
     }
@@ -153,11 +154,11 @@
 
     color: get-color('font-dark-gray');
 
-    @include flex-layout(flex-start, center, row);
+    @include flex-layout(center, center, row);
 
     gap: 0.5rem;
     border-radius: $medium-border-radius;
-    filter: drop-shadow($shadow-md);
+    box-shadow: $shadow-lg;
     height: 30px;
     padding: 0rem 0.5rem;
 
@@ -189,7 +190,9 @@
     border-radius: 100%;
     background-color: get-color('primary-orange');
     padding: 1rem;
-    filter: drop-shadow($shadow-md);
+
+    box-shadow: $shadow-md;
+
     width: 30px;
     height: 30px;
 
@@ -303,12 +306,10 @@
     &__watch-demo-btn {
         @include flex-layout(center, center, row);
         gap: 1.5rem;
-        border: 1px solid adjust-color(get-color('font-gray'), $lightness: 50%);
+        border: 1px solid adjust-color(get-color('font-gray'), $lightness: 70%);
 
-        @include media-query('tablet') {
-        }
         @include media-query('desktop') {
-            gap: 0.5rem;
+            gap: 1rem;
         }
     }
 }
@@ -331,6 +332,7 @@
     }
 
     @include media-query('desktop') {
+        padding: 2rem 2.5rem;
         background-color: rgba(get-color('primary-white'), 0.5);
     }
 }

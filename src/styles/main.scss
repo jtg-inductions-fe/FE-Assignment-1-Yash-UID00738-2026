@@ -4,12 +4,20 @@
 @use 'abstracts/variables' as *;
 @use 'abstracts/fonts' as *;
 
+// --- typography ---
+@use 'typography/typography';
+
 // --- Base Styles ---
 @use 'base/animations';
 @use 'base/reset';
 
+// --- Pages ---
+@use 'pages/index';
+
 // --- Components ---
 @use 'components/buttons';
+@use 'components/deal-card';
+@use 'components/copy-btn';
 
 // --- Layout ---
 @use 'sections/body';
@@ -19,9 +27,4 @@
 @use 'sections/travel-point';
 @use 'sections/testimonials';
 @use 'sections/footer';
-
-// --- Pages ---
-@use 'pages/index';
-
-// --- typography ---
-@use 'typography/typography';
+@use 'sections/special-deals';
