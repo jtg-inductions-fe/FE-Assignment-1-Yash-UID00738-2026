@@ -122,7 +122,11 @@
     bottom: -10%;
     background-color: get-color('font-pink');
     border-radius: 100%;
-    filter: drop-shadow($shadow-md);
+    box-shadow:
+        0px 19px 19px 0px #00000017,
+        0px 43px 26px 0px #0000000d,
+        0px 77px 31px 0px #00000003,
+        0px 120px 34px 0px #00000000;
     padding: 1rem;
     width: 30px;
     height: 30px;
@@ -133,6 +137,7 @@
         padding: 1.5rem;
     }
     @include media-query('desktop') {
+        padding: 1.7rem;
         width: 60px;
         height: 60px;
     }
@@ -153,11 +158,15 @@
 
     color: get-color('font-dark-gray');
 
-    @include flex-layout(flex-start, center, row);
+    @include flex-layout(center, center, row);
 
     gap: 0.5rem;
     border-radius: $medium-border-radius;
-    filter: drop-shadow($shadow-md);
+    box-shadow:
+        0px 19px 19px 0px #00000017,
+        0px 43px 26px 0px #0000000d,
+        0px 77px 31px 0px #00000003,
+        0px 120px 34px 0px #00000000;
     height: 30px;
     padding: 0rem 0.5rem;
 
@@ -189,7 +198,13 @@
     border-radius: 100%;
     background-color: get-color('primary-orange');
     padding: 1rem;
-    filter: drop-shadow($shadow-md);
+
+    box-shadow:
+        0px 19px 19px 0px #00000017,
+        0px 43px 26px 0px #0000000d,
+        0px 77px 31px 0px #00000003,
+        0px 120px 34px 0px #00000000;
+
     width: 30px;
     height: 30px;
 
@@ -331,6 +346,7 @@
     }
 
     @include media-query('desktop') {
+        padding: 2rem 2.5rem;
         background-color: rgba(get-color('primary-white'), 0.5);
     }
 }

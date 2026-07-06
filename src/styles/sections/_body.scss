@@ -44,7 +44,7 @@ body {
         width: 50rem;
     }
     @include media-query('desktop') {
-        top: -7%;
-        left: 0;
+        top: -20%;
+        left: -125px;
     }
 }

@@ -170,6 +170,8 @@
 
     &__item {
         list-style: none;
+        font-size: $sm-font-size;
+        font-weight: $bold-font-weight;
     }
 
     &__auth-container {
@@ -183,7 +185,7 @@
         .btn {
             flex: 1;
             padding: 1.2rem 2rem;
-            font-size: $sm-font-size;
+            font-size: $md-font-size;
             text-align: center;
         }
 
@@ -211,6 +213,10 @@
             color: get-color('font-gray');
 
             &:hover {
+                color: get-color('font-black');
+            }
+            &:focus {
+                outline: none;
                 color: get-color('font-black');
             }
         }

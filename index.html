@@ -8,11 +8,11 @@
             name="description"
             content="A travel agency called travlog, helps in exploring new places and book packages for holidays"
         />
-        <link rel="stylesheet" href="src/styles/main.scss" />
+        <link rel="stylesheet" href="./src/styles/main.scss" />
         <link
             type="image/x-icon"
             rel="icon"
-            href="/assets/favicon/favicon.ico"
+            href="./assets/favicon/favicon.ico"
         />
     </head>
     <body>
@@ -45,7 +45,7 @@
             </div>
 
             <a
-                href="#home"
+                href="#hero-section"
                 class="header__brand-logo"
                 aria-label="Travlog Home"
             >
@@ -66,7 +66,9 @@
             >
                 <ul class="nav-menu__list">
                     <li class="nav-menu__item">
-                        <a href="#home" class="nav-menu__link">Home</a>
+                        <a href="#home" class="nav-menu__link" id="home-link"
+                            >Home</a
+                        >
                     </li>
                     <li class="nav-menu__item">
                         <a href="#discover" class="nav-menu__link">Discover</a>
@@ -105,7 +107,7 @@
         <div class="top-shadow"></div>
 
         <main>
-            <section class="container hero-section">
+            <section class="container hero-section" id="hero-section">
                 <div class="hero-section-images__outer-container">
                     <div class="hero-section__images-container">
                         <div class="hero-section__column-stacked">
@@ -230,7 +232,7 @@
 
                 <div class="arrow-obj-decorative">
                     <img
-                        src="/src/assets/images/arrow-object.svg"
+                        src="./src/assets/images/arrow-object.svg"
                         aria-hidden="true"
                     />
                 </div>
@@ -297,13 +299,15 @@
 
                 <div class="travel-point-section__info-container">
                     <div class="travel-point-section__meta">
-                        <span class="travel-point-section__badge"
+                        <span class="travel-point-section__badge heading-sm"
                             >TRAVEL POINT</span
                         >
                         <h2 class="travel-point-section__heading">
                             We helping you find your dream location
                         </h2>
-                        <p class="travel-point-section__description">
+                        <p
+                            class="travel-point-section__description subheading-lg"
+                        >
                             Contrary to popular belief, Lorem Ipsum is not
                             simply random text. It has roots in a piece of
                             classical Latin literature from 45 BC.
@@ -391,19 +395,19 @@
                 <div class="footer__socials">
                     <a class="footer__facebook-social-container" href="#">
                         <img
-                            src="/src/assets/images/facebook-logo.svg"
+                            src="./src/assets/images/facebook-logo.svg"
                             alt="facebook-social"
                         />
                     </a>
                     <a class="footer__twitter-social-container" href="#">
                         <img
-                            src="/src/assets/images/twitter.svg"
+                            src="./src/assets/images/twitter.svg"
                             alt="twitter-social"
                         />
                     </a>
                     <a class="footer__instagram-social-container" href="#">
                         <img
-                            src="/src/assets/images/instagram-logo.svg"
+                            src="./src/assets/images/instagram-logo.svg"
                             alt="instagram-social"
                         />
                     </a>
@@ -416,7 +420,7 @@
                         Company
                         <span class="dropdown">
                             <img
-                                src="/src/assets/images/drop-down-arrow.svg"
+                                src="./src/assets/images/drop-down-arrow.svg"
                                 alt="drop-down-arrow"
                             />
                         </span>
@@ -433,7 +437,7 @@
                         Contact Us
                         <span class="dropdown">
                             <img
-                                src="/src/assets/images/drop-down-arrow.svg"
+                                src="./src/assets/images/drop-down-arrow.svg"
                                 alt="drop-down-arrow"
                             />
                         </span>
@@ -455,7 +459,7 @@
                         Meet Us
                         <span class="dropdown">
                             <img
-                                src="/src/assets/images/drop-down-arrow.svg"
+                                src="./src/assets/images/drop-down-arrow.svg"
                                 alt="drop-down-arrow"
                             />
                         </span>
@@ -482,7 +486,7 @@
 
             <div class="footer__background-object">
                 <img
-                    src="/src/assets/images/footer-background.svg"
+                    src="./src/assets/images/footer-background.svg"
                     aria-hidden="true"
                 />
             </div>

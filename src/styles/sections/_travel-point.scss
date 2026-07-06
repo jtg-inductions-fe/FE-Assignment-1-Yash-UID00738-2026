@@ -96,6 +96,7 @@
 
         @include media-query('tablet') {
             font-size: $l-font-size;
+            font-weight: $thin-font-weight;
         }
         @include media-query('desktop') {
             padding: 0;
@@ -139,7 +140,7 @@
     }
 
     &__card {
-        border: 1px solid get-color('shadow-gray');
+        border: 1px solid get-color('surface-light');
         border-radius: $medium-border-radius;
         margin-top: 0.5rem;
         padding: 3.5rem 4rem;

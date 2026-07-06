@@ -53,6 +53,7 @@ const headerInit = function () {
             closeMenu();
         }
     });
+    document.getElementById('home-link').focus();
 };
 
 export { headerInit };

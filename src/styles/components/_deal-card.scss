@@ -10,10 +10,12 @@
     padding: 1.25rem 1.5rem;
     border-radius: 16px;
     text-align: left;
+    gap: 1rem;
 
     &__info-container {
         @include flex-layout(flex-start, flex-start, column);
 
+        width: 50%;
         gap: 0.3rem;
     }
 

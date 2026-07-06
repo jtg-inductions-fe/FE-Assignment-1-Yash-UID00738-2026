@@ -146,7 +146,7 @@ const specialDealsInit = async () => {
                     <h2 class="text-promo">${wonDealObject.promoCode}</h2>
                 </div>
                 <button class="copy-btn" type="button" aria-label="copy-btn" data-action="copy" ${isExpired ? 'disabled' : ''}>
-                    <svg width="24" height="24" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="24" height="24" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class= "copy-btn-icon">
                         <path d="M2.80005 9.46647H2.13338C1.77976 9.46647 1.44062 9.326 1.19057 9.07595C0.940525 8.8259 0.800049 8.48676 0.800049 8.13314V2.13314C0.800049 1.77952 0.940525 1.44038 1.19057 1.19033C1.44062 0.94028 1.77976 0.799805 2.13338 0.799805H8.13338C8.487 0.799805 8.82614 0.94028 9.07619 1.19033C9.32624 1.44038 9.46672 1.77952 9.46672 2.13314V2.7998M6.80005 5.46647H12.8C13.5364 5.46647 14.1334 6.06343 14.1334 6.7998V12.7998C14.1334 13.5362 13.5364 14.1331 12.8 14.1331H6.80005C6.06367 14.1331 5.46672 13.5362 5.46672 12.7998V6.7998C5.46672 6.06343 6.06367 5.46647 6.80005 5.46647Z" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
@@ -311,11 +311,18 @@ const specialDealsInit = async () => {
                 if (!actionElement) return;
 
                 const action = actionElement.getAttribute('data-action');
+                const wonDealContainer = document.querySelector(
+                    '.spin-and-win-component__won-deal',
+                );
+
                 /* eslint-disable indent */
                 switch (action) {
                     case 'close':
                         dealsModal.classList.remove('is-open');
                         wheel.classList.remove('wheel--active');
+                        wonDealContainer.classList.remove(
+                            'spin-and-win-component__won-deal--active',
+                        );
                         spinEventManager.remove();
                         document.querySelector('html').style.overflowY = 'auto';
                         break;
@@ -351,7 +358,7 @@ const specialDealsInit = async () => {
                         icon.style.opacity = '0.3';
                         setTimeout(() => {
                             icon.style.opacity = '1';
-                        }, 500);
+                        }, 800);
                     }
                 }
             });
