@@ -314,7 +314,7 @@ const specialDealsInit = async () => {
                 event.preventDefault();
 
                 triggerElement = document.activeElement;
-                document.getElementById('closeBtn').focus();
+                document.querySelector('#closeBtn').focus();
 
                 dealsModal.classList.add('is-open');
                 wheel.classList.add('wheel--active');

@@ -58,8 +58,8 @@ const headerInit = function () {
 
     navItems.forEach((item) => {
         item.addEventListener('click', function () {
-            navItems.forEach(() =>
-                item.classList.remove('nav-menu__link--active'),
+            navItems.forEach((navItem) =>
+                navItem.classList.remove('nav-menu__link--active'),
             );
 
             this.classList.add('nav-menu__link--active');

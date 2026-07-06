@@ -28,7 +28,7 @@ body {
 .top-shadow {
     background-color: get-color('primary-orange');
     border-radius: 100%;
-    filter: blur(180px);
+    filter: blur(200px);
     opacity: 0.4;
     pointer-events: none;
     height: 50rem;
@@ -36,10 +36,9 @@ body {
     position: absolute;
     top: -15%;
     left: -10%;
-    z-index: $z-index-1000;
+    z-index: $z-index-100;
 
     @include media-query('tablet') {
-        filter: blur(220px);
         height: 80rem;
         width: 50rem;
     }

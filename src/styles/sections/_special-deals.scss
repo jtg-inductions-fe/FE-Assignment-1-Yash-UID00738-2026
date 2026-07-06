@@ -10,7 +10,7 @@
 .deals-modal {
     position: fixed;
     inset: 0;
-    z-index: $z-index-100;
+    z-index: $z-index-1000;
 
     @include flex-layout(center, flex-end, row);
 
@@ -203,7 +203,6 @@
         border: 3px solid get-color('primary-red');
         color: get-color('primary-red');
         position: absolute;
-        z-index: $z-index-100;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
