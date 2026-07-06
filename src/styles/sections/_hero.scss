@@ -306,12 +306,10 @@
     &__watch-demo-btn {
         @include flex-layout(center, center, row);
         gap: 1.5rem;
-        border: 1px solid adjust-color(get-color('font-gray'), $lightness: 50%);
+        border: 1px solid adjust-color(get-color('font-gray'), $lightness: 70%);
 
-        @include media-query('tablet') {
-        }
         @include media-query('desktop') {
-            gap: 0.5rem;
+            gap: 1rem;
         }
     }
 }
