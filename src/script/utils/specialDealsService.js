@@ -52,6 +52,7 @@ const cacheApiDeals = async (dealsArray) => {
         };
 
         const request = store.put(payload);
+        db.close();
         request.onsuccess = () => {
             resolve();
         };
@@ -79,11 +80,14 @@ const getCachedApiDeals = async () => {
 
             // 12-hour expiration limit
             const age = Date.now() - record.timestamp;
-            const expirationLimit = 1000 * 60 * 60 * 12;
+            const CACHE_EXPIRATION_DURATION = 1000 * 60 * 60 * 12;
 
-            if (age > expirationLimit) {
+            if (age > CACHE_EXPIRATION_DURATION) {
+                store.clear();
+                db.close();
                 resolve(null);
             } else {
+                db.close();
                 resolve(record.data);
             }
         };
@@ -103,6 +107,7 @@ const getUserWonDeals = async () => {
         const store = transaction.objectStore('won_deals');
         const request = store.getAll();
 
+        db.close();
         request.onsuccess = () => {
             resolve(request.result || []);
         };
@@ -126,6 +131,7 @@ const setUserWonDeal = async (wonDealObject) => {
 
         const request = store.put(wonDealObject);
 
+        db.close();
         request.onsuccess = () => {
             resolve();
         };

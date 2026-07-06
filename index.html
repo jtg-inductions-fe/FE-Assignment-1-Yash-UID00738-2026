@@ -66,20 +66,28 @@
             >
                 <ul class="nav-menu__list">
                     <li class="nav-menu__item">
-                        <a href="#home" class="nav-menu__link" id="home-link"
+                        <a
+                            href="#hero-section"
+                            class="nav-menu__link"
+                            id="home-link"
                             >Home</a
                         >
                     </li>
                     <li class="nav-menu__item">
-                        <a href="#discover" class="nav-menu__link">Discover</a>
+                        <a href="#travel-point-section" class="nav-menu__link"
+                            >Discover</a
+                        >
                     </li>
                     <li class="nav-menu__item">
-                        <a href="#special-deals" class="nav-menu__link"
+                        <a
+                            href="#special-deals"
+                            class="nav-menu__link"
+                            id="special-deals-link"
                             >Special Deals</a
                         >
                     </li>
                     <li class="nav-menu__item">
-                        <a href="#contact" class="nav-menu__link">Contact</a>
+                        <a href="#footer" class="nav-menu__link">Contact</a>
                     </li>
                 </ul>
 
@@ -285,6 +293,7 @@
 
             <section
                 class="travel-point-section travel-point-section-container"
+                id="travel-point-section"
             >
                 <div class="travel-point-section__banner-container">
                     <img
@@ -375,7 +384,7 @@
             </section>
         </main>
 
-        <footer class="footer">
+        <footer class="footer" id="footer">
             <div class="footer__top">
                 <div class="footer__heading">
                     <img
@@ -492,14 +501,21 @@
             </div>
         </footer>
 
-        <div class="deals-modal">
+        <div
+            class="deals-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-label="special-deals-modal"
+        >
             <div class="deals-modal__overlay"></div>
 
             <div class="deals-modal__content">
                 <button
+                    type="button"
                     class="deals-modal__close"
                     aria-label="Close modal"
                     data-action="close"
+                    id="closeBtn"
                 >
                     &times;
                 </button>

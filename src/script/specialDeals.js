@@ -14,8 +14,8 @@ import {
  * @returns {Promise<void>}
  */
 const specialDealsInit = async () => {
-    const allDeals = await getAllDeals();
-    let userWonDeals = await getUserWonDeals();
+    const allDeals = (await getAllDeals()) || [];
+    let userWonDeals = (await getUserWonDeals()) || [];
     let currentWheelDeals = [];
 
     /**
@@ -23,6 +23,9 @@ const specialDealsInit = async () => {
      * @returns {Function}
      */
     const spinHandler = () => {
+        const FULL_ROTATION = 360;
+        const EXTRA_SPINS = 4;
+        const SPIN_DURATION = 4000;
         let isSpinning = false;
         let currentRotation = 0;
         const LANDING_ANGLES = [45, 315, 135, 225];
@@ -33,15 +36,15 @@ const specialDealsInit = async () => {
 
             const winnerID = Math.floor(Math.random() * 4);
             const targetAngle = LANDING_ANGLES[winnerID];
-            const currentMod = currentRotation % 360;
+            const currentMod = currentRotation % FULL_ROTATION;
 
             let degreesToTarget = targetAngle - currentMod;
 
             if (degreesToTarget < 0) {
-                degreesToTarget += 360;
+                degreesToTarget += FULL_ROTATION;
             }
 
-            const extraSpins = 360 * 4;
+            const extraSpins = FULL_ROTATION * EXTRA_SPINS;
             currentRotation += extraSpins + degreesToTarget;
 
             spinWheel.style.transform = `rotate(${currentRotation}deg)`;
@@ -50,7 +53,7 @@ const specialDealsInit = async () => {
                 setTimeout(() => {
                     isSpinning = false;
                     resolve(winnerID);
-                }, 4000);
+                }, SPIN_DURATION);
             });
         };
     };
@@ -249,15 +252,12 @@ const specialDealsInit = async () => {
      * @returns {void}
      */
     const updateUI = () => {
-        const segment1 = document.querySelector('.wheel__segment--1');
-        const segment2 = document.querySelector('.wheel__segment--2');
-        const segment3 = document.querySelector('.wheel__segment--3');
-        const segment4 = document.querySelector('.wheel__segment--4');
+        const segments = document.querySelectorAll('.wheel__segment');
 
-        segment1.innerHTML = `<h2>${currentWheelDeals[0]?.label || 'Try Again'}</h2>`;
-        segment2.innerHTML = `<h2>${currentWheelDeals[1]?.label || 'Try Again'}</h2>`;
-        segment3.innerHTML = `<h2>${currentWheelDeals[2]?.label || 'Try Again'}</h2>`;
-        segment4.innerHTML = `<h2>${currentWheelDeals[3]?.label || 'Try Again'}</h2>`;
+        for (let i = 1; i <= segments.length; i++) {
+            const segment = document.querySelector(`.wheel__segment--${i}`);
+            segment.innerHTML = `<h2>${currentWheelDeals[i - 1]?.label || 'Try Again'}</h2>`;
+        }
     };
 
     /**
@@ -275,6 +275,23 @@ const specialDealsInit = async () => {
         spinEventManager.add();
     };
 
+    const closeModal = () => {
+        const dealsModal = document.querySelector('.deals-modal');
+        const wheel = document.querySelector('.wheel');
+        const wonDealContainer = document.querySelector(
+            '.spin-and-win-component__won-deal',
+        );
+
+        dealsModal.classList.remove('is-open');
+        wheel.classList.remove('wheel--active');
+        wonDealContainer.classList.remove(
+            'spin-and-win-component__won-deal--active',
+        );
+        spinEventManager.remove();
+        document.querySelector('html').style.overflowY = 'auto';
+        document.getElementById('special-deals-link').blur();
+    };
+
     /**
      * Handles the opening and closing of the Special Deals Modal
      * @returns {void}
@@ -290,16 +307,26 @@ const specialDealsInit = async () => {
         const unlockedDealsComponent = document.querySelector(
             '.unlocked-deals-component',
         );
+        let triggerElement = null;
 
         if (navLink) {
             navLink.addEventListener('click', (event) => {
                 event.preventDefault();
+
+                triggerElement = document.activeElement;
+                document.getElementById('closeBtn').focus();
+
                 dealsModal.classList.add('is-open');
                 wheel.classList.add('wheel--active');
                 document.querySelector('html').style.overflowY = 'hidden';
                 specialDealsHandler();
             });
         }
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
 
         // ==========================================
         // Handles all clicks inside the modal using data-action
@@ -311,20 +338,14 @@ const specialDealsInit = async () => {
                 if (!actionElement) return;
 
                 const action = actionElement.getAttribute('data-action');
-                const wonDealContainer = document.querySelector(
-                    '.spin-and-win-component__won-deal',
-                );
 
                 /* eslint-disable indent */
                 switch (action) {
                     case 'close':
-                        dealsModal.classList.remove('is-open');
-                        wheel.classList.remove('wheel--active');
-                        wonDealContainer.classList.remove(
-                            'spin-and-win-component__won-deal--active',
-                        );
-                        spinEventManager.remove();
-                        document.querySelector('html').style.overflowY = 'auto';
+                        closeModal();
+                        if (triggerElement) {
+                            triggerElement.focus();
+                        }
                         break;
 
                     case 'view-unlocked':
@@ -347,18 +368,18 @@ const specialDealsInit = async () => {
                         break;
 
                     case 'copy': {
+                        const COPY_ACTIVE_DURATION = 800;
                         const card = actionElement.closest('.deal-card');
                         const promoCodeText =
                             card.querySelector('.text-promo').textContent;
 
                         await navigator.clipboard.writeText(promoCodeText);
 
-                        const icon =
-                            actionElement.querySelector('.copy-btn-icon');
-                        icon.style.opacity = '0.3';
+                        actionElement.classList.add('copy-btn--active');
+
                         setTimeout(() => {
-                            icon.style.opacity = '1';
-                        }, 800);
+                            actionElement.classList.remove('copy-btn--active');
+                        }, COPY_ACTIVE_DURATION);
                     }
                 }
             });

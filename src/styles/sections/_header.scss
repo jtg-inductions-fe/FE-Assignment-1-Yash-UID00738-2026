@@ -215,7 +215,8 @@
             &:hover {
                 color: get-color('font-black');
             }
-            &:focus {
+            &:focus,
+            &--active {
                 outline: none;
                 color: get-color('font-black');
             }

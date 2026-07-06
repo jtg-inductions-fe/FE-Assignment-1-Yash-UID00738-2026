@@ -53,6 +53,18 @@ const headerInit = function () {
             closeMenu();
         }
     });
+
+    const navItems = document.querySelectorAll('.nav-menu__link');
+
+    navItems.forEach((item) => {
+        item.addEventListener('click', function () {
+            navItems.forEach(() =>
+                item.classList.remove('nav-menu__link--active'),
+            );
+
+            this.classList.add('nav-menu__link--active');
+        });
+    });
     document.getElementById('home-link').focus();
 };
 

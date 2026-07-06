@@ -36,8 +36,8 @@
     &--active {
         background: linear-gradient(
             90deg,
-            rgba(244, 67, 108, 0.05) 0%,
-            rgba(124, 58, 237, 0.05) 100%
+            rgba(get-color('primary-red'), 0.05) 0%,
+            rgba(get-color('primary-purple'), 0.05) 100%
         );
         border: 1px solid get-color('font-pink');
     }
