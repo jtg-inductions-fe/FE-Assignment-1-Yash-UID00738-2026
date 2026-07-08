@@ -2,10 +2,7 @@
  * @module specialDealsService
  * @description Manages API fetching and IndexedDB storage for special deals.
  */
-
-const API_URL =
-    'https://gist.githubusercontent.com/ameer-wajid-ali/1f29ebee4295cede36f8d74b45e576df/raw/122966c9a123861249f173911d8d93a76dc06d7a/';
-
+import { API_URL } from '../constants/index.constansts.js';
 /**
  * Initializes and upgrades the IndexedDB instance.
  * @returns {Promise<IDBDatabase>}
@@ -70,7 +67,7 @@ const getCachedApiDeals = async () => {
     const db = await initDB();
 
     return new Promise((resolve, reject) => {
-        const transaction = db.transaction('api_cache', 'readonly');
+        const transaction = db.transaction('api_cache', 'readwrite');
         const store = transaction.objectStore('api_cache');
         const request = store.get('master_list');
 
