@@ -7,7 +7,15 @@ import {
     getUserWonDeals,
     setUserWonDeal,
     getAllDeals,
-} from './utils/specialDealsService.js';
+} from './services/specialDeals.service.js';
+
+import {
+    FULL_ROTATION,
+    EXTRA_SPINS,
+    SPIN_DURATION,
+    LANDING_ANGLES,
+    COPY_ACTIVE_DURATION,
+} from './constants/index.constansts.js';
 
 /**
  * Initializes the special deals module, fetching data and setting up the UI state.
@@ -23,12 +31,8 @@ const specialDealsInit = async () => {
      * @returns {Function}
      */
     const spinHandler = () => {
-        const FULL_ROTATION = 360;
-        const EXTRA_SPINS = 4;
-        const SPIN_DURATION = 4000;
         let isSpinning = false;
         let currentRotation = 0;
-        const LANDING_ANGLES = [45, 315, 135, 225];
 
         return (spinWheel) => {
             if (isSpinning) return;
@@ -60,6 +64,32 @@ const specialDealsInit = async () => {
 
     const spinWheelExecutor = spinHandler();
 
+    const spinWheelEventCallback = async () => {
+        const spinBtn = document.getElementById('spinBtn');
+        const spinWheel = document.getElementById('spinWheel');
+
+        spinBtn.disabled = true;
+
+        let winnerId = await spinWheelExecutor(spinWheel);
+        const baseDeal = currentWheelDeals[winnerId];
+
+        if (baseDeal) {
+            const wonDeal = {
+                ...baseDeal,
+                wonAt: Date.now(),
+            };
+            userWonDeals.push(wonDeal);
+            setUserWonDeal(wonDeal);
+            displayWonDeal(wonDeal);
+            updateUnlockedDealsBadge();
+
+            replaceWonDeal(winnerId);
+            updateUI();
+        }
+
+        spinBtn.disabled = false;
+    };
+
     /**
      * Manages the attachment and detachment of the spin button event listener.
      * @type {Object}
@@ -69,38 +99,15 @@ const specialDealsInit = async () => {
 
         add() {
             const spinBtn = document.getElementById('spinBtn');
-            const spinWheel = document.getElementById('spinWheel');
 
             this.remove();
-
-            this.activeListener = async () => {
-                spinBtn.disabled = true;
-
-                let winnerId = await spinWheelExecutor(spinWheel);
-                const baseDeal = currentWheelDeals[winnerId];
-
-                if (baseDeal) {
-                    const wonDeal = {
-                        ...baseDeal,
-                        wonAt: Date.now(),
-                    };
-                    userWonDeals.push(wonDeal);
-                    setUserWonDeal(wonDeal);
-                    displayWonDeal(wonDeal);
-                    updateUnlockedDealsBadge();
-
-                    replaceWonDeal(winnerId);
-                    updateUI();
-                }
-
-                spinBtn.disabled = false;
-            };
-
+            this.activeListener = spinWheelEventCallback;
             spinBtn.addEventListener('click', this.activeListener);
         },
 
         remove() {
             const spinBtn = document.getElementById('spinBtn');
+
             if (this.activeListener && spinBtn) {
                 spinBtn.removeEventListener('click', this.activeListener);
                 this.activeListener = null;
@@ -368,7 +375,6 @@ const specialDealsInit = async () => {
                         break;
 
                     case 'copy': {
-                        const COPY_ACTIVE_DURATION = 800;
                         const card = actionElement.closest('.deal-card');
                         const promoCodeText =
                             card.querySelector('.text-promo').textContent;
